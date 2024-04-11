@@ -20,10 +20,10 @@ export default function Header() {
           <div className="collapse navbar-collapse" id="navbarsFurni">
             <ul className="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/">Home</NavLink>
+                <NavLink className="nav-link" to="/">Trang chủ</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/product">Shop</NavLink>
+                <NavLink className="nav-link" to="/product">Sản phẩm</NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/about">About us</NavLink>
@@ -35,7 +35,7 @@ export default function Header() {
                 <NavLink className="nav-link" to="/blog">Blog</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/contact">Contact us</NavLink>
+                <NavLink className="nav-link" to="/contact">Liên hệ</NavLink>
               </li>
             </ul>
 

@@ -16,14 +16,14 @@ export default function Home() {
             <div className="col-lg-5">
               <div className="intro-excerpt">
                 <h1>
-                  Modern Interior <span className="d-block">Design Studio</span>
+                  Thế Giới <span className="d-block">Ba Lô</span>
                 </h1>
                 <p className="mb-4">
                   Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
                 </p>
                 <p>
                   <a href="" className="btn btn-secondary me-2">
-                    Shop Now
+                    Sản phẩm
                   </a>
                   <a href="#" className="btn btn-white-outline">
                     Explore
@@ -68,15 +68,15 @@ export default function Home() {
             </div>
 
             <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <NavLink className="product-item" to="/cart">
+              <NavLink className="product-item" to="/product_page">
               <img src={require("../images/product-2.png")} className="img-fluid product-thumbnail" alt="" />
                 <h3 className="product-title">Kruzo Aero Chair</h3>
                 <strong className="product-price">$78.00</strong>
-
+                
                 <span className="icon-cross">
                 <FaShoppingCart style={{ color: 'white' }} />
                </span>
-              </NavLink>
+               </NavLink>            
             </div>
 
             <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
@@ -98,7 +98,7 @@ export default function Home() {
             <div className="container">
                 <div className="row justify-content-between">
                     <div className="col-lg-6">
-                        <h2 className="section-title">Why Choose Us</h2>
+                        <h2 className="section-title">Tại sao nên chọp chúng tôi?</h2>
                         <p>
                             Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
                         </p>
@@ -109,7 +109,7 @@ export default function Home() {
                                     <div className="icon">
                                         <FaTruck className="icon" />
                                     </div>
-                                    <h3>Fast &amp; Free Shipping</h3>
+                                    <h3>Nhanh &amp; Miễn phí giao hàng</h3>
                                     <p>
                                         Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.
                                     </p>
@@ -121,7 +121,7 @@ export default function Home() {
                                     <div className="icon">
                                         <FaShoppingBag className="icon" />
                                     </div>
-                                    <h3>Easy to Shop</h3>
+                                    <h3>Dễ dàng mua sắm</h3>
                                     <p>
                                         Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.
                                     </p>
@@ -133,7 +133,7 @@ export default function Home() {
                                     <div className="icon">
                                         <FaHeadset className="icon" />
                                     </div>
-                                    <h3>24/7 Support</h3>
+                                    <h3>Hỗ trợ 24/7</h3>
                                     <p>
                                         Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.
                                     </p>
@@ -145,7 +145,7 @@ export default function Home() {
                                     <div className="icon">
                                         <FaUndo className="icon" />
                                     </div>
-                                    <h3>Hassle Free Returns</h3>
+                                    <h3>Trả hàng dễ dàng</h3>
                                     <p>
                                         Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.
                                     </p>
@@ -174,7 +174,7 @@ export default function Home() {
               </div>
             </div>
             <div className="col-lg-5 ps-lg-5">
-              <h2 className="section-title mb-4">We Help You Make Modern Interior Design</h2>
+              <h2 className="section-title mb-4">Chúng tôi giúp bạn lựa chọn được những chiếc ba lô hợp thời đại</h2>
               <p>
                 Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
               </p>

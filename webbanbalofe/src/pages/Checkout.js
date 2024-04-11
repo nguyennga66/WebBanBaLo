@@ -11,7 +11,7 @@ export default function Checkout() {
           <div className="row justify-content-between">
             <div className="col-lg-5">
               <div className="intro-excerpt">
-                <h1>Checkout</h1>
+                <h1>Thanh toán</h1>
               </div>
             </div>
             <div className="col-lg-7"></div>
@@ -24,16 +24,16 @@ export default function Checkout() {
           <div className="row mb-5">
             <div className="col-md-12">
               <div className="border p-4 rounded" role="alert">
-                Returning customer? <a href="#">Click here</a> to login
+                Bạn đã có tài khoảnr? <a href="#">Chọn vào đây</a> để đăng nhập
               </div>
             </div>
           </div>
           <div className="row">
             <div className="col-md-6 mb-5 mb-md-0">
-              <h2 className="h3 mb-3 text-black">Billing Details</h2>
+              <h2 className="h3 mb-3 text-black">Chi tiết hóa đơn</h2>
               <div className="p-3 p-lg-5 border bg-white">
                 <div className="form-group">
-                  <label htmlFor="c_country" className="text-black">
+                  {/* <label htmlFor="c_country" className="text-black">
                     Country <span className="text-danger">*</span>
                   </label>
                   <select id="c_country" className="form-control">
@@ -46,7 +46,7 @@ export default function Checkout() {
                     <option value="7">Bahrain</option>
                     <option value="8">Colombia</option>
                     <option value="9">Dominican Republic</option>
-                  </select>
+                  </select> */}
                 </div>
                 <div className="form-group row">
                   <div className="col-md-6">
@@ -73,7 +73,7 @@ export default function Checkout() {
                 <div className="form-group row">
                   <div className="col-md-12">
                     <label htmlFor="c_address" className="text-black">
-                      Address <span className="text-danger">*</span>
+                      Địa chỉ <span className="text-danger">*</span>
                     </label>
                     <input type="text" className="form-control" id="c_address" name="c_address" placeholder="Street address" />
                   </div>
@@ -101,12 +101,12 @@ export default function Checkout() {
                 <div className="form-group row mb-5">
                   <div className="col-md-6">
                     <label htmlFor="c_email_address" className="text-black">
-                      Email Address <span className="text-danger">*</span>
+                      Email <span className="text-danger">*</span>
                     </label>
                     <input type="text" className="form-control" id="c_email_address" name="c_email_address" />
                   </div>
                   <div className="col-md-6">
-                    <label htmlFor="c_phone" className="text-black">Phone <span className="text-danger">*</span></label>
+                    <label htmlFor="c_phone" className="text-black">Số điện thoại <span className="text-danger">*</span></label>
                     <input type="text" className="form-control" id="c_phone" name="c_phone" placeholder="Phone Number" />
                   </div>
                 </div>
@@ -207,8 +207,8 @@ export default function Checkout() {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="c_order_notes" className="text-black">Order Notes</label>
-                  <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" className="form-control" placeholder="Write your notes here..."></textarea>
+                  <label htmlFor="c_order_notes" className="text-black">Ghi chú</label>
+                  <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" className="form-control" placeholder="Nhập ghi chú của bạn"></textarea>
                 </div>
 
               </div>
@@ -217,14 +217,14 @@ export default function Checkout() {
 
               <div className="row mb-5">
                 <div className="col-md-12">
-                  <h2 className="h3 mb-3 text-black">Coupon Code</h2>
+                  <h2 className="h3 mb-3 text-black">Mã giảm giá</h2>
                   <div className="p-3 p-lg-5 border bg-white">
 
-                    <label htmlFor="c_code" className="text-black mb-3">Enter your coupon code if you have one</label>
+                    <label htmlFor="c_code" className="text-black mb-3">Nhập mã giảm giá mà bạn có</label>
                     <div className="input-group w-75 couponcode-wrap">
-                      <input type="text" className="form-control me-2" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code" aria-describedby="button-addon2" />
+                      <input type="text" className="form-control me-2" id="c_code" placeholder="Mã giảm giá" aria-label="Coupon Code" aria-describedby="button-addon2" />
                       <div className="input-group-append">
-                        <button className="btn btn-black btn-sm" type="button" id="button-addon2">Apply</button>
+                        <button className="btn btn-black btn-sm" type="button" id="button-addon2">Áp dụng</button>
                       </div>
                     </div>
 
@@ -234,12 +234,12 @@ export default function Checkout() {
 
               <div className="row mb-5">
                 <div className="col-md-12">
-                  <h2 className="h3 mb-3 text-black">Your Order</h2>
+                  <h2 className="h3 mb-3 text-black">Hóa đơn</h2>
                   <div className="p-3 p-lg-5 border bg-white">
                     <table className="table site-block-order-table mb-5">
                       <thead>
-                        <th>Product</th>
-                        <th>Total</th>
+                        <th>Sản phẩm</th>
+                        <th>Tổng</th>
                       </thead>
                       <tbody>
                         <tr>
@@ -251,11 +251,11 @@ export default function Checkout() {
                           <td>$100.00</td>
                         </tr>
                         <tr>
-                          <td className="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
+                          <td className="text-black font-weight-bold"><strong>Tổng tiền giỏ hàng</strong></td>
                           <td className="text-black">$350.00</td>
                         </tr>
                         <tr>
-                          <td className="text-black font-weight-bold"><strong>Order Total</strong></td>
+                          <td className="text-black font-weight-bold"><strong>Tổng tiền hóa đơn</strong></td>
                           <td className="text-black font-weight-bold"><strong>$350.00</strong></td>
                         </tr>
                       </tbody>
@@ -292,7 +292,7 @@ export default function Checkout() {
                     </div>
 
                     <div className="form-group">
-                      <button className="btn btn-black btn-lg py-3 btn-block" onClick={() => window.location='/thankyou'}>Place Order</button>
+                      <button className="btn btn-black btn-lg py-3 btn-block" onClick={() => window.location='/thankyou'}>Thanh Toán</button>
                     </div>
 
                   </div>
