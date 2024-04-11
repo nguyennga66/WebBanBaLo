@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/style.css";
 
 export default function Cart() {
+  const [quantity, setQuantity] = useState(1);
+
+  // Xử lý khi người dùng nhập số lượng
+  const handleQuantityChange = (event) => {
+    const inputQuantity = event.target.value;
+    // Chuyển đổi input thành số nguyên và đảm bảo nó không nhỏ hơn 1
+    const newQuantity = Math.max(1, parseInt(inputQuantity, 10));
+    setQuantity(newQuantity);
+  };
+
+
   return (
     <div>
       <div className="hero">
@@ -11,7 +22,7 @@ export default function Cart() {
           <div className="row justify-content-between">
             <div className="col-lg-5">
               <div className="intro-excerpt">
-                <h1>Cart</h1>
+                <h1>Giỏ hàng</h1>
               </div>
             </div>
             <div className="col-lg-7"></div>
@@ -27,12 +38,12 @@ export default function Cart() {
                 <table className="table">
                   <thead>
                     <tr>
-                      <th className="product-thumbnail">Image</th>
-                      <th className="product-name">Product</th>
-                      <th className="product-price">Price</th>
-                      <th className="product-quantity">Quantity</th>
-                      <th className="product-total">Total</th>
-                      <th className="product-remove">Remove</th>
+                      <th className="product-thumbnail">Hình ảnh</th>
+                      <th className="product-name">Sản phẩm</th>
+                      <th className="product-price">Giá</th>
+                      <th className="product-quantity">Số lượng</th>
+                      <th className="product-total">Tổng</th>
+                      <th className="product-remove">Xóa</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -46,41 +57,23 @@ export default function Cart() {
                       <td>$49.00</td>
                       <td>
                         <div className="input-group mb-3 d-flex align-items-center quantity-container" style={{ maxWidth: "120px" }}>
-                          <div className="input-group-prepend">
-                            <button className="btn btn-outline-black decrease" type="button">&minus;</button>
-                          </div>
-                          <input type="text" className="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" />
-                          <div className="input-group-append">
-                            <button className="btn btn-outline-black increase" type="button">&plus;</button>
-                          </div>
+                          
+                          <input
+                            type="number"
+                            className="form-control text-center quantity-amount"
+                            value={quantity}
+                            onChange={handleQuantityChange}
+                            min="1"
+                            aria-label="Quantity input"
+                            aria-describedby="button-addon1"
+                          />
+                          
                         </div>
                       </td>
-                      <td>$49.00</td>
+                      <td>${49.00 * quantity}.00</td>
                       <td><button className="btn btn-black btn-sm">X</button></td>
                     </tr>
-
-                    <tr>
-                      <td className="product-thumbnail">
-                        <img src={require("../images/product-2.png")} alt="Image" className="img-fluid" />
-                      </td>
-                      <td className="product-name">
-                        <h2 className="h5 text-black">Product 2</h2>
-                      </td>
-                      <td>$49.00</td>
-                      <td>
-                        <div className="input-group mb-3 d-flex align-items-center quantity-container" style={{ maxWidth: "120px" }}>
-                          <div className="input-group-prepend">
-                            <button className="btn btn-outline-black decrease" type="button">&minus;</button>
-                          </div>
-                          <input type="text" className="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" />
-                          <div className="input-group-append">
-                            <button className="btn btn-outline-black increase" type="button">&plus;</button>
-                          </div>
-                        </div>
-                      </td>
-                      <td>$49.00</td>
-                      <td><button className="btn btn-black btn-sm">X</button></td>
-                    </tr>
+                    {/* Các sản phẩm khác bạn có thể lặp lại tương tự */}
                   </tbody>
                 </table>
               </div>
@@ -91,22 +84,21 @@ export default function Cart() {
             <div className="col-md-6">
               <div className="row mb-5">
                 <div className="col-md-6 mb-3 mb-md-0">
-                  <button className="btn btn-black btn-sm btn-block">Update Cart</button>
+                  <button className="btn btn-black btn-sm btn-block">Cập nhật giỏ hàng</button>
                 </div>
                 <div className="col-md-6">
-                  <button className="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
+                  <button className="btn btn-outline-black btn-sm btn-block">Tiếp tục mua sắm</button>
                 </div>
               </div>
               <div className="row">
                 <div className="col-md-12">
-                  <label className="text-black h4" htmlFor="coupon">Coupon</label>
-                  <p>Enter your coupon code if you have one.</p>
+                  <label className="text-black h4" htmlFor="coupon">Phiếu giảm giá</label>
                 </div>
                 <div className="col-md-8 mb-3 mb-md-0">
-                  <input type="text" className="form-control py-3" id="coupon" placeholder="Coupon Code" />
+                  <input type="text" className="form-control py-3" id="coupon" placeholder="Nhập phiếu giảm giá của bạn" />
                 </div>
                 <div className="col-md-4">
-                  <button className="btn btn-black">Apply Coupon</button>
+                  <button className="btn btn-black">Áp dụng</button>
                 </div>
               </div>
             </div>
@@ -115,12 +107,12 @@ export default function Cart() {
                 <div className="col-md-7">
                   <div className="row">
                     <div className="col-md-12 text-right border-bottom mb-5">
-                      <h3 className="text-black h4 text-uppercase">Cart Totals</h3>
+                      <h3 className="text-black h4 text-uppercase">Tổng giỏ hàng</h3>
                     </div>
                   </div>
                   <div className="row mb-3">
                     <div className="col-md-6">
-                      <span className="text-black">Subtotal</span>
+                      <span className="text-black">Tổng tiền</span>
                     </div>
                     <div className="col-md-6 text-right">
                       <strong className="text-black">$230.00</strong>
@@ -128,7 +120,7 @@ export default function Cart() {
                   </div>
                   <div className="row mb-5">
                     <div className="col-md-6">
-                      <span className="text-black">Total</span>
+                      <span className="text-black">Tổng</span>
                     </div>
                     <div className="col-md-6 text-right">
                       <strong className="text-black">$230.00</strong>
@@ -137,14 +129,14 @@ export default function Cart() {
 
                   <div className="row">
                     <div className="col-md-12">
-                      <button className="btn btn-black btn-lg py-3 btn-block" onClick={() => window.location='/checkout'}>Proceed To Checkout</button>
+                      <button className="btn btn-black btn-lg py-3 btn-block" onClick={() => window.location='/checkout'}>Thanh toán</button>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+              </div>
+              </div>
+              </div>
       </div>
     </div>
   );

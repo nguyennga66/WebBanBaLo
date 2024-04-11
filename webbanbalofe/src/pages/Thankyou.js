@@ -7,7 +7,7 @@ import "../css/style.css";
 export default function Thankyou() {
   return (
     <div>
-      <div className="hero">
+      {/* <div className="hero">
         <div className="container">
           <div className="row justify-content-between">
             <div className="col-lg-5">
@@ -18,7 +18,7 @@ export default function Thankyou() {
             <div className="col-lg-7"></div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="untree_co-section">
         <div className="container">
@@ -43,11 +43,11 @@ export default function Thankyou() {
                   />
                 </svg>
               </span>
-              <h2 className="display-3 text-black">Thank you!</h2>
-              <p className="lead mb-5">You order was successfully completed.</p>
+              <h2 className="display-3 text-black">Cám ơn bạn!</h2>
+              <p className="lead mb-5">Bạn đã đặt hàng thành công.</p>
               <p>
                 <NavLink to="/product" className="btn btn-sm btn-outline-black">
-                  Back to shop
+                  Quay lại mua sắm
                 </NavLink>
               </p>
             </div>
