@@ -18,6 +18,8 @@ import Checkout from './pages/Checkout'
 import Services from './pages/Services'
 import Contact from './pages/Contact'
 import Testimonial from './Component/Testimonial'
+import Signin from './pages/Signin';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/testimonial" element={<Testimonial />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
       </BrowserRouter>
