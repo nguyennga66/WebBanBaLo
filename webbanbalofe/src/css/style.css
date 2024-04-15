@@ -5,6 +5,55 @@
 * License: https://creativecommons.org/licenses/by/3.0/
 */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+.category-link {
+  text-decoration: none;
+  color: inherit; /* Giữ màu mặc định của văn bản */
+}
+
+.category-link:hover {
+  text-decoration: none; /* Đảm bảo không hiển thị gạch chân khi hover */
+}
+
+.product-title {
+  white-space: nowrap; /* Giữ tên sản phẩm trên một hàng */
+  overflow: hidden; /* Cắt tên sản phẩm nếu dài quá */
+  text-overflow: ellipsis; /* Hiển thị dấu ba chấm nếu tên bị cắt */
+}
+
+.product-thumbnail {
+  width: 100%; /* Chiếm 100% của container cha để ảnh tự điều chỉnh kích thước theo độ rộng của container */
+  height: 300px; /* Đặt chiều cao cụ thể cho ảnh */
+  object-fit: cover; /* Đảm bảo ảnh được cắt để phù hợp với kích thước của container */
+}
+
+/* Định dạng cho dropdown-content */
+.dropdown-content {
+  position: absolute;
+  top: 100%; /* Đặt vị trí bên dưới biểu tượng */
+  left: 0; /* Căn trái dropdown menu với biểu tượng */
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Đặt các lựa chọn theo cột */
+  z-index: 1; /* Đảm bảo dropdown menu hiển thị trên các phần tử khác */
+}
+
+/* Định dạng cho các liên kết bên trong dropdown */
+.dropdown-content a {
+  padding: 10px 20px; /* Điều chỉnh padding cho các liên kết */
+  text-align: left; /* Căn trái văn bản trong liên kết */
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0; /* Màu nền khi di chuột qua liên kết */
+}
+
+
 body {
   overflow-x: hidden;
   position: relative; }
@@ -316,7 +365,7 @@ a {
   .we-help-section .imgs-grid {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)[27];
+    -ms-grid-columns: repeat(27, 1fr);
     grid-template-columns: repeat(27, 1fr);
     position: relative; }
     .we-help-section .imgs-grid:before {

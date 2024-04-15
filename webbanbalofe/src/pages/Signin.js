@@ -2,7 +2,9 @@ import React from "react";
 import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/signin.css";
-import "../css/font-awesome.css";
+
+import { FaPaperPlane, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaGoogle } from "react-icons/fa6";
 
 export default function Signin() {
     return (
@@ -28,14 +30,16 @@ export default function Signin() {
                   <a href="#">Quên mật khẩu?</a>
                   <div className="clear"></div>
                 </div>
+
+                <button type="submit" value="Đăng nhập">Đăng nhập</button>
                 <div className="social-icons"> 
                   <ul>
-                    <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i className="fa fa-google-plus" aria-hidden="true"></i></a></li> 
+                  <li><a href="#"><FaFacebookF style={{ color: 'blue', fontSize: '25px' }}/></a></li>
+            <li><a href="#"><FaTwitter style={{ color: 'blue', fontSize: '25px' }}/></a></li>
+                    <li><a href="#"><FaGoogle style={{ color: 'blue', fontSize: '25px' }}/></a></li> 
                   </ul>  
                 </div>
-                <input type="submit" value="" />
+
               </form>
             </div>
           </div>
