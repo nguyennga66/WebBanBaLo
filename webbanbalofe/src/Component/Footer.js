@@ -41,8 +41,8 @@ export default function Footer() {
 
           <div className="row g-5 mb-5">
             <div className="col-lg-4">
-              <div className="mb-4 footer-logo-wrap"><NavLink to="/" className="footer-logo">Furni<span>.</span></NavLink></div>
-              <p className="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
+              <div className="mb-4 footer-logo-wrap"><NavLink to="/" className="footer-logo">N.A<span>.</span></NavLink></div>
+              <p className="mb-4">Cửa hàng của chúng tôi luôn cung cấp đến khách hàng những mẫu mã mới và tốt nhất nên bạn hãy yên tâm mua sắm tại đây nhé.</p>
 
               <ul className="list-unstyled custom-social">
               <li><a href="#"><FaFacebookF /></a></li>
@@ -57,34 +57,24 @@ export default function Footer() {
                 <div className="col-6 col-sm-6 col-md-3">
                   <ul className="list-unstyled">
                     <li><NavLink to="/about">About us</NavLink></li>
-                    <li><NavLink to="/services">Services</NavLink></li>
                     <li><NavLink to="/blog">Blog</NavLink></li>
-                    <li><NavLink to="/contact">Contact us</NavLink></li>
+                    <li><NavLink to="/contact">Liên hệ</NavLink></li>
                   </ul>
                 </div>
 
                 <div className="col-6 col-sm-6 col-md-3">
                   <ul className="list-unstyled">
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">Knowledge base</a></li>
-                    <li><a href="#">Live chat</a></li>
+                    <li><a href="#">Ba lô nam</a></li>
+                    <li><a href="#">Ba lô nữ</a></li>
+                    <li><a href="#">Thời trang trẻ em</a></li>
                   </ul>
                 </div>
 
                 <div className="col-6 col-sm-6 col-md-3">
                   <ul className="list-unstyled">
-                    <li><a href="#">Jobs</a></li>
-                    <li><a href="#">Our team</a></li>
-                    <li><a href="#">Leadership</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                  </ul>
-                </div>
-
-                <div className="col-6 col-sm-6 col-md-3">
-                  <ul className="list-unstyled">
-                    <li><a href="#">Nordic Chair</a></li>
-                    <li><a href="#">Kruzo Aero</a></li>
-                    <li><a href="#">Ergonomic Chair</a></li>
+                    <li><a href="#">Chăm sóc thú cưng</a></li>
+                    <li><a href="#">Thể thao và du lịch</a></li>
+                    <li><a href="#">Ba lô laptop</a></li>
                   </ul>
                 </div>
               </div>

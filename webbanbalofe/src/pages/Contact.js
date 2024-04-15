@@ -12,26 +12,9 @@ export default function Contact() {
             <div className="col-lg-5">
               <div className="intro-excerpt">
                 <h1>Contact</h1>
-                <p className="mb-4">
-                  Donec vitae odio quis nisl dapibus malesuada. Nullam ac
-                  aliquet velit. Aliquam vulputate velit imperdiet dolor tempor
-                  tristique.
-                </p>
-                <p>
-                  <a href="" className="btn btn-secondary me-2">
-                    Shop Now
-                  </a>
-                  <a href="#" className="btn btn-white-outline">
-                    Explore
-                  </a>
-                </p>
               </div>
             </div>
-            <div className="col-lg-7">
-              <div className="hero-img-wrap">
-                <img src={require("../images/couch.png")} className="img-fluid" alt="" />
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -61,7 +44,7 @@ export default function Contact() {
                         </svg>
                       </div>
                       <div className="service-contents">
-                        <p>43 Raymouth Rd. Baltemoer, London 3910</p>
+                        <p>Trường Đại học Nông Lâm TP.HCM</p>
                       </div>
                     </div>
                   </div>
@@ -85,7 +68,7 @@ export default function Contact() {
                         </svg>
                       </div>
                       <div className="service-contents">
-                        <p>info@yourdomain.com</p>
+                        <p>webbalo@gmail.com</p>
                       </div>
                     </div>
                   </div>
@@ -112,7 +95,7 @@ export default function Contact() {
                         </svg>
                       </div>
                       <div className="service-contents">
-                        <p>+1 294 3925 3939</p>
+                        <p>0396 589 827</p>
                       </div>
                     </div>
                   </div>
@@ -123,7 +106,7 @@ export default function Contact() {
                     <div className="col-6">
                       <div className="form-group">
                         <label className="text-black" htmlFor="fname">
-                          First name
+                          Họ
                         </label>
                         <input
                           type="text"
@@ -135,7 +118,7 @@ export default function Contact() {
                     <div className="col-6">
                       <div className="form-group">
                         <label className="text-black" htmlFor="lname">
-                          Last name
+                          Tên
                         </label>
                         <input
                           type="text"
@@ -147,7 +130,7 @@ export default function Contact() {
                   </div>
                   <div className="form-group">
                     <label className="text-black" htmlFor="email">
-                      Email address
+                      Email
                     </label>
                     <input
                       type="email"
@@ -158,7 +141,7 @@ export default function Contact() {
 
                   <div className="form-group mb-5">
                     <label className="text-black" htmlFor="message">
-                      Message
+                      Lời nhắn
                     </label>
                     <textarea
                       name=""
@@ -173,7 +156,7 @@ export default function Contact() {
                     type="submit"
                     className="btn btn-primary-hover-outline"
                   >
-                    Send Message
+                    Gửi
                   </button>
                 </form>
               </div>

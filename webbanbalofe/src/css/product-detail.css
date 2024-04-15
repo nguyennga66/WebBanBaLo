@@ -98,7 +98,7 @@ img {
     flex-grow: 1;
 }
 
-.product-title,
+.product-title1,
 .price,
 .sizes,
 .colors {
@@ -108,10 +108,10 @@ img {
 
 .checked,
 .price span {
-    color: #ff9f1a;
+    color: #f9bf29;
 }
 
-.product-title,
+.product-title1,
 .rating,
 .product-description,
 .price,
@@ -120,7 +120,7 @@ img {
     margin-bottom: 15px;
 }
 
-.product-title {
+.product-title1 {
     margin-top: 0;
 }
 
@@ -147,7 +147,7 @@ img {
 
 .add-to-cart,
 .like {
-    background: #ff9f1a;
+    background: #f9bf29;
     padding: 1.2em 1.5em;
     border: none;
     text-transform: UPPERCASE;
@@ -159,7 +159,7 @@ img {
 
 .add-to-cart:hover,
 .like:hover {
-    background: #b36800;
+    background: #f9bf29;
     color: #fff;
 }
 
@@ -175,7 +175,7 @@ img {
 }
 
 .orange {
-    background: #ff9f1a;
+    background: #f9bf29;
 }
 
 .green {
