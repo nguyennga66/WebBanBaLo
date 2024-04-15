@@ -40,7 +40,13 @@ export default function Header() {
             </ul>
 
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-              <li><NavLink className="nav-link" to="/"><img src={userIcon} alt="User" /></NavLink></li>
+              <li className="dropdown">
+                <img className="nav-link user-account" src={userIcon} alt="User" />
+                <div class="dropdown-content">
+                  <NavLink to="/signin">Đăng nhập</NavLink>
+                  <NavLink to="/register">Đăng ký</NavLink>
+                </div>
+              </li>
               <li><NavLink className="nav-link" to="/cart"><img src={cartIcon} alt="Cart" /></NavLink></li>
             </ul>
           </div>
