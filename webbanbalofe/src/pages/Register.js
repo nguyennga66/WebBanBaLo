@@ -22,7 +22,9 @@ export default function Signin() {
             </div>
             <div className="sub-main-w3ls">	
               <form action="#" method="post">
-                <input placeholder="Tên người dùng" name="enter name" type="name" required />
+                <input placeholder="Nhập họ và tên" name="enter name" type="name" required />
+                <input placeholder="Nhập số điện thoại" name="enter phone" type="phone" required />
+                <input placeholder="Nhập địa chỉ chi tiết" name="enter address" type="address" required />
                 <input placeholder="Nhập E-mail" name="enter mail" type="email" required />
                 <span className="regis1"><i className="fa fa-envelope" aria-hidden="true"></i></span>
                 <input  placeholder="Nhập mật khẩu" name="Password" type="password" required />

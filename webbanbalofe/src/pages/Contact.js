@@ -104,7 +104,7 @@ export default function Contact() {
                 <form>
                   <div className="row">
                     <div className="col-6">
-                      <div className="form-group">
+                      <div className="form-group" style={{ textAlign: 'left' }}>
                         <label className="text-black" htmlFor="fname">
                           Họ
                         </label>
@@ -116,7 +116,7 @@ export default function Contact() {
                       </div>
                     </div>
                     <div className="col-6">
-                      <div className="form-group">
+                      <div className="form-group" style={{ textAlign: 'left' }}>
                         <label className="text-black" htmlFor="lname">
                           Tên
                         </label>
@@ -128,7 +128,7 @@ export default function Contact() {
                       </div>
                     </div>
                   </div>
-                  <div className="form-group">
+                  <div className="form-group" style={{ textAlign: 'left' }}>
                     <label className="text-black" htmlFor="email">
                       Email
                     </label>
@@ -139,7 +139,7 @@ export default function Contact() {
                     />
                   </div>
 
-                  <div className="form-group mb-5">
+                  <div className="form-group mb-5" style={{ textAlign: 'left' }}>
                     <label className="text-black" htmlFor="message">
                       Lời nhắn
                     </label>

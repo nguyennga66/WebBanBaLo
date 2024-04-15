@@ -3,7 +3,7 @@ package web.webbanbalo.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import web.webbanbalo.entity.Category;
-import web.webbanbalo.jpa.CategoryJpa;
+import web.webbanbalo.repository.CategoryRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,9 +12,9 @@ import java.util.Optional;
 @RestController
 public class CategoryController {
 
-    private CategoryJpa categoryRepository;
+    private CategoryRepository categoryRepository;
 
-    public CategoryController(CategoryJpa categoryRepository) {
+    public CategoryController(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 
