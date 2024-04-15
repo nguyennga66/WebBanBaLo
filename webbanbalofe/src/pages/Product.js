@@ -9,30 +9,39 @@ export default function Product() {
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [page, setPage] = useState(0);
+    const [size, setSize] = useState(10);
+    const [totalPages, setTotalPages] = useState(0);
+
 
     // Gọi API tìm kiếm khi searchQuery thay đổi
-    useEffect(() => {
-        if (searchQuery) {
-            fetch(`http://localhost:8080/products/search?query=${encodeURIComponent(searchQuery)}`)
-                .then(response => response.json())
-                .then(data => {
-                    setProducts(data);
-                })
-                .catch(error => {
-                    console.error('Error fetching search results:', error);
-                });
-        } else {
-            // Nếu searchQuery trống, gọi lại API để lấy tất cả sản phẩm
-            fetch('http://localhost:8080/products')
-                .then(response => response.json())
-                .then(data => {
-                    setProducts(data);
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
+    // Gọi API lấy sản phẩm theo trang và tìm kiếm
+    const fetchProducts = async () => {
+        try {
+            // URL gọi API với tham số page và size
+            let url = `http://localhost:8080/products?page=${page}&size=${size}`;
+            
+            // Nếu có tìm kiếm, thêm vào URL
+            if (searchQuery) {
+                url += `&query=${encodeURIComponent(searchQuery)}`;
+            }
+            
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // Cập nhật state
+            setProducts(data.content);
+            setTotalPages(data.totalPages);
+        } catch (error) {
+            console.error('Error fetching products:', error);
         }
-    }, [searchQuery]);
+    };
+
+    // Gọi API mỗi khi page, size hoặc searchQuery thay đổi
+    useEffect(() => {
+        fetchProducts();
+    }, [page, size, searchQuery]);
+    
 
     // Gọi API để lấy danh mục sản phẩm
     useEffect(() => {
@@ -51,15 +60,28 @@ export default function Product() {
     };
 
     const handleCategoryClick = (categoryId) => {
-        // Gọi API để lấy danh sách sản phẩm theo thể loại
-        fetch(`http://localhost:8080/products/category/${categoryId}`)
-            .then(response => response.json())
-            .then(data => {
-                setProducts(data); // Cập nhật danh sách sản phẩm
-            })
-            .catch(error => {
-                console.error('Error fetching products by category:', error);
-            });
+        setPage(0); // Đặt lại trang về trang đầu tiên khi chọn danh mục mới
+        fetchProductsByCategory(categoryId);
+    };
+
+    const fetchProductsByCategory = async (categoryId) => {
+        try {
+            const response = await fetch(
+                `http://localhost:8080/products/category/${categoryId}?page=${page}&size=${size}`
+            );
+            const data = await response.json();
+    
+            // Cập nhật state
+            setProducts(data.content);
+            setTotalPages(data.totalPages);
+        } catch (error) {
+            console.error('Error fetching products by category:', error);
+        }
+    };
+
+     // Xử lý chuyển trang
+     const handlePageChange = (newPage) => {
+        setPage(newPage);
     };
 
     return (
@@ -83,10 +105,10 @@ export default function Product() {
                         {/* Cột chứa danh mục sản phẩm */}
                         <div className="col-lg-3">
                             <div className="categories-section">
-                                <h4 className="categories-title">Danh mục sản phẩm</h4>
-                                <ul className="categories-list list-unstyled">
+                                <h4 className="categories-title" style={{ textAlign: 'left' }}>Danh mục sản phẩm</h4>
+                                <ul className="categories-list list-unstyled" style={{ textAlign: 'left' }}>
     {categories.map((category) => (
-        <li key={category.id} className="category-item">
+        <li key={category.id} className="category-item" >
             {/* Thay button bằng span */}
             <span
                 className="category-link"
@@ -123,7 +145,7 @@ export default function Product() {
                             <br></br>
                             <div className="row">
                                 {/* Danh sách sản phẩm */}
-                                {products.map(product => (
+                                {Array.isArray(products) && products.map(product => (
                                     <div className="col-md-4 mb-4" key={product.id}>
                                         <NavLink className="product-item" to={`/product_page/${product.id}`}>
                                             <img src={require(`../images/product/${product.image}`)} className="img-fluid product-thumbnail" alt="Product" />
@@ -135,6 +157,24 @@ export default function Product() {
                                         </NavLink>
                                     </div>
                                 ))}
+                            </div>
+                            {/* Phân trang */}
+                            <div className="pagination-container">
+                                <button
+                                    className="btn btn-primary"
+                                    disabled={page <= 0}
+                                    onClick={() => handlePageChange(page - 1)}
+                                >
+                                    Trang trước
+                                </button>
+                                <span> Trang {page + 1} / {totalPages} </span>
+                                <button
+                                    className="btn btn-primary"
+                                    disabled={page >= totalPages - 1}
+                                    onClick={() => handlePageChange(page + 1)}
+                                >
+                                    Trang sau
+                                </button>
                             </div>
                         </div>
                     </div>

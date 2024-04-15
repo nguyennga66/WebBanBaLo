@@ -94,7 +94,7 @@ body {
 	position:relative;
 	 padding: 2.5em;
 }
-.sub-main-w3ls input[type="name"] {
+.sub-main-w3ls input[type="name"], .sub-main-w3ls input[type="phone"], .sub-main-w3ls input[type="address"] {
     outline: none;
     font-size: 1em;
     border: none;

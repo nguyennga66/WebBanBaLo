@@ -59,11 +59,11 @@ console.log('ID sản phẩm từ URL:', id);
                                 </div>
                             </div>
                             <div className="details col-md-6">
-                                <h3 className="product-title1">{product.nameP}</h3>
-                                <p className="product-description">{product.description}</p>
-                                <h4 className="price">Giá: <span>{product.price}.000 VNĐ</span></h4>
-                                <p className="vote"><strong>100%</strong> hàng <strong>Chất lượng</strong>, đảm bảo <strong>Uy tín</strong>!</p>
-                                <div className="form-group">
+                                <h3 className="product-title1" style={{ textAlign: 'left' }}>{product.nameP}</h3>
+                                <p className="product-description" style={{ textAlign: 'left' }}>{product.description}</p>
+                                <h4 className="price" style={{ textAlign: 'left' }}>Giá: <span>{product.price}.000 VNĐ</span></h4>
+                                <p className="vote" style={{ textAlign: 'left' }}><strong>100%</strong> hàng <strong>Chất lượng</strong>, đảm bảo <strong>Uy tín</strong>!</p>
+                                <div className="form-group" style={{ textAlign: 'left' }}>
                                     <label htmlFor="soluong">Số lượng đặt mua:</label>
                                     <input
                                         type="number"
@@ -75,7 +75,7 @@ console.log('ID sản phẩm từ URL:', id);
                                     />
                                 </div>
                                 <br />
-                                <div className="action">
+                                <div className="action" style={{ textAlign: 'left' }}>
                                     <button type="button" className="add-to-cart btn btn-default" onClick={handleAddToCart}>
                                         Thêm vào giỏ hàng
                                     </button>
