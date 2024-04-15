@@ -2,6 +2,7 @@ import React from "react";
 import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/signin.css";
+
 import { FaPaperPlane, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { FaGoogle } from "react-icons/fa6";
 
@@ -29,6 +30,7 @@ export default function Signin() {
                   <a href="#">Quên mật khẩu?</a>
                   <div className="clear"></div>
                 </div>
+
                 <button type="submit" value="Đăng nhập">Đăng nhập</button>
                 <div className="social-icons"> 
                   <ul>
@@ -37,6 +39,7 @@ export default function Signin() {
                     <li><a href="#"><FaGoogle style={{ color: 'blue', fontSize: '25px' }}/></a></li> 
                   </ul>  
                 </div>
+
               </form>
             </div>
           </div>

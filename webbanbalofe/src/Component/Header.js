@@ -43,6 +43,7 @@ export default function Header() {
             </ul>
 
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+
             <li className="dropdown"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}>
@@ -52,7 +53,9 @@ export default function Header() {
                   <NavLink to="/signin">Đăng nhập</NavLink>
                   <NavLink to="/register">Đăng ký</NavLink>
                 </div>
+
                 )}
+
               </li>
               <li><NavLink className="nav-link" to="/cart"><img src={cartIcon} alt="Cart" /></NavLink></li>
             </ul>
