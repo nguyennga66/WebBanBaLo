@@ -4,6 +4,7 @@ import "../css/tiny-slider.css";
 import "../css/signin.css";
 import "../css/font-awesome.css";
 
+import { NavLink } from "react-router-dom";
 import { FaPaperPlane, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { FaGoogle } from "react-icons/fa6";
 
@@ -18,17 +19,21 @@ export default function Signin() {
           {/* Main Content */}
           <div className="main-content-agile">
             <div className="w3ls-pro">
-              <h2>Đăng Nhập</h2>
+              <h2>Đăng Ký</h2>
             </div>
             <div className="sub-main-w3ls">	
-              <form action="#" method="post">
+              <form action="/register" method="post">
+                <input placeholder="Nhập họ và tên" name="enter name" type="name" required />
+                <input placeholder="Nhập số điện thoại" name="enter phone" type="phone" required />
+                <input placeholder="Nhập địa chỉ chi tiết" name="enter address" type="address" required />
                 <input placeholder="Nhập E-mail" name="enter mail" type="email" required />
-                <span className="icon1"><i className="fa fa-envelope" aria-hidden="true"></i></span>
+                <span className="regis1"><i className="fa fa-envelope" aria-hidden="true"></i></span>
                 <input  placeholder="Nhập mật khẩu" name="Password" type="password" required />
-                <span className="icon2"><i className="fa fa-unlock-alt" aria-hidden="true"></i></span>
+                <span className="regis2"><i className="fa fa-unlock-alt" aria-hidden="true"></i></span>
+                <input  placeholder="Nhập lại mật khẩu" name="Re-Password" type="password" required />
                 <div className="checkbox-w3">
                   <span className="check-w3"><input type="checkbox" />Lưu tài khoản</span>
-                  <a href="#">Quên mật khẩu?</a>
+                  <NavLink to="/signin">Đăng nhập</NavLink>
                   <div className="clear"></div>
                 </div>
 
@@ -38,8 +43,8 @@ export default function Signin() {
 								  <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 								  <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> 
 							  </ul>  
-						  </div>
-					    <input type="submit" value="" />
+						    </div>
+					      <input type="submit" value="" />
 
               </form>
             </div>
@@ -51,4 +56,3 @@ export default function Signin() {
       </div>
     );
   }
-  

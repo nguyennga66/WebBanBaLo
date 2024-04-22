@@ -1,4 +1,15 @@
 package web.webbanbalo.repository;
 
-public interface UserRepository extends org.springframework.data.jpa.repository.JpaRepository<web.webbanbalo.entity.User, java.lang.Integer> {
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import web.webbanbalo.entity.User;
+
+@Repository
+@SpringBootApplication
+public interface UserRepository extends JpaRepository<User, Integer> {
+
+    User getByEmail(String email);
+    User findByEmail(String email);
+
 }
