@@ -83,19 +83,16 @@ export default function Cart() {
           <div className="row">
             <div className="col-md-6">
               <div className="row mb-5">
-                <div className="col-md-6 mb-3 mb-md-0">
-                  <button className="btn btn-black btn-sm btn-block">Cập nhật giỏ hàng</button>
-                </div>
                 <div className="col-md-6">
                   <button className="btn btn-outline-black btn-sm btn-block">Tiếp tục mua sắm</button>
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-12">
+                <div className="col-md-12" style={{ textAlign: 'left' }}>
                   <label className="text-black h4" htmlFor="coupon">Phiếu giảm giá</label>
                 </div>
                 <div className="col-md-8 mb-3 mb-md-0">
-                  <input type="text" className="form-control py-3" id="coupon" placeholder="Nhập phiếu giảm giá của bạn" />
+                  <input type="text" className="form-control py-3" id="coupon" placeholder="Nhập phiếu giảm giá (nếu có)" />
                 </div>
                 <div className="col-md-4">
                   <button className="btn btn-black">Áp dụng</button>
@@ -111,18 +108,26 @@ export default function Cart() {
                     </div>
                   </div>
                   <div className="row mb-3">
-                    <div className="col-md-6">
-                      <span className="text-black">Tổng tiền</span>
+                    <div className="col-md-6" style={{ textAlign: 'left' }}>
+                      <span className="text-black">Tổng tiền hàng</span>
                     </div>
-                    <div className="col-md-6 text-right">
+                    <div className="col-md-6" style={{ textAlign: 'left' }}>
                       <strong className="text-black">$230.00</strong>
                     </div>
                   </div>
-                  <div className="row mb-5">
-                    <div className="col-md-6">
-                      <span className="text-black">Tổng</span>
+                  <div className="row mb-3">
+                    <div className="col-md-6" style={{ textAlign: 'left' }}>
+                      <span className="text-black">Giảm</span>
                     </div>
-                    <div className="col-md-6 text-right">
+                    <div className="col-md-6" style={{ textAlign: 'left' }}>
+                      <strong className="text-black">$20</strong>
+                    </div>
+                  </div>
+                  <div className="row mb-3">
+                    <div className="col-md-6" style={{ textAlign: 'left' }}>
+                      <span className="text-black">Tổng thanh toán</span>
+                    </div>
+                    <div className="col-md-6" style={{ textAlign: 'left' }}>
                       <strong className="text-black">$230.00</strong>
                     </div>
                   </div>
