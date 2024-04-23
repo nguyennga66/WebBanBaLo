@@ -22,13 +22,6 @@ export default function Checkout() {
 
       <div className="untree_co-section">
         <div className="container">
-          <div className="row mb-5">
-            <div className="col-md-12">
-              <div className="border p-4 rounded" role="alert">
-                Bạn đã có tài khoản? <NavLink to="/signin">Chọn vào đây</NavLink> để đăng nhập
-              </div>
-            </div>
-          </div>
           <div className="row">
             <div className="col-md-6 mb-5 mb-md-0">
               <h2 className="h3 mb-3 text-black">Chi tiết hóa đơn</h2>
