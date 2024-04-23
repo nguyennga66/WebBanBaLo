@@ -43,7 +43,8 @@ export default function Thankyou() {
                   />
                 </svg>
               </span>
-              <h2 className="display-3 text-black">Cám ơn bạn!</h2>
+              <h2 className="display-6 text-black">Cám ơn bạn đã mua hàng!</h2>
+              <br></br>
               <p className="lead mb-5">Bạn đã đặt hàng thành công.</p>
               <p>
                 <NavLink to="/product" className="btn btn-sm btn-outline-black">
