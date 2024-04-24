@@ -8,6 +8,7 @@ import cartIcon from "../images/cart.svg";
 
 export default function Header() {
    // Tạo trạng thái để theo dõi trạng thái hiển thị của dropdown menu
+  // const [fullName, setFullName] = useState(""); // State để lưu trữ fullName
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   // Xử lý sự kiện khi đưa chuột vào biểu tượng người dùng
@@ -19,6 +20,7 @@ export default function Header() {
   const handleMouseLeave = () => {
     setIsDropdownVisible(false);
   };
+
   return (
     <div>
       <nav className="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
@@ -47,9 +49,15 @@ export default function Header() {
             <li className="dropdown"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}>
-                <img className="nav-link user-account" src={userIcon} alt="User"/>
+                {/* {fullName ? ( // Kiểm tra nếu đã có tên người dùng
+                  <div className="nav-link user-account">
+                    {fullName}
+                  </div>
+                ) : ( */}
+                  <img className="nav-link user-account" src={userIcon} alt="User"/>
+                {/* )} */}
                 {isDropdownVisible && (
-                <div class="dropdown-content">
+                <div className="dropdown-content">
                   <NavLink to="/signin">Đăng nhập</NavLink>
                   <NavLink to="/register">Đăng ký</NavLink>
                 </div>

@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SigninController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SignupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/Service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/css/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/signin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Register.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SigninController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/Component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/Component/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,14 +38,12 @@
     &quot;assignee&quot;: &quot;kimanh21202&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="dd82a3ba-f213-4e30-9f36-709922b55520" />
-        <option name="url" value="https://github.com/nguyennga66/WebBanBaLo.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/nguyennga66/WebBanBaLo.git&quot;,
+    &quot;accountId&quot;: &quot;dd82a3ba-f213-4e30-9f36-709922b55520&quot;
+  }
+}</component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
@@ -59,7 +53,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -110,6 +104,9 @@
       <recent name="C:\Users\Toshiba\Desktop\WebBanBalo\WebBanBaLo\webbanbalobe\src\main\java\web\webbanbalo\controller" />
       <recent name="C:\Users\Toshiba\Desktop\WebBanBalo\WebBanBaLo\webbanbalobe\src\main\java\web\webbanbalo\entity" />
       <recent name="D:\WebBanBaLo\webbanbalobe\.idea" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="web.webbanbalo.security" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.WebbanbalobeApplication">
@@ -178,8 +175,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-15.0.10-azul-15.0.10-f644763e9732-a783991b" />
-        <option value="jdk-20.0.2-corretto-20.0.2.1-f644763e9732-27d99999" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -205,7 +202,14 @@
       <workItem from="1713792585808" duration="2780000" />
       <workItem from="1713795424517" duration="229000" />
       <workItem from="1713801121800" duration="7233000" />
-      <workItem from="1713809126637" duration="3104000" />
+      <workItem from="1713809126637" duration="3567000" />
+      <workItem from="1713892356194" duration="68000" />
+      <workItem from="1713892998389" duration="783000" />
+      <workItem from="1713941833370" duration="387000" />
+      <workItem from="1713942665610" duration="2890000" />
+      <workItem from="1713945654803" duration="2697000" />
+      <workItem from="1713948426804" duration="9272000" />
+      <workItem from="1713968158174" duration="774000" />
     </task>
     <servers />
   </component>
