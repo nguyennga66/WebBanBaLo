@@ -121,6 +121,7 @@ body {
 	margin-top: 1.5em;
 }
 .sub-main-w3ls input[type="submit"] {
+    background: url(../images/arrow.png) no-repeat 40% 50%;
     border: 2px solid #fff;
     outline: none;
     width: 50px;
@@ -139,10 +140,10 @@ span.icon1, span.icon2, span.regis1, span.regis2 {
     text-align: center;
 }
 span.regis1 {
-    top: 21%;
+    top: 37%;
 }
 span.regis2 {
-    top: 34%;
+    top: 48%;
 }
 span.icon1 {
     top: 12%;
