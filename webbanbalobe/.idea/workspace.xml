@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="" />
+    <list default="true" id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/CartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SigninController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SignupController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/CartItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/CartItemRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/CartRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Product.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,10 +29,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -25,20 +47,39 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2fHLzIt1MS2bvMjKBchHo7qupRH" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "Spring Boot.WebbanbalobeApplication.executor": "Run",
-    "last_opened_file_path": "D:/WebBanBaLo",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.WebbanbalobeApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Nga&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/WebBanBaLo/webbanbalobe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\WebBanBaLo\webbanbalobe\.idea" />
@@ -65,7 +106,31 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-19.0.2-corretto-19.0.2-3183f394aec4-f0552fc0" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="" />
+      <created>1713453323967</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713453323967</updated>
+      <workItem from="1713453326949" duration="9419000" />
+      <workItem from="1713532460969" duration="4884000" />
+      <workItem from="1713771867886" duration="3775000" />
+      <workItem from="1713884227650" duration="1604000" />
+      <workItem from="1713968163937" duration="5414000" />
+      <workItem from="1714315059991" duration="1480000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

@@ -22,7 +22,7 @@ public class ProductController {
 
     private CategoryRepository categoryRepository;
 
-    public ProductController(ProductRepository productRepositoty, CategoryRepository categoryRepository) {
+    public ProductController(ProductRepository productRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
     }
