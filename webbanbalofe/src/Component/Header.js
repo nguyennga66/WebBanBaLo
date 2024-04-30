@@ -1,22 +1,41 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/style.css";
 import userIcon from "../images/user.svg";
 import cartIcon from "../images/cart.svg";
+import axios from 'axios';
 
 export default function Header() {
-   // Tạo trạng thái để theo dõi trạng thái hiển thị của dropdown menu
-  // const [fullName, setFullName] = useState(""); // State để lưu trữ fullName
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [role, setRole] = useState("");
 
-  // Xử lý sự kiện khi đưa chuột vào biểu tượng người dùng
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      setIsLoggedIn(true);
+      setFullName(user.fullName);
+      setRole(user.role);
+      console.log("useEffect is called");
+
+    }
+
+  }, []); // Truyền một mảng rỗng để useEffect chỉ chạy một lần sau khi component được render
+
+// Function to handle logout
+const handleLogout = () => {
+  localStorage.removeItem('user'); // Xóa thông tin người dùng khỏi localStorage
+  setIsLoggedIn(false); // Cập nhật trạng thái đăng nhập
+  setFullName(''); // Xóa tên người dùng hiển thị
+};
+
   const handleMouseEnter = () => {
     setIsDropdownVisible(true);
   };
 
-  // Xử lý sự kiện khi chuột rời khỏi biểu tượng người dùng
   const handleMouseLeave = () => {
     setIsDropdownVisible(false);
   };
@@ -46,24 +65,43 @@ export default function Header() {
 
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 
-            <li className="dropdown"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}>
-                {/* {fullName ? ( // Kiểm tra nếu đã có tên người dùng
+              <li className="dropdown"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}>
+                {isLoggedIn ? (
                   <div className="nav-link user-account">
                     {fullName}
                   </div>
-                ) : ( */}
-                  <img className="nav-link user-account" src={userIcon} alt="User"/>
-                {/* )} */}
-                {isDropdownVisible && (
-                <div className="dropdown-content">
-                  <NavLink to="/signin">Đăng nhập</NavLink>
-                  <NavLink to="/register">Đăng ký</NavLink>
-                </div>
-
+                ) : (
+                  <img className="nav-link user-account" src={userIcon} alt="User" />
                 )}
-
+                {isDropdownVisible && (
+                  <div className="dropdown-content">
+                    {!isLoggedIn && (
+                      <>
+                        <NavLink to="/signin">Đăng nhập</NavLink>
+                        <NavLink to="/register">Đăng ký</NavLink>
+                      </>
+                    )}
+                    {isLoggedIn && role === 1 && (
+                          <div>
+                              {
+                                <>
+                                <a href="#" onClick={handleLogout}>Quản lý người dùng</a>
+                                <a href="#" onClick={handleLogout}>Đăng xuất</a>
+                                </>
+                              }
+                          </div>
+                        )}
+                       {isLoggedIn && role !== 1 && (
+                          <div>
+                              {
+                                <a href="#" onClick={handleLogout}>Đăng xuất</a>
+                              }
+                          </div>
+                        )}
+                  </div>
+                )}
               </li>
               <li><NavLink className="nav-link" to="/cart"><img src={cartIcon} alt="Cart" /></NavLink></li>
             </ul>
