@@ -11,12 +11,14 @@ export default function Header() {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [fullName, setFullName] = useState("");
+  const [role, setRole] = useState("");
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
       setIsLoggedIn(true);
       setFullName(user.fullName);
+      setRole(user.role);
       console.log("useEffect is called");
 
     }
@@ -81,9 +83,23 @@ const handleLogout = () => {
                         <NavLink to="/register">Đăng ký</NavLink>
                       </>
                     )}
-                    {isLoggedIn && (
-                      <a href="#" onClick={handleLogout}>Đăng xuất</a>
-                    )}
+                    {isLoggedIn && role === 1 && (
+                          <div>
+                              {
+                                <>
+                                <a href="#" onClick={handleLogout}>Quản lý người dùng</a>
+                                <a href="#" onClick={handleLogout}>Đăng xuất</a>
+                                </>
+                              }
+                          </div>
+                        )}
+                       {isLoggedIn && role !== 1 && (
+                          <div>
+                              {
+                                <a href="#" onClick={handleLogout}>Đăng xuất</a>
+                              }
+                          </div>
+                        )}
                   </div>
                 )}
               </li>

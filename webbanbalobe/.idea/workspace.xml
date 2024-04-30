@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/security/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SigninController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SignupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/Component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/Component/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +76,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.WebbanbalobeApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ntkimanh&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#12 on ntkimanh&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Toshiba/Desktop/WebBanBalo/WebBanBaLo/webbanbalobe/src/main/java/web/webbanbalo/repository&quot;,
@@ -227,7 +218,8 @@
       <workItem from="1714409235006" duration="1837000" />
       <workItem from="1714411240962" duration="5606000" />
       <workItem from="1714460989065" duration="5787000" />
-      <workItem from="1714467481174" duration="560000" />
+      <workItem from="1714467481174" duration="948000" />
+      <workItem from="1714491610398" duration="4635000" />
     </task>
     <servers />
   </component>
