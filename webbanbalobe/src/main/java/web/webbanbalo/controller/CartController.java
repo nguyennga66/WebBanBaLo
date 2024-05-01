@@ -111,4 +111,41 @@
             return ResponseEntity.ok("Cart item updated");
         }
 
+        @PostMapping("/cart/remove")
+        public ResponseEntity<String> removeFromCart(@RequestBody CartItem cartItemRequest) {
+            // Kiểm tra xem người dùng có tồn tại không
+            User user = userRepository.findById(cartItemRequest.getCart().getUser().getId());
+            if (user == null) {
+                return ResponseEntity.badRequest().body("User not found");
+            }
+
+            // Lấy ID của giỏ hàng và sản phẩm từ yêu cầu
+            int cartId = cartItemRequest.getCart().getId();
+            int productId = cartItemRequest.getProduct().getId();
+
+            // Kiểm tra xem giỏ hàng và sản phẩm có tồn tại không
+            Cart cart = cartRepository.findByUser(user);
+            if (cart == null) {
+                return ResponseEntity.badRequest().body("Cart not found");
+            }
+
+            Product product = productRepository.findById(productId).orElse(null);
+            if (product == null) {
+                return ResponseEntity.badRequest().body("Product not found");
+            }
+
+            // Tìm mục giỏ hàng để xóa
+            Optional<CartItem> optionalCartItem = cartItemRepository.findByCartAndProduct(cart, product);
+            if (!optionalCartItem.isPresent()) {
+                return ResponseEntity.badRequest().body("Cart item not found");
+            }
+
+            // Xóa mục giỏ hàng khỏi giỏ hàng
+            CartItem cartItem = optionalCartItem.get();
+            cartItemRepository.delete(cartItem);
+
+            // Trả về phản hồi thành công
+            return ResponseEntity.ok("Product removed from cart");
+        }
+
     }
