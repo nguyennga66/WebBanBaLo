@@ -16,13 +16,9 @@ public class Cart {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CartItem> items = new ArrayList<>();
-
-    public Cart(int id, User user, List<CartItem> items) {
+    public Cart(int id, User user) {
         this.id = id;
         this.user = user;
-        this.items = items;
     }
 
     public Cart() {
@@ -44,20 +40,11 @@ public class Cart {
         this.user = user;
     }
 
-    public List<CartItem> getItems() {
-        return items;
-    }
-
-    public void setItems(List<CartItem> items) {
-        this.items = items;
-    }
-
     @Override
     public String toString() {
         return "Cart{" +
                 "id=" + id +
                 ", user=" + user +
-                ", items=" + items +
                 '}';
     }
 }
