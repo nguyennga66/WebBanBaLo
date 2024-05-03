@@ -19,25 +19,22 @@ public class User implements Serializable {
     private int status;
     private int role;
 
-    public Integer getRole() {
-        return role;
-    }
     @OneToMany(mappedBy = "user")
     private List<Cart> carts;
 
-    public void setRole(Integer role) {
+    public void setRole(int role) {
         this.role = role;
     }
 
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
-    public User(int id, String fullName, String phone, String email, String address, String password, Integer status, Integer role) {
+    public User(int id, String fullName, String phone, String email, String address, String password, int status, int role) {
         this.id = id;
         this.fullName = fullName;
         this.phone = phone;
@@ -101,6 +98,18 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public List<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(List<Cart> carts) {
+        this.carts = carts;
     }
 
     @Override

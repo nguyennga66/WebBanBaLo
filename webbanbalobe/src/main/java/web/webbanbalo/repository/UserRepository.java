@@ -8,7 +8,6 @@ import web.webbanbalo.entity.User;
 @Repository
 @SpringBootApplication
 public interface UserRepository extends JpaRepository<User, Integer> {
-    User findById (int id);
 
     User getByEmail(String email);
     User findByEmail(String email);

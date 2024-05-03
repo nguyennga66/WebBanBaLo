@@ -1,6 +1,7 @@
     package web.webbanbalo.controller;
 
     import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.http.HttpStatus;
     import org.springframework.http.ResponseEntity;
     import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@
     import web.webbanbalo.repository.ProductRepository;
     import web.webbanbalo.repository.UserRepository;
 
-    import java.util.Optional;
+    import java.util.List;
 
     @CrossOrigin(origins = "http://localhost:3000")
     @RestController
@@ -38,8 +39,10 @@
                 return ResponseEntity.badRequest().body("Cart not found in request");
             }
 
+            int userId = cart.getUser().getId();
+
             // Kiểm tra xem người dùng có tồn tại không
-            User user = userRepository.findById(cart.getUser().getId());
+            User user = userRepository.findById(userId).get();
             if (user == null) {
                 return ResponseEntity.badRequest().body("User not found");
             }
@@ -79,6 +82,28 @@
             return ResponseEntity.ok("Product added to cart");
         }
 
+        @GetMapping("/carts/{userId}")
+        public ResponseEntity<?> getCartItemsByUserId(@PathVariable int userId) {
+            // Kiểm tra xem người dùng có tồn tại không
+            User user = userRepository.findById(userId).get();
+            if (user == null) {
+                return ResponseEntity.badRequest().body("User not found");
+            }
+
+            // Lấy giỏ hàng của người dùng
+            Cart cart = cartRepository.findByUser(user);
+            if (cart == null) {
+                return ResponseEntity.ok("Cart is empty");
+            }
+
+            // Lấy danh sách các mục giỏ hàng (cart items)
+            List<CartItem> cartItems = cartItemRepository.findByCart(cart);
+            if (cartItems.isEmpty()) {
+                return ResponseEntity.ok("Cart is empty");
+            } else {
+                return ResponseEntity.ok(cartItems);
+            }
+        }
 
 //        @PutMapping("/carts")
 //        public ResponseEntity<String> updateCart(@RequestBody CartItem cartItemRequest) {
