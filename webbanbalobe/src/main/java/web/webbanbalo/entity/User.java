@@ -19,9 +19,6 @@ public class User implements Serializable {
     private int status;
     private int role;
 
-    @OneToMany(mappedBy = "user")
-    private List<Cart> carts;
-
     public void setRole(int role) {
         this.role = role;
     }
@@ -102,14 +99,6 @@ public class User implements Serializable {
 
     public int getRole() {
         return role;
-    }
-
-    public List<Cart> getCarts() {
-        return carts;
-    }
-
-    public void setCarts(List<Cart> carts) {
-        this.carts = carts;
     }
 
     @Override
