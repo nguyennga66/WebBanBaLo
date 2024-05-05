@@ -13,6 +13,9 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
     @Query("SELECT p FROM Product p WHERE p.category.id = :category_id")
     List<Product> findByCategory(@Param("category_id") int id);
 
+    Page<Product> findByNamePContainingIgnoreCase(String name, Pageable pageable);
+
+
     // Phương thức để lấy dữ liệu phân trang
     Page<Product> findAll(Pageable pageable);
 

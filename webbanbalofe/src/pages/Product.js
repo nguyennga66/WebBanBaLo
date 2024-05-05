@@ -15,32 +15,33 @@ export default function Product() {
 
 
     // Gọi API tìm kiếm khi searchQuery thay đổi
-    // Gọi API lấy sản phẩm theo trang và tìm kiếm
-    const fetchProducts = async () => {
-        try {
-            // URL gọi API với tham số page và size
-            let url = `http://localhost:8080/products?page=${page}&size=${size}`;
-            
-            // Nếu có tìm kiếm, thêm vào URL
-            if (searchQuery) {
-                url += `&query=${encodeURIComponent(searchQuery)}`;
-            }
-            
-            const response = await fetch(url);
-            const data = await response.json();
-
-            // Cập nhật state
-            setProducts(data.content);
-            setTotalPages(data.totalPages);
-        } catch (error) {
-            console.error('Error fetching products:', error);
+// Gọi API lấy sản phẩm theo trang và tìm kiếm
+const fetchProducts = async () => {
+    try {
+        // URL gọi API với tham số page và size
+        let url = `http://localhost:8080/search?page=${page}&size=${size}`;
+        
+        // Nếu có tìm kiếm, thêm vào URL
+        if (searchQuery) {
+            url += `&query=${encodeURIComponent(searchQuery)}`;
         }
-    };
+        
+        const response = await fetch(url);
+        const data = await response.json();
 
-    // Gọi API mỗi khi page, size hoặc searchQuery thay đổi
-    useEffect(() => {
-        fetchProducts();
-    }, [page, size, searchQuery]);
+        // Cập nhật state
+        setProducts(data.content);
+        setTotalPages(data.totalPages);
+    } catch (error) {
+        console.error('Error fetching products:', error);
+    }
+};
+
+// Gọi API mỗi khi page, size hoặc searchQuery thay đổi
+useEffect(() => {
+    fetchProducts();
+}, [page, size, searchQuery]);
+
     
 
     // Gọi API để lấy danh mục sản phẩm
@@ -107,20 +108,20 @@ export default function Product() {
                             <div className="categories-section">
                                 <h4 className="categories-title" style={{ textAlign: 'left' }}>Danh mục sản phẩm</h4>
                                 <ul className="categories-list list-unstyled" style={{ textAlign: 'left' }}>
-    {categories.map((category) => (
-        <li key={category.id} className="category-item" >
-            {/* Thay button bằng span */}
-            <span
-                className="category-link"
-                onClick={() => handleCategoryClick(category.id)} // Sử dụng hàm xử lý sự kiện nhấp chuột
-                style={{ cursor: 'pointer' }} // Đặt con trỏ chuột thành dạng pointer
-            >
-                <span className="category-icon">&#x1F4E6;</span>
-                <span className="category-name">{category.nameC}</span>
-            </span>
-        </li>
-    ))}
-</ul>
+                                {categories.map((category) => (
+                                    <li key={category.id} className="category-item" >
+                                        {/* Thay button bằng span */}
+                                        <span
+                                            className="category-link"
+                                            onClick={() => handleCategoryClick(category.id)} // Sử dụng hàm xử lý sự kiện nhấp chuột
+                                            style={{ cursor: 'pointer' }} // Đặt con trỏ chuột thành dạng pointer
+                                        >
+                                            <span className="category-icon">&#x1F4E6;</span>
+                                            <span className="category-name">{category.nameC}</span>
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
 
 
                             </div>

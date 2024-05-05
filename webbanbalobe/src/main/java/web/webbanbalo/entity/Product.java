@@ -17,6 +17,7 @@ public class Product {
 
     private int quantity;
 
+    @Column(length = 10000)
     private String description;
 
     @ManyToOne(fetch = FetchType.EAGER)

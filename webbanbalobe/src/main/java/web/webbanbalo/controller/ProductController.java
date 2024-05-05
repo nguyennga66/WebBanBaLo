@@ -2,6 +2,7 @@ package web.webbanbalo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -117,6 +118,16 @@ public class ProductController {
         productRepository.delete(productToDelete);
 
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<Page<Product>> searchProducts(
+            @RequestParam(defaultValue = "") String query,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Page<Product> products = productRepository.findByNamePContainingIgnoreCase(query, PageRequest.of(page, size));
+        return ResponseEntity.ok(products);
     }
 
 
