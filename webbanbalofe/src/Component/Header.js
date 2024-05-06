@@ -12,6 +12,8 @@ export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [fullName, setFullName] = useState("");
   const [role, setRole] = useState("");
+  const [id, setId] = useState("");
+
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -19,6 +21,7 @@ export default function Header() {
       setIsLoggedIn(true);
       setFullName(user.fullName);
       setRole(user.role);
+      setId(user.id);
       console.log("useEffect is called");
 
     }
@@ -103,7 +106,7 @@ const handleLogout = () => {
                   </div>
                 )}
               </li>
-              <li><NavLink className="nav-link" to="/cart"><img src={cartIcon} alt="Cart" /></NavLink></li>
+              <li><NavLink className="nav-link" to={`/cart/${id}`}><img src={cartIcon} alt="Cart" /></NavLink></li>
             </ul>
           </div>
         </div>
