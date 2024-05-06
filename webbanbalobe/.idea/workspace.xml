@@ -5,21 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/CartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SigninController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SignupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/CartItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/CartItemRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/CartRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/security/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SigninController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/Component/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/Component/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/bag.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/bowl-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/bowl-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/cart.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/images/cart.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/cross.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/dots-green.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/images/dots-green.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/dots-light.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/images/dots-light.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/dots-yellow.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/images/dots-yellow.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/envelope-outline.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/images/envelope-outline.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/img-grid-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/img-grid-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/img-grid-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/person-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/person-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/person_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/person_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/person_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/person_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/post-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/post-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/post-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/product-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/product-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/product-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/return.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/sofa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/support.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/truck.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/user.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/images/user.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/images/why-choose-us-img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,25 +88,28 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.WebbanbalobeApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Nga&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/WebBanBaLo/webbanbalobe&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.WebbanbalobeApplication.executor": "Run",
+    "git-widget-placeholder": "Nga",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/WebBanBaLo/webbanbalobe",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\WebBanBaLo\webbanbalobe\.idea" />
@@ -126,11 +156,32 @@
       <workItem from="1713771867886" duration="3775000" />
       <workItem from="1713884227650" duration="1604000" />
       <workItem from="1713968163937" duration="5414000" />
-      <workItem from="1714315059991" duration="1480000" />
+      <workItem from="1714315059991" duration="1676000" />
+      <workItem from="1714406470222" duration="3888000" />
+      <workItem from="1714410770806" duration="1566000" />
+      <workItem from="1714565825305" duration="3996000" />
+      <workItem from="1714654780806" duration="7238000" />
+      <workItem from="1714744571331" duration="6338000" />
+      <workItem from="1714830713880" duration="6947000" />
+      <workItem from="1715006390376" duration="4667000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

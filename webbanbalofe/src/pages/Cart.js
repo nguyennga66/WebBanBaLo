@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/style.css";
+import axios from 'axios';
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -38,6 +39,48 @@ export default function Cart() {
     setCartItems(updatedCartItems);
   };
 
+  const handleRemoveFromCart = (userId, productId) => {
+    // Tạo object tương ứng với dữ liệu của cartItemRequest trong backend
+    const cartItemRequest = {
+      cart: {
+        user: {
+          id: userId // Sử dụng userId như là id của người dùng
+        }
+      },
+      product: {
+        id: productId // Sử dụng productId như là id của sản phẩm
+      }
+    };
+  
+    fetch(`http://localhost:8080/carts/remove`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(cartItemRequest)
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Lỗi khi xóa sản phẩm khỏi giỏ hàng");
+        }
+        // Nếu xóa thành công, không cần response body, trả về Promise.resolve()
+        return Promise.resolve();
+      })
+      .then(() => {
+        // Sau khi xóa thành công, cập nhật lại danh sách giỏ hàng
+        // Gọi API để lấy danh sách giỏ hàng mới sau khi xóa
+        return fetch(`http://localhost:8080/carts/${userId}`);
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        // Cập nhật lại danh sách giỏ hàng
+        setCartItems(data);
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+  };
+  
   // Tính tổng giỏ hàng
   const calculateTotal = () => {
     let total = 0;
@@ -95,7 +138,7 @@ export default function Cart() {
                           </div>
                         </td>
                         <td>{item.product.price * item.quantity}.000 VNĐ</td>
-                        <td><button className="btn btn-black btn-sm">X</button></td>
+                        <td><button className="btn btn-black btn-sm" onClick={() => handleRemoveFromCart(item.cart.user.id, item.product.id)}>X</button></td>
                       </tr>
                     ))
                   ) : (
