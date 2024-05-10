@@ -8,19 +8,12 @@ import { FaHeart } from 'react-icons/fa';
 
 export default function ProductDetail() {
     const { id } = useParams();
-console.log('ID sản phẩm từ URL:', id);
+    console.log('ID sản phẩm từ URL:', id);
 
     const [product, setProduct] = useState(null); // Trạng thái để lưu trữ thông tin chi tiết của sản phẩm
-    const [quantity, setQuantity] = useState(0);
-
-    const handleQuantityChange = (event) => {
-        setQuantity(event.target.value);
-    };
-
-    const handleAddToCart = () => {
-        // Thêm logic xử lý cho sự kiện thêm vào giỏ hàng
-        console.log("Đã thêm vào giỏ hàng:", quantity);
-    };
+    const [quantity, setQuantity] = useState(1); // Mặc định số lượng là 1
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [userId, setUserId] = useState("");
 
     useEffect(() => {
         // Gọi API để lấy thông tin chi tiết sản phẩm dựa trên ID từ URL
@@ -34,7 +27,53 @@ console.log('ID sản phẩm từ URL:', id);
             });
     }, [id]);
 
-    // Nếu chưa có dữ liệu sản phẩm, có thể hiển thị trạng thái loading hoặc thông báo lỗi
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+          setIsLoggedIn(true);
+          setUserId(user.id);
+          console.log("useEffect is called");
+    
+        }
+    
+      }, []);
+
+    const handleQuantityChange = (event) => {
+        const quantityValue = parseInt(event.target.value);
+        setQuantity(quantityValue > 0 ? quantityValue : 1); // Số lượng không được nhỏ hơn 1
+    };
+
+    const handleAddToCart = () => {
+        if (isLoggedIn) {
+            // Nếu đã đăng nhập, chuyển hướng đến trang giỏ hàng
+            window.location.href = `/cart/${userId}`;
+        } else {
+            // Nếu chưa đăng nhập, hiển thị trang đăng nhập
+            window.location.href = '/login'; // Thay đổi '/login' thành đường dẫn tới trang đăng nhập của bạn
+        }
+        const cartItem = {
+           cart: { user: { id: userId } }, // Sử dụng ID của người dùng đăng nhập
+        product: { id: product.id },
+        quantity: quantity
+        };
+
+        fetch('http://localhost:8080/carts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(cartItem)
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+        })
+        .catch(error => {
+            console.error('Lỗi khi gửi yêu cầu:', error);
+            alert('Có lỗi xảy ra khi thêm vào giỏ hàng');
+        });
+    };
+
     if (!product) {
         return <div>Đang tải thông tin sản phẩm...</div>;
     }
@@ -64,12 +103,12 @@ console.log('ID sản phẩm từ URL:', id);
                                 <h4 className="price" style={{ textAlign: 'left' }}>Giá: <span>{product.price}.000 VNĐ</span></h4>
                                 <p className="vote" style={{ textAlign: 'left' }}><strong>100%</strong> hàng <strong>Chất lượng</strong>, đảm bảo <strong>Uy tín</strong>!</p>
                                 <div className="form-group" style={{ textAlign: 'left' }}>
-                                    <label htmlFor="soluong">Số lượng đặt mua:</label>
+                                    <label htmlFor="quantity">Số lượng đặt mua:</label>
                                     <input
                                         type="number"
-                                        className="form-control"
-                                        id="soluong"
-                                        name="soluong"
+                                        id="quantity"
+                                        name="quantity"
+                                        min="1"
                                         value={quantity}
                                         onChange={handleQuantityChange}
                                     />

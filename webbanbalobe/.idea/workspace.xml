@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/Component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/Component/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,9 +69,6 @@
     &quot;Application.UserRegistrationController.executor&quot;: &quot;Run&quot;,
     &quot;Application.UserServiceImplement.executor&quot;: &quot;Run&quot;,
     &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.generated-requests | #4.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.generated-requests | #5.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -86,8 +76,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.WebbanbalobeApplication.executor&quot;: &quot;Run&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ntkimanh&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#12 on ntkimanh&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Toshiba/Desktop/WebBanBalo/WebBanBaLo/webbanbalobe/src/main/java/web/webbanbalo/repository&quot;,
@@ -116,7 +105,49 @@
       <recent name="web.webbanbalo.security" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.WebbanbalobeApplication">
+    <configuration name="SignupController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="web.webbanbalo.controller.SignupController" />
+      <module name="webbanbalobe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="web.webbanbalo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="web.webbanbalo.controller.UserController" />
+      <module name="webbanbalobe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="web.webbanbalo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceImplement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="web.webbanbalo.Service.implement.UserServiceImplement" />
+      <module name="webbanbalobe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="web.webbanbalo.Service.implement.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="WebbanbalobeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="webbanbalobe" />
@@ -134,6 +165,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.WebbanbalobeApplication" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="Application.SignupController" />
+        <item itemvalue="Application.UserController" />
+        <item itemvalue="Application.UserServiceImplement" />
       </list>
     </recent_temporary>
   </component>
@@ -184,17 +219,7 @@
       <workItem from="1714411240962" duration="5606000" />
       <workItem from="1714460989065" duration="5787000" />
       <workItem from="1714467481174" duration="948000" />
-      <workItem from="1714491610398" duration="5040000" />
-      <workItem from="1714537766373" duration="4169000" />
-      <workItem from="1714566208802" duration="241000" />
-      <workItem from="1714755583913" duration="2687000" />
-      <workItem from="1714839364544" duration="5633000" />
-      <workItem from="1714890200638" duration="3649000" />
-      <workItem from="1714924392923" duration="3910000" />
-      <workItem from="1715013493287" duration="4229000" />
-      <workItem from="1715060223188" duration="4098000" />
-      <workItem from="1715264872446" duration="2118000" />
-      <workItem from="1715360168904" duration="2232000" />
+      <workItem from="1714491610398" duration="4635000" />
     </task>
     <servers />
   </component>

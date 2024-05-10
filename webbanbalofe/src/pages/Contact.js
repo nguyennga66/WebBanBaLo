@@ -11,7 +11,7 @@ export default function Contact() {
           <div className="row justify-content-between">
             <div className="col-lg-5">
               <div className="intro-excerpt">
-                <h1>Contact</h1>
+                <h1>Liên hệ</h1>
               </div>
             </div>
             

@@ -55,8 +55,8 @@ export default function Home() {
             </div>
 
             <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <NavLink className="product-item" to="/product_page/59">
-                <img src={require("../images/product/balolaptop1.jpg")} className="img-fluid product-thumbnail" alt="" />
+              <NavLink className="product-item" to="/product_page/1">
+                <img src={require("../images/product/balonam1.png")} className="img-fluid product-thumbnail" alt="" />
                 <h3 className="product-title">Balo laptop thời trang unisex PADO 604 thiết kế chống thấm cao cấp, chứa được laptop 15.6 inch</h3>
                 <strong className="product-price">300.000 VNĐ</strong>
 
@@ -67,8 +67,8 @@ export default function Home() {
             </div>
 
             <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <NavLink className="product-item" to="/product_page/54">
-              <img src={require("../images/product/balotreem1.jpg")} className="img-fluid product-thumbnail" alt="" />
+              <NavLink className="product-item" to="/product_page/6">
+              <img src={require("../images/product/balothucung1.jpg")} className="img-fluid product-thumbnail" alt="" />
                 <h3 className="product-title">Ba Lô Đi Học Hình Rùa / Thỏ / Rùa Hoạt Hình Nhồi Bông Dễ Thương Cho Nữ</h3>
                 <strong className="product-price">350.000 VNĐ</strong>
                 
