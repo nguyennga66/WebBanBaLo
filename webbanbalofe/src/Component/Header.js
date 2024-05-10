@@ -9,6 +9,14 @@ import axios from 'axios';
 
 export default function Header() {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const handleMouseEnter = () => {
+    setIsDropdownVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDropdownVisible(false);
+  };
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [fullName, setFullName] = useState("");
   const [role, setRole] = useState("");
@@ -31,14 +39,6 @@ const handleLogout = () => {
   setIsLoggedIn(false); // Cập nhật trạng thái đăng nhập
   setFullName(''); // Xóa tên người dùng hiển thị
 };
-
-  const handleMouseEnter = () => {
-    setIsDropdownVisible(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDropdownVisible(false);
-  };
 
   return (
     <div>

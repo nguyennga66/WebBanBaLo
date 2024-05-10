@@ -14,7 +14,9 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
     List<Product> findByCategory(@Param("category_id") int id);
 
     Page<Product> findByNamePContainingIgnoreCase(String name, Pageable pageable);
+    Page<Product> findAllByOrderByPriceAsc(Pageable pageable);
 
+    Page<Product> findAllByOrderByPriceDesc(Pageable pageable);
 
     // Phương thức để lấy dữ liệu phân trang
     Page<Product> findAll(Pageable pageable);

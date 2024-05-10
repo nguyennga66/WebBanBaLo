@@ -23,7 +23,7 @@ public class ProductController {
 
     private CategoryRepository categoryRepository;
 
-    public ProductController(ProductRepository productRepositoty, CategoryRepository categoryRepository) {
+    public ProductController(ProductRepository productRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
     }
@@ -56,6 +56,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body("Product created successfully with ID: " + addedProd.getId());
     }
+
     @GetMapping("/products")
     public Page<Product> getProducts(Pageable pageable) {
         // Trả về danh sách sản phẩm phân trang
@@ -130,5 +131,18 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-
+    @GetMapping("/products/sort")
+    public ResponseEntity<Page<Product>> getProductsSortedByPrice(
+            @RequestParam(defaultValue = "asc") String sort,
+            Pageable pageable
+    ) {
+        Page<Product> products;
+        if (sort.equals("asc")) {
+            products = productRepository.findAllByOrderByPriceAsc(pageable);
+        } else {
+            products = productRepository.findAllByOrderByPriceDesc(pageable);
+        }
+        return ResponseEntity.ok(products);
+    }
 }
+
