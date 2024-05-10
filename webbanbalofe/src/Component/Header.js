@@ -99,7 +99,10 @@ const handleLogout = () => {
                        {isLoggedIn && role !== 1 && (
                           <div>
                               {
+                                <>
+                                <NavLink to="/information">Trang cá nhân</NavLink>
                                 <a href="#" onClick={handleLogout}>Đăng xuất</a>
+                                </>
                               }
                           </div>
                         )}

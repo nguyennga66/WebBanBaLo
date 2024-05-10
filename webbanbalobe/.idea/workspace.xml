@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/information.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/images/arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Information.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/ProductDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/ProductDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/Component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/Component/Header.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +132,7 @@
       <workItem from="1715006390376" duration="5121000" />
       <workItem from="1715174447640" duration="749000" />
       <workItem from="1715262179178" duration="5750000" />
-      <workItem from="1715349963828" duration="6286000" />
+      <workItem from="1715349963828" duration="7723000" />
     </task>
     <servers />
   </component>
