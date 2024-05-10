@@ -17,9 +17,10 @@
     import web.webbanbalo.repository.UserRepository;
 
     import java.util.List;
+    import java.util.Map;
     import java.util.Optional;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "*")
     @RestController
     public class CartController {
         @Autowired
@@ -108,44 +109,48 @@
             }
         }
 
-//        @PutMapping("/carts")
-//        public ResponseEntity<String> updateCart(@RequestBody CartItem cartItemRequest) {
-//            // Kiểm tra xem người dùng có tồn tại không
-//            User user = userRepository.findById(cartItemRequest.getCart().getUser().getId());
-//            if (user == null) {
-//                return ResponseEntity.badRequest().body("User not found");
-//            }
-//
-//            // Kiểm tra xem sản phẩm có tồn tại không
-//            Product product = productRepository.findById(cartItemRequest.getProduct().getId()).orElse(null);
-//            if (product == null) {
-//                return ResponseEntity.badRequest().body("Product not found");
-//            }
-//
-//            // Kiểm tra xem giỏ hàng của người dùng có tồn tại không
-//            Cart cart = cartRepository.findByUser(user);
-//            if (cart == null) {
-//                return ResponseEntity.badRequest().body("Cart not found");
-//            }
-//
-//            // Tìm mục giỏ hàng để cập nhật số lượng
-//            Optional<CartItem> optionalCartItem = cartItemRepository.findByCartAndProduct(cart, product);
-//            if (!optionalCartItem.isPresent()) {
-//                return ResponseEntity.badRequest().body("Cart item not found");
-//            }
-//
-//            CartItem cartItem = optionalCartItem.get();
-//            // Cập nhật số lượng của mục giỏ hàng
-//            cartItem.setQuantity(cartItemRequest.getQuantity());
-//
-//            // Lưu thay đổi vào cơ sở dữ liệu
-//            cartItemRepository.save(cartItem);
-//
-//            // Trả về phản hồi thành công
-//            return ResponseEntity.ok("Cart item updated");
-//        }
-//
-            @PostMapping("/carts/remove")
+        @PutMapping("/carts/{userId}/{productId}")
+        public ResponseEntity<String> updateCartItemQuantity(@PathVariable int userId, @PathVariable int productId, @RequestBody Map<String, Integer> requestBody) {
+            // Kiểm tra xem người dùng có tồn tại không
+            User user = userRepository.findById(userId).orElse(null);
+            if (user == null) {
+                return ResponseEntity.badRequest().body("User not found");
+            }
+
+            // Kiểm tra xem sản phẩm có tồn tại không
+            Product product = productRepository.findById(productId).orElse(null);
+            if (product == null) {
+                return ResponseEntity.badRequest().body("Product not found");
+            }
+
+            // Kiểm tra xem giỏ hàng của người dùng có tồn tại không
+            Cart cart = cartRepository.findByUser(user);
+            if (cart == null) {
+                return ResponseEntity.badRequest().body("Cart not found");
+            }
+
+            // Tìm mục giỏ hàng để cập nhật số lượng
+            Optional<CartItem> optionalCartItem = cartItemRepository.findByCartAndProduct(cart, product);
+            if (!optionalCartItem.isPresent()) {
+                return ResponseEntity.badRequest().body("Cart item not found");
+            }
+
+            CartItem cartItem = optionalCartItem.get();
+            // Cập nhật số lượng của mục giỏ hàng
+            int newQuantity = requestBody.get("quantity");
+            if (newQuantity <= 0) {
+                return ResponseEntity.badRequest().body("Invalid quantity");
+            }
+            cartItem.setQuantity(newQuantity);
+
+            // Lưu thay đổi vào cơ sở dữ liệu
+            cartItemRepository.save(cartItem);
+
+            return ResponseEntity.ok("Cart item quantity updated");
+        }
+
+
+        @DeleteMapping("/carts")
             public ResponseEntity<String> removeFromCart(@RequestBody @NotNull CartItem cartItemRequest) {
 
                 // Lấy người dùng từ đối tượng CartItem

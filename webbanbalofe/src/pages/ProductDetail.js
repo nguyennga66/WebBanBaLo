@@ -44,6 +44,13 @@ export default function ProductDetail() {
     };
 
     const handleAddToCart = () => {
+        if (isLoggedIn) {
+            // Nếu đã đăng nhập, chuyển hướng đến trang giỏ hàng
+            window.location.href = `/cart/${userId}`;
+        } else {
+            // Nếu chưa đăng nhập, hiển thị trang đăng nhập
+            window.location.href = '/login'; // Thay đổi '/login' thành đường dẫn tới trang đăng nhập của bạn
+        }
         const cartItem = {
            cart: { user: { id: userId } }, // Sử dụng ID của người dùng đăng nhập
         product: { id: product.id },

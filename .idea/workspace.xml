@@ -4,50 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="front-end: get cart by id user">
-      <change afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/SigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/SigninController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/SignupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/Component/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/bag.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/bowl-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/bowl-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/cart.svg" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/images/cart.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/cross.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/dots-green.svg" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/images/dots-green.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/dots-light.svg" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/images/dots-light.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/dots-yellow.svg" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/images/dots-yellow.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/envelope-outline.svg" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/images/envelope-outline.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/img-grid-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/img-grid-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/img-grid-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/person-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/person-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/person_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/person_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/person_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/person_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/post-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/post-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/post-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/product-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/product-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/product-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/return.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/sofa.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/support.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/truck.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/user.svg" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/images/user.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/images/why-choose-us-img.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Signin.js" afterDir="false" />
-    </list>
+    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="update back-end + front-end: remove product from cart" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,7 +130,7 @@
       <workItem from="1714654795976" duration="1906000" />
       <workItem from="1714744552376" duration="1348000" />
       <workItem from="1714830740965" duration="2171000" />
-      <workItem from="1715006312422" duration="2002000" />
+      <workItem from="1715006312422" duration="2448000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -263,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714836115741</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update back-end + front-end: remove product from cart">
+      <option name="closed" value="true" />
+      <created>1715018452171</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715018452171</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +258,7 @@
     <MESSAGE value="front-end and update back-end: add product to cart" />
     <MESSAGE value="back-end: get cart by id user" />
     <MESSAGE value="front-end: get cart by id user" />
-    <option name="LAST_COMMIT_MESSAGE" value="front-end: get cart by id user" />
+    <MESSAGE value="update back-end + front-end: remove product from cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="update back-end + front-end: remove product from cart" />
   </component>
 </project>
