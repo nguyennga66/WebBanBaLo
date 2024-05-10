@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="update back-end + front-end: remove product from cart" />
+    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="add information page">
+      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/css/information.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Information.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/Component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/Header.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +62,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "19",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/WebBanBaLo/webbanbalobe",
+    "last_opened_file_path": "D:/WebBanBaLo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -131,6 +140,7 @@
       <workItem from="1714744552376" duration="1348000" />
       <workItem from="1714830740965" duration="2171000" />
       <workItem from="1715006312422" duration="2448000" />
+      <workItem from="1715358471465" duration="2241000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -228,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715018452171</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update remove products from cart, update the quantity of products in the cart">
+      <option name="closed" value="true" />
+      <created>1715358662984</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715358662984</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +277,8 @@
     <MESSAGE value="back-end: get cart by id user" />
     <MESSAGE value="front-end: get cart by id user" />
     <MESSAGE value="update back-end + front-end: remove product from cart" />
-    <option name="LAST_COMMIT_MESSAGE" value="update back-end + front-end: remove product from cart" />
+    <MESSAGE value="update remove products from cart, update the quantity of products in the cart" />
+    <MESSAGE value="add information page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add information page" />
   </component>
 </project>
