@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/style.css";
+import { FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 
 export default function Cart() {
@@ -27,57 +28,47 @@ export default function Cart() {
       });
   }, [userId]);
 
-  // Xử lý khi người dùng nhập số lượng
   const handleQuantityChange = (event, index) => {
     const inputQuantity = event.target.value;
-    // Chuyển đổi input thành số nguyên và đảm bảo nó không nhỏ hơn 1
     const newQuantity = Math.max(1, parseInt(inputQuantity, 10));
-
-    // Cập nhật số lượng của sản phẩm trong giỏ hàng
+  
+    const productId = cartItems[index].product.id; // Lấy productId từ cartItem
+  
     const updatedCartItems = [...cartItems];
     updatedCartItems[index].quantity = newQuantity;
     setCartItems(updatedCartItems);
-  };
-
-  const handleRemoveFromCart = (userId, productId) => {
-    // Tạo object tương ứng với dữ liệu của cartItemRequest trong backend
-    const cartItemRequest = {
-      cart: {
-        user: {
-          id: userId // Sử dụng userId như là id của người dùng
-        }
-      },
-      product: {
-        id: productId // Sử dụng productId như là id của sản phẩm
-      }
-    };
   
-    fetch(`http://localhost:8080/carts/remove`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(cartItemRequest)
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Lỗi khi xóa sản phẩm khỏi giỏ hàng");
+    // Lưu thông tin giỏ hàng vào localStorage
+    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+  
+    // Gọi API để cập nhật số lượng sản phẩm trong giỏ hàng
+    axios.put(`http://localhost:8080/carts/${userId}/${productId}`, { quantity: newQuantity })
+      .then(response => {
+        if (response.status !== 200) {
+          console.error('Lỗi từ server:', response.data);
         }
-        // Nếu xóa thành công, không cần response body, trả về Promise.resolve()
-        return Promise.resolve();
       })
-      .then(() => {
-        // Sau khi xóa thành công, cập nhật lại danh sách giỏ hàng
-        // Gọi API để lấy danh sách giỏ hàng mới sau khi xóa
-        return fetch(`http://localhost:8080/carts/${userId}`);
+      .catch(error => {
+        console.error('Lỗi khi cập nhật số lượng sản phẩm:', error);
+      });
+  };
+  
+  const handleRemoveFromCart = (cartItem) => {
+    axios.delete(`http://localhost:8080/carts`, {
+      data: cartItem // Truyền dữ liệu cartItem trực tiếp qua body của yêu cầu
+    })
+      .then(response => {
+        if (response.status === 200) {
+          // Nếu xóa thành công, cập nhật lại danh sách giỏ hàng
+          setCartItems(cartItems.filter(item => item.product.id !== cartItem.product.id));
+        } else {
+          // Nếu có lỗi từ server, hiển thị thông báo lỗi
+          console.error('Lỗi từ server:', response.data);
+        }
       })
-      .then((response) => response.json())
-      .then((data) => {
-        // Cập nhật lại danh sách giỏ hàng
-        setCartItems(data);
-      })
-      .catch((error) => {
-        console.error(error.message);
+      .catch(error => {
+        // Xử lý lỗi nếu có lỗi trong quá trình gửi yêu cầu hoặc nhận phản hồi
+        console.error('Lỗi khi xóa sản phẩm khỏi giỏ hàng:', error);
       });
   };
   
@@ -138,7 +129,7 @@ export default function Cart() {
                           </div>
                         </td>
                         <td>{item.product.price * item.quantity}.000 VNĐ</td>
-                        <td><button className="btn btn-black btn-sm" onClick={() => handleRemoveFromCart(item.cart.user.id, item.product.id)}>X</button></td>
+                        <td><FaTrash onClick={() => handleRemoveFromCart(item)}></FaTrash></td>
                       </tr>
                     ))
                   ) : (
