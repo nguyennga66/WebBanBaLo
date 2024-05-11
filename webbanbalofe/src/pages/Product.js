@@ -12,24 +12,30 @@ export default function Product() {
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(10);
     const [totalPages, setTotalPages] = useState(0);
+    const [isOpen, setIsOpen] = useState(false);
 
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const handleSortChange = (sortType) => {
+        if (sortType === 'asc') {
+            fetchProducts('asc');
+        } else {
+            fetchProducts('desc');
+        }
+        setIsOpen(false); // Đóng dropdown sau khi chọn
+    };
 
     // Gọi API tìm kiếm khi searchQuery thay đổi
-    // Gọi API lấy sản phẩm theo trang và tìm kiếm
-    const fetchProducts = async () => {
+    const fetchProducts = async (sort = 'asc') => {
         try {
-            // URL gọi API với tham số page và size
-            let url = `http://localhost:8080/products?page=${page}&size=${size}`;
-            
-            // Nếu có tìm kiếm, thêm vào URL
+            let url = `http://localhost:8080/products/sort?sort=${sort}&page=${page}&size=${size}`;
             if (searchQuery) {
                 url += `&query=${encodeURIComponent(searchQuery)}`;
             }
-            
             const response = await fetch(url);
             const data = await response.json();
-
-            // Cập nhật state
             setProducts(data.content);
             setTotalPages(data.totalPages);
         } catch (error) {
@@ -41,7 +47,6 @@ export default function Product() {
     useEffect(() => {
         fetchProducts();
     }, [page, size, searchQuery]);
-    
 
     // Gọi API để lấy danh mục sản phẩm
     useEffect(() => {
@@ -70,7 +75,6 @@ export default function Product() {
                 `http://localhost:8080/products/category/${categoryId}?page=${page}&size=${size}`
             );
             const data = await response.json();
-    
             // Cập nhật state
             setProducts(data.content);
             setTotalPages(data.totalPages);
@@ -79,8 +83,8 @@ export default function Product() {
         }
     };
 
-     // Xử lý chuyển trang
-     const handlePageChange = (newPage) => {
+    // Xử lý chuyển trang
+    const handlePageChange = (newPage) => {
         setPage(newPage);
     };
 
@@ -107,22 +111,25 @@ export default function Product() {
                             <div className="categories-section">
                                 <h4 className="categories-title" style={{ textAlign: 'left' }}>Danh mục sản phẩm</h4>
                                 <ul className="categories-list list-unstyled" style={{ textAlign: 'left' }}>
-    {categories.map((category) => (
-        <li key={category.id} className="category-item" >
-            {/* Thay button bằng span */}
-            <span
-                className="category-link"
-                onClick={() => handleCategoryClick(category.id)} // Sử dụng hàm xử lý sự kiện nhấp chuột
-                style={{ cursor: 'pointer' }} // Đặt con trỏ chuột thành dạng pointer
-            >
-                <span className="category-icon">&#x1F4E6;</span>
-                <span className="category-name">{category.nameC}</span>
-            </span>
-        </li>
-    ))}
-</ul>
-
-
+                                {categories.map((category) => (
+                                    <li key={category.id} className="category-item" >
+                                        <span
+                                            className="category-link"
+                                            onClick={() => handleCategoryClick(category.id)} // Sử dụng hàm xử lý sự kiện nhấp chuột
+                                            style={{ cursor: 'pointer' }} // Đặt con trỏ chuột thành dạng pointer
+                                        >
+                                            <span className="category-icon">&#x1F4E6;</span>
+                                            <span className="category-name">{category.nameC}</span>
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                            </div>
+                            <div class="border-bottom mb-4 pb-4">
+                                <h5 class="font-weight-semi-bold mb-4">Lọc sản phẩm theo giá</h5>
+                                <form>
+                                    {/* Form lọc sản phẩm theo giá */}
+                                </form>
                             </div>
                         </div>
 
@@ -130,17 +137,35 @@ export default function Product() {
                         {/* Cột chứa danh sách sản phẩm */}
                         <div className="col-lg-9">
                             {/* Thanh tìm kiếm */}
-                            <div className="search-bar d-flex align-items-center mb-3">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Tìm kiếm sản phẩm..."
-                                    value={searchQuery}
-                                    onChange={handleSearchChange}
-                                    style={{ width: '300px', marginRight: '10px' }}
-                                />
-                                {/* Biểu tượng tìm kiếm */}
-                                <FaSearch style={{ color: 'black', cursor: 'pointer' }} />
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <form action="">
+                                    <div class="input-group">
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Tìm kiếm sản phẩm..."
+                                            value={searchQuery}
+                                            onChange={handleSearchChange}
+                                            style={{ width: '300px', marginRight: '10px' }}
+                                        />
+                                        <div class="input-group-append">
+                                            <span class="input-group-text bg-transparent text-primary">
+                                                <FaSearch />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div className="dropdown ml-4">
+                                    <button className="btn border dropdown-toggle" type="button" id="triggerId" onClick={toggleDropdown} aria-haspopup="true" aria-expanded={isOpen ? "true" : "false"}>
+                                        Sắp xếp theo
+                                    </button>
+                                    {isOpen && (
+                                        <div className="dropdown-content" aria-labelledby="triggerId">
+                                            <a className="dropdown-item" href="#" onClick={() => handleSortChange('asc')}>Giá tăng dần</a>
+                                            <a className="dropdown-item" href="#" onClick={() => handleSortChange('desc')}>Giá giảm dần</a>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                             <br></br>
                             <div className="row">

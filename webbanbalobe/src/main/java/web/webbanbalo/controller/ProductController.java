@@ -2,6 +2,7 @@ package web.webbanbalo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,6 +56,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body("Product created successfully with ID: " + addedProd.getId());
     }
+
     @GetMapping("/products")
     public Page<Product> getProducts(Pageable pageable) {
         // Trả về danh sách sản phẩm phân trang
@@ -119,5 +121,28 @@ public class ProductController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<Page<Product>> searchProducts(
+            @RequestParam(defaultValue = "") String query,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Page<Product> products = productRepository.findByNamePContainingIgnoreCase(query, PageRequest.of(page, size));
+        return ResponseEntity.ok(products);
+    }
 
+    @GetMapping("/products/sort")
+    public ResponseEntity<Page<Product>> getProductsSortedByPrice(
+            @RequestParam(defaultValue = "asc") String sort,
+            Pageable pageable
+    ) {
+        Page<Product> products;
+        if (sort.equals("asc")) {
+            products = productRepository.findAllByOrderByPriceAsc(pageable);
+        } else {
+            products = productRepository.findAllByOrderByPriceDesc(pageable);
+        }
+        return ResponseEntity.ok(products);
+    }
 }
+
