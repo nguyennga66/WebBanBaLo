@@ -101,7 +101,7 @@ const handleLogout = () => {
                               {
                                 <>
                                 <NavLink to="/information">Trang cá nhân</NavLink>
-                                <a href="#" onClick={handleLogout}>Đăng xuất</a>
+                                <NavLink to="#" onClick={handleLogout}>Đăng xuất</NavLink>
                                 </>
                               }
                           </div>
