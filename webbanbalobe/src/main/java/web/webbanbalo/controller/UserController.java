@@ -20,6 +20,12 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
+    @GetMapping("/{userId}")
+    public User getUserById(@PathVariable int userId) {
+        User user = userRepository.findById(userId).get();
+        return user;
+    }
+
     @PutMapping("/{userId}")
     public ResponseEntity<User> updateUser(
             @PathVariable int userId,
