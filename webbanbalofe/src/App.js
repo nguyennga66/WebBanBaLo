@@ -17,6 +17,7 @@ import Contact from './pages/Contact'
 import Signin from './pages/Signin';
 import Register from './pages/Register';
 import Information from './pages/Information';
+import FormEditProfile from './Component/FormEditProfile';
 
 function App() {
   return (
@@ -33,7 +34,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/register" element={<Register />} />
-        <Route path="information" element={<Information />} />
+        <Route path="/information/:userId" element={<Information />} />
+        <Route path="/editform" element={<FormEditProfile />} />
       </Routes>
       <Footer />
       </BrowserRouter>

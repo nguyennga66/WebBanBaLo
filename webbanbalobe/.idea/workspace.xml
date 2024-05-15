@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="">
+
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/css/information.css" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/information.css" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +192,7 @@
       <created>1713236082467</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+
       <updated>1713236082467</updated>
       <workItem from="1713236083020" duration="275000" />
       <workItem from="1713270112063" duration="1825000" />
@@ -220,6 +226,7 @@
       <workItem from="1714460989065" duration="5787000" />
       <workItem from="1714467481174" duration="948000" />
       <workItem from="1714491610398" duration="4635000" />
+
     </task>
     <servers />
   </component>
