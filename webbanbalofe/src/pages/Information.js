@@ -1,48 +1,67 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import FormEditProfile from '../Component/FormEditProfile';
+import axios from 'axios';
 import { NavLink } from "react-router-dom";
 import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/style.css";
-import "../css/information.css"
-import axios from 'axios';
+import "../css/information.css";
 
-export default function Information(){
+export default function Information() {
+    const [tab, setTab] = useState('personal'); 
     const [fullName, setFullName] = useState("");
-    const [address, setAdress] = useState("");
+    const [address, setAddress] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [showEditForm, setShowEditForm] = useState(false);
+    const { userId } = useParams();
 
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (user) {
-          setIsLoggedIn(true);
-          setFullName(user.fullName);
-          setAdress(user.address);
-          setEmail(user.email);
-          setPhone(user.phone);
-          console.log("useEffect is called");
-    
-        }
-    
-      }, []);
+        const fetchUserData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/users/${userId}`);
+                const userData = response.data;
+                setFullName(userData.fullName);
+                setAddress(userData.address);
+                setEmail(userData.email);
+                setPhone(userData.phone);
+                setIsLoggedIn(true);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        };
 
-      const handleLogout = () => {
-        localStorage.removeItem('user'); // Xóa thông tin người dùng khỏi localStorage
-        setIsLoggedIn(false); // Cập nhật trạng thái đăng nhập
-        setFullName(''); // Xóa tên người dùng hiển thị
-      };
+        fetchUserData();
+    }, [userId]);
+
+    const handleLogout = () => {
+        localStorage.removeItem('user'); 
+        setIsLoggedIn(false); 
+        setFullName('');
+    };
+
+    const handleEditProfile = () => {
+        setShowEditForm(true);
+    };
+
+    const handleUpdateSuccess = (updatedUserData) => {
+        setShowEditForm(false);
+        setFullName(updatedUserData.fullName);
+        setAddress(updatedUserData.address);
+        setEmail(updatedUserData.email);
+        setPhone(updatedUserData.phone);
+    };
+
     return (
         <div className="main-wrapper">
-
             {/* Main Content */}
             <div className="main-content-wrap section-ptb my-account-page" style={{ padding: '30px 0' }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            {/* Account Dashboard */}
                             <div className="account-dashboard">
-                                {/* Dashboard Upper Info */}
                                 <div className="dashboard-upper-info">
                                     <div className="row align-items-center no-gutters">
                                         <div className="col-lg-3 col-md-12">
@@ -53,84 +72,64 @@ export default function Information(){
                                     </div>
                                 </div>
 
-                                {/* Dashboard Navigation */}
                                 <div className="row">
                                     <div className="col-md-12 col-lg-2">
-                                        {/* Nav tabs */}
                                         <ul role="tablist" className="nav flex-column dashboard-list" style={{ textAlign: 'left' }}>
-                                            <NavLink to="#account-details" data-bs-toggle="tab" className="nav-link" >Thông tin cá nhân</NavLink>
-                                            <NavLink to="#orders" data-bs-toggle="tab" className="nav-link">Đơn hàng</NavLink>
-                                            <NavLink to="/change_pass" className="nav-link">Thay đổi mật khẩu</NavLink>
-                                            <NavLink to="#" onClick={handleLogout}>Đăng xuất</NavLink>
+                                            <li className={`nav-item ${tab === 'personal' ? 'active' : ''}`}>
+                                                <a className="nav-link" onClick={() => setTab('personal')}>Thông tin cá nhân</a>
+                                            </li>
+                                            <li className={`nav-item ${tab === 'orders' ? 'active' : ''}`}>
+                                                <a className="nav-link" onClick={() => setTab('orders')}>Đơn hàng</a>
+                                            </li>
+                                            <li className="nav-item">
+                                                <NavLink to="/change_pass" className="nav-link">Thay đổi mật khẩu</NavLink>
+                                            </li>
+                                            <li className="nav-item">
+                                                <a className="nav-link" onClick={handleLogout}>Đăng xuất</a>
+                                            </li>
                                         </ul>
                                     </div>
 
                                     <div className="col-md-12 col-lg-10">
                                         <div className="tab-content dashboard-content">
-                                        <div className="tab-pane active" id="dashboard">
-    <div className="row">
-            <h4><b>Thông tin cá nhân <span className="sp111" style={{ textAlign: 'center' }}></span></b></h4>
-            <br />
-            <div className="col-md-4">
-            <p style={{ textAlign: 'left' }}>Họ và tên: {fullName}</p>
-            <p style={{ textAlign: 'left' }}>Email: {email}</p>
-            </div>
-            <div className="col-md-8">
-            <p style={{ textAlign: 'left' }}>Số điện thoại: {phone}</p>
-            <p style={{ textAlign: 'left' }}>Địa chỉ: {address}</p>
-        </div>
-       
-    </div>
-    <div className="table-responsive d222">
-    <h4><b>Đơn hàng<span className="sp111" style={{ textAlign: 'center' }}></span></b></h4>
-        <table className="table">
-            {/* <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Recipient</th>
-                    <th>Order Date</th>
-                    <th>Status</th>
-                    <th>Total</th>
-                    <th>Details</th>
-                    <th>Action</th>
-                </tr>
-            </thead> */}
-            {/* <tbody> */}
-                {/* {donHang.map(dh => (
-                    <tr key={dh.idOrder}>
-                        <td>{dh.idOrder}</td>
-                        <td>{dh.nameRecipient}</td>
-                        <td>{dh.dateOrder}</td>
-                        {dh.status === '1' ? (
-                            <td>Browse</td>
-                        ) : (
-                            <td>Not yet</td>
-                        )}
-                        <td>{dh.totalMoney}00 đ</td>
-                        <td>
-                            <a href={`/product/DetailOder?maDH=${dh.idOrder}`} className="view">
-                                See
-                            </a>
-                        </td>
-                        <td>
-                            {dh.status === '1' && (
-                                <a href={`/product/DetailOder?maDH=${dh.idOrder}`} className="view">
-                                    Confirm
-                                </a>
-                            )}
-                            {dh.status === '0' && (
-                                <a href={`/product/DetailOder?maDH=${dh.idOrder}`} style={{ backgroundColor: "red" }} className="view">
-                                    Cancel
-                                </a>
-                            )}
-                        </td>
-                    </tr>
-                ))}
-            </tbody> */}
-        </table>
-    </div>
-</div>
+                                            {tab === 'personal' && (
+                                                <div className="tab-pane active" id="dashboard">
+                                                    <div className="row">
+                                                        <h4><b>Thông tin cá nhân <span className="sp111" style={{ textAlign: 'center' }}></span></b></h4>
+                                                        <br />
+                                                        <br />
+                                                        {showEditForm ? (
+                                                            <FormEditProfile
+                                                                userId={userId}
+                                                                fullName={fullName}
+                                                                address={address}
+                                                                email={email}
+                                                                phone={phone}
+                                                                onUpdateSuccess={handleUpdateSuccess}
+                                                            />
+                                                        ) : (
+                                                            <div className="col-md-12">
+                                                                <p style={{ textAlign: 'left' }}>Họ và tên: {fullName}</p>
+                                                                <p style={{ textAlign: 'left' }}>Email: {email}</p>
+                                                                <p style={{ textAlign: 'left' }}>Số điện thoại: {phone}</p>
+                                                                <p style={{ textAlign: 'left' }}>Địa chỉ: {address}</p>
+                                                                <button className="btn btn-primary" onClick={handleEditProfile}>Sửa hồ sơ</button>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            )}
 
+                                            {tab === 'orders' && (
+                                                <div className="tab-pane active" id="dashboard">
+                                                    <div className="table-responsive d222">
+                                                        <h4><b>Đơn hàng<span className="sp111" style={{ textAlign: 'center' }}></span></b></h4>
+                                                        <table className="table">
+                                                            {/* Dữ liệu đơn hàng */}
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
