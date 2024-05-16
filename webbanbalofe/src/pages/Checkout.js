@@ -1,10 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { NavLink } from "react-router-dom";
 import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/style.css";
-import { NavLink } from "react-router-dom";
 
 export default function Checkout() {
+    const userId = JSON.parse(localStorage.getItem('user')).id;
+    // const [userId, setUserId] = useState("");
+    // Lấy thông tin hóa đơn từ localStorage
+    const invoice = JSON.parse(localStorage.getItem("invoice"));
+
+    const [formData, setFormData] = useState({
+        companyName: "",
+        address: "",
+        email: "",
+        phone: "",
+        orderNotes: "",
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleCheckout = () => {
+        const data = {
+            ...formData,
+            cart: { user: { id: userId } }, // Sử dụng ID của người dùng đăng nhập
+            total: invoice.total,
+            grandTotal: invoice.grandTotal
+        };
+
+        axios.post("http://localhost:8080/createBill", data)
+            .then((response) => {
+                console.log(response.data);
+                // Xoá giỏ hàng từ localStorage trước khi chuyển hướng trang
+                localStorage.removeItem("cartItems");
+                // Chuyển hướng qua trang ThankYou sau khi thanh toán thành công
+                window.location.href = '/thankyou';
+            })
+            .catch((error) => {
+                console.error("Error creating BillDetail:", error);
+                // Xử lý lỗi
+            });
+    };
   return (
     <div>
       <div className="hero">
@@ -29,44 +69,84 @@ export default function Checkout() {
                 <div className="form-group row">
                   <div className="col-md-12" style={{ textAlign: 'left' }}>
                     <label htmlFor="c_companyname" className="text-black">Họ và tên </label>
-                    <input type="text" className="form-control" id="c_companyname" name="c_companyname" placeholder="Nhập họ và tên của bạn"/>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="c_companyname"
+                      name="companyName"
+                      placeholder="Nhập họ và tên của bạn"
+                      value={formData.companyName}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </div>
                 <br></br>
 
                 <div className="form-group row">
-                  <div className="col-md-12" style={{ textAlign: 'left' }}>
+                  <div className="col-md-12" style={{ textAlign: "left" }}>
                     <label htmlFor="c_address" className="text-black">
                       Địa chỉ <span className="text-danger">*</span>
                     </label>
-                    <input type="text" className="form-control" id="c_address" name="c_address" placeholder="Nhập địa chỉ của bạn" />
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="c_address"
+                      name="address"
+                      placeholder="Nhập địa chỉ của bạn"
+                      value={formData.address}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </div>
-                <br></br>
 
                 <div className="form-group row">
-                  <div className="col-md-12" style={{ textAlign: 'left' }}>
-                    <label htmlFor="c_address" className="text-black">
+                  <div className="col-md-12" style={{ textAlign: "left" }}>
+                    <label htmlFor="c_email" className="text-black">
                       Email <span className="text-danger">*</span>
                     </label>
-                    <input type="text" className="form-control" id="c_address" name="c_address" placeholder="Nhập địa chỉ email của bạn" />
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="c_email"
+                      name="email"
+                      placeholder="Nhập địa chỉ email của bạn"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </div>
-                <br></br>
 
                 <div className="form-group row">
-                  <div className="col-md-12" style={{ textAlign: 'left' }}>
-                    <label htmlFor="c_address" className="text-black">
+                  <div className="col-md-12" style={{ textAlign: "left" }}>
+                    <label htmlFor="c_phone" className="text-black">
                       Số điện thoại <span className="text-danger">*</span>
                     </label>
-                    <input type="text" className="form-control" id="c_address" name="c_address" placeholder="Nhập số điện thoại của bạn" />
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="c_phone"
+                      name="phone"
+                      placeholder="Nhập số điện thoại của bạn"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </div>
-                <br></br>
 
-                <div className="form-group" style={{ textAlign: 'left' }}>
-                  <label htmlFor="c_order_notes" className="text-black">Ghi chú</label>
-                  <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" className="form-control" placeholder="Nhập ghi chú của bạn"></textarea>
+                <div className="form-group" style={{ textAlign: "left" }}>
+                  <label htmlFor="c_order_notes" className="text-black">
+                    Ghi chú
+                  </label>
+                  <textarea
+                    name="orderNotes"
+                    id="c_order_notes"
+                    cols="30"
+                    rows="5"
+                    className="form-control"
+                    placeholder="Nhập ghi chú của bạn"
+                    value={formData.orderNotes}
+                    onChange={handleInputChange}
+                  ></textarea>
                 </div>
 
               </div>
@@ -98,31 +178,29 @@ export default function Checkout() {
                         <th>Tổng</th>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Top Up T-Shirt <strong className="mx-2">x</strong> 1</td>
-                          <td>$250.00</td>
-                        </tr>
-                        <tr>
-                          <td>Polo Shirt <strong className="mx-2">x</strong> 1</td>
-                          <td>$100.00</td>
-                        </tr>
+                        {invoice.cartItems.map((item, index) => (
+                          <tr key={index}>
+                            <td>{item.product.nameP} <strong className="mx-2">x</strong> {item.quantity}</td>
+                            <td>{item.product.price * item.quantity}.000 VNĐ</td>
+                          </tr>
+                        ))}
                         <tr>
                           <td className="text-black font-weight-bold"><strong>Tổng tiền hàng</strong></td>
-                          <td className="text-black">$350.00</td>
+                          <td className="text-black">{invoice.total}.000 VNĐ</td>
                         </tr>
                         <tr>
                           <td className="text-black font-weight-bold"><strong>Phí vận chuyển</strong></td>
-                          <td className="text-black">$20</td>
+                          <td className="text-black">20.000 VNĐ</td>
                         </tr>
                         <tr>
                           <td className="text-black font-weight-bold"><strong>Tổng thanh toán</strong></td>
-                          <td className="text-black font-weight-bold"><strong>$350.00</strong></td>
+                          <td className="text-black font-weight-bold">{invoice.grandTotal}.000 VNĐ</td>
                         </tr>
                       </tbody>
                     </table>
 
                     <div className="form-group">
-                      <button className="btn btn-black btn-lg py-3 btn-block" onClick={() => window.location='/thankyou'}>Thanh Toán</button>
+                      <button className="btn btn-black btn-lg py-3 btn-block" onClick={handleCheckout}>Thanh Toán</button>
                     </div>
 
                   </div>
