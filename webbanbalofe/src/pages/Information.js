@@ -16,6 +16,10 @@ export default function Information() {
     const [phone, setPhone] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showEditForm, setShowEditForm] = useState(false);
+    const [oldPassword, setOldPassword] = useState("");
+    const [newPassword, setNewPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [passwordChangeMessage, setPasswordChangeMessage] = useState("");
     const { userId } = useParams();
 
     useEffect(() => {
@@ -54,6 +58,33 @@ export default function Information() {
         setPhone(updatedUserData.phone);
     };
 
+    const handlePasswordChange = async () => {
+        if (newPassword !== confirmPassword) {
+            setPasswordChangeMessage("Mật khẩu mới và xác nhận mật khẩu không khớp");
+            return;
+        }
+    
+        try {
+            const response = await axios.put(`http://localhost:8080/users/pass/${userId}`, {
+                oldPassword: oldPassword,
+                newPassword: newPassword
+            });
+            if (response.status === 200) {
+                setPasswordChangeMessage("Thay đổi mật khẩu thành công");
+            } else {
+                setPasswordChangeMessage("Mật khẩu cũ không đúng");
+            }
+        } catch (error) {
+            if (error.response && error.response.status === 401) {
+                setPasswordChangeMessage("Mật khẩu cũ không đúng");
+            } else {
+                setPasswordChangeMessage("Có lỗi xảy ra, vui lòng thử lại");
+            }
+        }
+        window.location.href = `/information/${userId}`;
+    };
+        
+
     return (
         <div className="main-wrapper">
             {/* Main Content */}
@@ -76,16 +107,16 @@ export default function Information() {
                                     <div className="col-md-12 col-lg-2">
                                         <ul role="tablist" className="nav flex-column dashboard-list" style={{ textAlign: 'left' }}>
                                             <li className={`nav-item ${tab === 'personal' ? 'active' : ''}`}>
-                                                <a className="nav-link" onClick={() => setTab('personal')}>Thông tin cá nhân</a>
+                                                <NavLink className="nav-link" onClick={() => setTab('personal')}>Thông tin cá nhân</NavLink>
                                             </li>
                                             <li className={`nav-item ${tab === 'orders' ? 'active' : ''}`}>
-                                                <a className="nav-link" onClick={() => setTab('orders')}>Đơn hàng</a>
+                                                <NavLink className="nav-link" onClick={() => setTab('orders')}>Đơn hàng</NavLink>
+                                            </li>
+                                            <li className={`nav-item ${tab === 'changePass' ? 'active' : ''}`}>
+                                                <NavLink className="nav-link" onClick={() => setTab('changePass')}>Thay đổi mật khẩu</NavLink>
                                             </li>
                                             <li className="nav-item">
-                                                <NavLink to="/change_pass" className="nav-link">Thay đổi mật khẩu</NavLink>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a className="nav-link" onClick={handleLogout}>Đăng xuất</a>
+                                                <NavLink className="nav-link" onClick={handleLogout}>Đăng xuất</NavLink>
                                             </li>
                                         </ul>
                                     </div>
@@ -128,6 +159,58 @@ export default function Information() {
                                                             {/* Dữ liệu đơn hàng */}
                                                         </table>
                                                     </div>
+                                                </div>
+                                            )}
+
+{tab === 'changePass' && (
+                                                <div className="tab-pane active" id="dashboard">
+                                                    <div className="row">
+                                                        <h4><b>Thay đổi mật khẩu <span className="sp111" style={{ textAlign: 'center' }}></span></b></h4>
+                                                        <br />
+                                                        <br />
+                                                        <div className="row justify-content-center">
+                                                        <div className="col-md-6">
+                                                            <form>
+                                                                <div className="form-group" style={{ textAlign: 'left' }}>
+                                                                    <label htmlFor="oldPassword">Mật khẩu cũ</label>
+                                                                    <input
+                                                                        type="password"
+                                                                        className="form-control"
+                                                                        id="oldPassword"
+                                                                        value={oldPassword}
+                                                                        onChange={(e) => setOldPassword(e.target.value)}
+                                                                    />
+                                                                </div>
+                                                                <div className="form-group" style={{ textAlign: 'left' }}>
+                                                                    <label htmlFor="newPassword">Mật khẩu mới</label>
+                                                                    <input
+                                                                        type="password"
+                                                                        className="form-control"
+                                                                        id="newPassword"
+                                                                        value={newPassword}
+                                                                        onChange={(e) => setNewPassword(e.target.value)}
+                                                                    />
+                                                                </div>
+                                                                <div className="form-group" style={{ textAlign: 'left' }}>
+                                                                    <label htmlFor="confirmPassword">Xác nhận mật khẩu mới</label>
+                                                                    <input
+                                                                        type="password"
+                                                                        className="form-control"
+                                                                        id="confirmPassword"
+                                                                        value={confirmPassword}
+                                                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                                                    />
+                                                                </div>
+                                                                {passwordChangeMessage && (
+                                                                    <div className="alert alert-danger" role="alert">
+                                                                        {passwordChangeMessage}
+                                                                    </div>
+                                                                )}
+                                                                <button type="button" className="btn btn-primary" onClick={handlePasswordChange}>Lưu</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 </div>
                                             )}
                                         </div>

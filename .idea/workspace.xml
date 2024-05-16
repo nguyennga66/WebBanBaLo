@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="back-end: get user by id">
+    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="back-end: change password">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_9_16_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_9_16_PM_[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_16_2024_9_16_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/Component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/css/information.css" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/css/information.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Information.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Information.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +24,20 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "nganguyen2022"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="029d9bbb-3181-45e2-9599-3df60d1f5891" />
+        <option name="url" value="https://github.com/nguyennga66/WebBanBaLo.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -287,7 +300,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715785791353</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="back-end: cập nhật chức năng update infor for user">
+      <option name="closed" value="true" />
+      <created>1715870400010</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1715870400010</updated>
+    </task>
+    <task id="LOCAL-00020" summary="back-end: change password">
+      <option name="closed" value="true" />
+      <created>1715879727814</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1715879727814</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +353,8 @@
     <MESSAGE value="update a few pages" />
     <MESSAGE value="back-end: update personal information" />
     <MESSAGE value="back-end: get user by id" />
-    <option name="LAST_COMMIT_MESSAGE" value="back-end: get user by id" />
+    <MESSAGE value="back-end: cập nhật chức năng update infor for user" />
+    <MESSAGE value="back-end: change password" />
+    <option name="LAST_COMMIT_MESSAGE" value="back-end: change password" />
   </component>
 </project>
