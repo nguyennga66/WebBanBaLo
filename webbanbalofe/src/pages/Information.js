@@ -41,9 +41,16 @@ export default function Information() {
     }, [userId]);
 
     const handleLogout = () => {
-        localStorage.removeItem('user'); 
-        setIsLoggedIn(false); 
-        setFullName('');
+        // Xóa tất cả thông tin liên quan đến người dùng từ localStorage
+        localStorage.removeItem('user');
+        localStorage.removeItem('authToken');
+        // Nếu bạn lưu các thông tin khác, hãy xóa chúng tại đây
+
+        // Cập nhật trạng thái đăng nhập
+        setIsLoggedIn(false);
+
+        // Điều hướng người dùng về trang đăng nhập
+        window.location.href = '/signin';
     };
 
     const handleEditProfile = () => {
