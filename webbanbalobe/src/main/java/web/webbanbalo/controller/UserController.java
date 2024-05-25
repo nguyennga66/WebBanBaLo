@@ -7,9 +7,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import web.webbanbalo.entity.User;
 import web.webbanbalo.repository.UserRepository;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -20,6 +23,8 @@ public class UserController {
     private final UserRepository userRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    private JavaMailSender mailSender;
 
     @Autowired
     public UserController(UserRepository userRepository) {
@@ -104,5 +109,52 @@ public class UserController {
             System.err.println("Lỗi khi thay đổi mật khẩu: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
+    }
+
+    @PostMapping("/forgot-password/{userId}")
+    public ResponseEntity<String> processForgotPassword(@PathVariable int userId) {
+        User user = userRepository.findById(userId).orElse(null);
+        if (user != null) {
+            String token = generateUniqueToken(); // Hàm này để tạo token duy nhất
+            user.setResetToken(token);
+            userRepository.save(user);
+
+            String resetLink = "/users/reset-password?token=" + token;
+            sendEmail(user.getEmail(), "Reset Your Password",
+                    "Please click on the following link to reset your password: " + resetLink);
+
+            return ResponseEntity.ok("Reset password email sent successfully.");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found.");
+        }
+    }
+
+    @PostMapping("/reset-password/{userId}")
+    public ResponseEntity<String> processResetPassword(@PathVariable int userId, @RequestBody Map<String, String> request) {
+        String token = request.get("token");
+        String newPassword = request.get("password");
+
+        User user = userRepository.findById(userId).orElse(null);
+        if (user == null || !token.equals(user.getResetToken())) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid or expired token.");
+        }
+
+        user.setPassword(passwordEncoder.encode(newPassword));
+        user.setResetToken(null);
+        userRepository.save(user);
+
+        return ResponseEntity.ok("Password reset successfully.");
+    }
+
+    public String generateUniqueToken() {
+        return UUID.randomUUID().toString();
+    }
+
+    private void sendEmail(String to, String subject, String text) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(to);
+        message.setSubject(subject);
+        message.setText(text);
+        mailSender.send(message);
     }
 }
