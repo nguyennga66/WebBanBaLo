@@ -18,7 +18,6 @@ import Signin from './pages/Signin';
 import Register from './pages/Register';
 import Information from './pages/Information';
 import OrderPage from './pages/OrderPage';
-import OrderDetails from './pages/OrderDetails';
 function App() {
   return (
       <>
@@ -35,7 +34,6 @@ function App() {
         <Route path="/signin" element={<Signin />} />
         <Route path="/register" element={<Register />} />
         <Route path="information" element={<Information />} />
-        <Route path="/order/:orderId" element={<OrderDetails />} />
         <Route path="/orders" element={<OrderPage />} />
       </Routes>
       <Footer />

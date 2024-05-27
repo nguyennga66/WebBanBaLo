@@ -8,7 +8,7 @@ public class BillDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String companyName;
+    private String fullName;
     private String address;
     private String email;
     private String phone;
@@ -26,8 +26,8 @@ public class BillDetail {
     public BillDetail() {
     }
 
-    public BillDetail(String companyName, String address, String email, String phone, String orderNotes, Cart cart, int total, int shippingFee, int grandTotal) {
-        this.companyName = companyName;
+    public BillDetail(String fullName, String address, String email, String phone, String orderNotes, Cart cart, int total, int shippingFee, int grandTotal) {
+        this.fullName = fullName;
         this.address = address;
         this.email = email;
         this.phone = phone;
@@ -42,7 +42,7 @@ public class BillDetail {
     public String toString() {
         return "BillDetail{" +
                 "id=" + id +
-                ", companyName='" + companyName + '\'' +
+                ", companyName='" + fullName + '\'' +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
@@ -62,12 +62,12 @@ public class BillDetail {
         this.id = id;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getAddress() {

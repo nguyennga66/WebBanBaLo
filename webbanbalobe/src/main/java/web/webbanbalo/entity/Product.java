@@ -97,6 +97,7 @@ public class Product {
         this.category = category;
     }
 
+
     @Override
     public String toString() {
         return "Product{" +
