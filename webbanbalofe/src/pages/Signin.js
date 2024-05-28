@@ -4,6 +4,7 @@ import "../css/tiny-slider.css";
 import "../css/signin.css";
 import "../css/font-awesome.css";
 import axios from 'axios';
+import { NavLink } from "react-router-dom";
 
 import { useNavigate } from 'react-router-dom';
 
@@ -38,7 +39,7 @@ export default function Signin() {
     }
   };  
 
-  return (
+    return (
     <div data-vide-bg="video/keyboard">
       <div className="main-container">
         {/* Header */}
@@ -72,7 +73,7 @@ export default function Signin() {
               <span className="icon2"><i className="fa fa-unlock-alt" aria-hidden="true"></i></span>
               <div className="checkbox-w3">
                 <span className="check-w3"><input type="checkbox" />Lưu tài khoản</span>
-                <a href="#">Quên mật khẩu?</a>
+                <NavLink to="/forgot">Quên mật khẩu?</NavLink>
                 <div className="clear"></div>
               </div>
               {error && <p style={{ color: 'red' }}>{error}</p>}

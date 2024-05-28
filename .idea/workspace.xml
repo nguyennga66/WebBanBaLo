@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="front-end: update Information.js page">
+    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="back-end: update forgot password">
       <change afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/Home.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/ResetPass.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Signin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +157,8 @@
       <workItem from="1715533102849" duration="355000" />
       <workItem from="1715785133344" duration="1264000" />
       <workItem from="1716394628116" duration="1403000" />
+      <workItem from="1716644217020" duration="656000" />
+      <workItem from="1716869881086" duration="1215000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -331,7 +336,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716394805295</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="back-end: forgot password">
+      <option name="closed" value="true" />
+      <created>1716644261898</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1716644261898</updated>
+    </task>
+    <task id="LOCAL-00024" summary="back-end: update forgot password">
+      <option name="closed" value="true" />
+      <created>1716877981924</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1716877981924</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,6 +393,8 @@
     <MESSAGE value="back-end: change password" />
     <MESSAGE value="front-end: change password" />
     <MESSAGE value="front-end: update Information.js page" />
-    <option name="LAST_COMMIT_MESSAGE" value="front-end: update Information.js page" />
+    <MESSAGE value="back-end: forgot password" />
+    <MESSAGE value="back-end: update forgot password" />
+    <option name="LAST_COMMIT_MESSAGE" value="back-end: update forgot password" />
   </component>
 </project>

@@ -114,8 +114,8 @@ public class UserController {
     public ResponseEntity<String> processForgotPassword(@RequestBody Map<String, String> objEmail) {
         String email = objEmail.get("email");
         User user = userRepository.findByEmail(email);
-        if (user != null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Email not found");
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Email không tồn tại trong hệ thống");
         }
         String newPass = generatePass();
         user.setPassword(bCryptPasswordEncoder.encode(newPass));
@@ -158,8 +158,8 @@ public class UserController {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(username));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-            message.setSubject("Password Reset");
-            message.setText("Your new password is: " + newPass);
+            message.setSubject("Cấp lại mật khẩu");
+            message.setText("Mật khẩu mới của bạn là: " + newPass);
 
             Transport.send(message);
 
