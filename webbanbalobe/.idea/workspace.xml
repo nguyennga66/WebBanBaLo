@@ -13,7 +13,8 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,12 +24,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="com.haulmont.jpb.JpaEntity" />
         <option value="com.haulmont.jpb.JpaRepository" />
         <option value="com.haulmont.jpb.NewClass" />
         <option value="AnnotationType" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -81,7 +82,7 @@
     "git-widget-placeholder": "Nga",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/WebBanBaLo/webbanbalobe",
+    "last_opened_file_path": "D:/WebBanBaLo",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -223,7 +224,9 @@
       <workItem from="1714491610398" duration="4635000" />
       <workItem from="1716389424593" duration="1002000" />
       <workItem from="1716393778257" duration="1447000" />
-      <workItem from="1716640821789" duration="1977000" />
+      <workItem from="1716640821789" duration="2760000" />
+      <workItem from="1716824879180" duration="1123000" />
+      <workItem from="1716860971104" duration="8123000" />
     </task>
     <servers />
   </component>

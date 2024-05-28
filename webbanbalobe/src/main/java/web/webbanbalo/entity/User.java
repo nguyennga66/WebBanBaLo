@@ -18,7 +18,6 @@ public class User implements Serializable {
     private String password;
     private int status;
     private int role;
-    private String resetToken;
 
     public User(int id, String fullName, String phone, String email, String address, String password, int status, int role) {
         this.id = id;
@@ -29,18 +28,6 @@ public class User implements Serializable {
         this.password = password;
         this.status = status;
         this.role = role;
-    }
-
-    public User(int id, String fullName, String phone, String email, String address, String password, int status, int role, String resetToken) {
-        this.id = id;
-        this.fullName = fullName;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
-        this.password = password;
-        this.status = status;
-        this.role = role;
-        this.resetToken = resetToken;
     }
 
     public User() {
@@ -114,14 +101,6 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    public String getResetToken() {
-        return resetToken;
-    }
-
-    public void setResetToken(String resetToken) {
-        this.resetToken = resetToken;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -133,7 +112,6 @@ public class User implements Serializable {
                 ", password='" + password + '\'' +
                 ", status=" + status +
                 ", role=" + role +
-                ", resetToken='" + resetToken + '\'' +
                 '}';
     }
 }

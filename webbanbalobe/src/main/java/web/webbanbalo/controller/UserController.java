@@ -1,18 +1,20 @@
 package web.webbanbalo.controller;
 
+import jakarta.mail.*;
+import jakarta.mail.internet.InternetAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import web.webbanbalo.entity.User;
 import web.webbanbalo.repository.UserRepository;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import jakarta.mail.internet.MimeMessage;
+
+import java.util.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -66,9 +68,6 @@ public class UserController {
         }
     }
 
-    // Đối tượng mã hóa BCrypt
-    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
     @PutMapping("/pass/{userId}")
     public ResponseEntity<String> changePass(@PathVariable int userId, @RequestBody Map<String, String> passwordMap) {
         try {
@@ -91,12 +90,12 @@ public class UserController {
             String newPassword = passwordMap.get("newPassword");
 
             // Kiểm tra xem mật khẩu cũ có khớp với mật khẩu đã lưu trong cơ sở dữ liệu không
-            if (!passwordEncoder.matches(oldPassword, user.getPassword())) {
+            if (!bCryptPasswordEncoder.matches(oldPassword, user.getPassword())) {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Mật khẩu cũ không đúng");
             }
 
             // Mã hóa mật khẩu mới
-            String encryptedNewPassword = passwordEncoder.encode(newPassword);
+            String encryptedNewPassword = bCryptPasswordEncoder.encode(newPassword);
 
             // Cập nhật mật khẩu mới cho người dùng
             user.setPassword(encryptedNewPassword);
@@ -111,50 +110,63 @@ public class UserController {
         }
     }
 
-    @PostMapping("/forgot-password/{userId}")
-    public ResponseEntity<String> processForgotPassword(@PathVariable int userId) {
-        User user = userRepository.findById(userId).orElse(null);
+    @PostMapping("/forgot-password")
+    public ResponseEntity<String> processForgotPassword(@RequestBody Map<String, String> objEmail) {
+        String email = objEmail.get("email");
+        User user = userRepository.findByEmail(email);
         if (user != null) {
-            String token = generateUniqueToken(); // Hàm này để tạo token duy nhất
-            user.setResetToken(token);
-            userRepository.save(user);
-
-            String resetLink = "/users/reset-password?token=" + token;
-            sendEmail(user.getEmail(), "Reset Your Password",
-                    "Please click on the following link to reset your password: " + resetLink);
-
-            return ResponseEntity.ok("Reset password email sent successfully.");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Email not found");
         }
-    }
-
-    @PostMapping("/reset-password/{userId}")
-    public ResponseEntity<String> processResetPassword(@PathVariable int userId, @RequestBody Map<String, String> request) {
-        String token = request.get("token");
-        String newPassword = request.get("password");
-
-        User user = userRepository.findById(userId).orElse(null);
-        if (user == null || !token.equals(user.getResetToken())) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid or expired token.");
-        }
-
-        user.setPassword(passwordEncoder.encode(newPassword));
-        user.setResetToken(null);
+        String newPass = generatePass();
+        user.setPassword(bCryptPasswordEncoder.encode(newPass));
         userRepository.save(user);
-
-        return ResponseEntity.ok("Password reset successfully.");
+        sendEmail(email, newPass);
+        return ResponseEntity.ok("Password reset email sent successfully");
     }
 
-    public String generateUniqueToken() {
-        return UUID.randomUUID().toString();
+
+    public String generatePass() {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder password = new StringBuilder();
+        Random random = new Random();
+        int length = 6; // Độ dài mật khẩu mong muốn
+
+        for (int i = 0; i < length; i++) {
+            password.append(characters.charAt(random.nextInt(characters.length())));
+        }
+
+        return password.toString();
     }
 
-    private void sendEmail(String to, String subject, String text) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(text);
-        mailSender.send(message);
+    private void sendEmail(String email, String newPass){
+        final String username = "20130077@st.hcmuaf.edu.vn";
+        final String password = "wlzxuxbbtkqaocrp";
+
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+
+        Session session = Session.getInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+            message.setSubject("Password Reset");
+            message.setText("Your new password is: " + newPass);
+
+            Transport.send(message);
+
+            System.out.println("Email sent successfully!");
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
