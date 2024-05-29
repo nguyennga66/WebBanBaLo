@@ -19,18 +19,6 @@ public class User implements Serializable {
     private int status;
     private int role;
 
-    public void setRole(int role) {
-        this.role = role;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
     public User(int id, String fullName, String phone, String email, String address, String password, int status, int role) {
         this.id = id;
         this.fullName = fullName;
@@ -99,6 +87,18 @@ public class User implements Serializable {
 
     public int getRole() {
         return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     @Override

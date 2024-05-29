@@ -49,7 +49,7 @@ export default function ProductDetail() {
             window.location.href = `/cart/${userId}`;
         } else {
             // Nếu chưa đăng nhập, hiển thị trang đăng nhập
-            window.location.href = '/login'; // Thay đổi '/login' thành đường dẫn tới trang đăng nhập của bạn
+            window.location.href = '/signin';
         }
         const cartItem = {
            cart: { user: { id: userId } }, // Sử dụng ID của người dùng đăng nhập

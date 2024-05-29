@@ -52,8 +52,8 @@ export default function Footer() {
               <div className="row links-wrap">
                 <div className="col-6 col-sm-6 col-md-3">
                   <ul className="list-unstyled">
-                    <li><NavLink to="/about">About us</NavLink></li>
-                    <li><NavLink to="/blog">Blog</NavLink></li>
+                    <li><NavLink to="/home">Trang chủ</NavLink></li>
+                    <li><NavLink to="/product">Sản phẩm</NavLink></li>
                     <li><NavLink to="/contact">Liên hệ</NavLink></li>
                   </ul>
                 </div>
