@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class BillDetail {
+public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -16,13 +16,13 @@ public class BillDetail {
     private String phone;
     private String orderNotes;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "bill_detail_product",
-//            joinColumns = @JoinColumn(name = "bill_detail_id"),
-//            inverseJoinColumns = @JoinColumn(name = "product_id")
-//    )
-//    private List<Product> products;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "bill_billdetail",
+            joinColumns = @JoinColumn(name = "bill_id"),
+            inverseJoinColumns = @JoinColumn(name = "bill_detail_id")
+    )
+    private List<BillDetail> billDetails;
 
     @ManyToOne
     @JoinColumn(name = "cart_id")
@@ -33,16 +33,17 @@ public class BillDetail {
     private int grandTotal;
 
     // Constructors, getters, setters
-    public BillDetail() {
+    public Bill() {
     }
 
-    public BillDetail(int userId, String fullName, String address, String email, String phone, String orderNotes, Cart cart, int total, int shippingFee, int grandTotal) {
+    public Bill(int userId, String fullName, String address, String email, String phone, String orderNotes, List<BillDetail> billDetails, Cart cart, int total, int shippingFee, int grandTotal) {
         this.userId = userId;
         this.fullName = fullName;
         this.address = address;
         this.email = email;
         this.phone = phone;
         this.orderNotes = orderNotes;
+        this.billDetails = billDetails;
         this.cart = cart;
         this.total = total;
         this.shippingFee = shippingFee;
@@ -118,6 +119,14 @@ public class BillDetail {
 
     public void setOrderNotes(String orderNotes) {
         this.orderNotes = orderNotes;
+    }
+
+    public List<BillDetail> getBillDetails() {
+        return billDetails;
+    }
+
+    public void setBillDetails(List<BillDetail> billDetails) {
+        this.billDetails = billDetails;
     }
 
     public Cart getCart() {

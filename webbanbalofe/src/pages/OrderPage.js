@@ -8,12 +8,14 @@ export default function OrderPage() {
   const [orderList, setOrderList] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  const [selectedOrder, setSelectedOrder] = useState(); // State để lưu trữ đơn hàng được chọn
+  const [selectedOrder, setSelectedOrder] = useState(null);
   const pageSize = 10;
 
+  const userId = JSON.parse(localStorage.getItem('user')).id;
+
   useEffect(() => {
-    // Gọi API để lấy danh sách hóa đơn với phân trang
-    axios.get(`http://localhost:8080/bills?page=${currentPage}&size=${pageSize}`)
+    // Gọi API để lấy danh sách hóa đơn của người dùng với phân trang
+    axios.get(`http://localhost:8080/bills?userId=${userId}&page=${currentPage}&size=${pageSize}`)
       .then((response) => {
         setOrderList(response.data.content);
         setTotalPages(response.data.totalPages);
@@ -21,7 +23,7 @@ export default function OrderPage() {
       .catch((error) => {
         console.error("Lỗi khi gọi API để lấy danh sách hóa đơn:", error);
       });
-  }, [currentPage]);
+  }, [currentPage, userId]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -43,13 +45,7 @@ export default function OrderPage() {
     // Gọi API để lấy thông tin chi tiết hóa đơn từ backend
     axios.get(`http://localhost:8080/bills/${orderId}`)
       .then((response) => {
-        const orderData = response.data;
-        const productInfo = orderData.cartItems?.map(item => {
-          const storedItem = JSON.parse(localStorage.getItem(`product_${item.product.id}`));
-          return storedItem || item;
-        }) || [];
-        setSelectedOrder({ ...orderData, productInfo });
-        console.log(productInfo);
+        setSelectedOrder(response.data);
       })
       .catch((error) => {
         console.error("Lỗi khi gọi API để lấy thông tin hóa đơn:", error);
@@ -80,7 +76,7 @@ export default function OrderPage() {
                 <td>{order.address}</td>
                 <td>{order.email}</td>
                 <td>{order.phone}</td>
-                <td>{order.grandTotal}.000 VNĐ</td>
+                <td>{order.grandTotal.toLocaleString('vi-VN')}.000 VNĐ</td>
                 <td>
                   <button
                     onClick={() => handleViewDetails(order.id)}
@@ -99,7 +95,7 @@ export default function OrderPage() {
             onClick={handlePreviousPage}
             disabled={currentPage === 0}
           >
-            Previous
+            Trước
           </button>
           {Array.from(Array(totalPages).keys()).map((page) => (
             <button
@@ -115,7 +111,7 @@ export default function OrderPage() {
             onClick={handleNextPage}
             disabled={currentPage === totalPages - 1}
           >
-            Next
+            Tiếp
           </button>
         </div>
       </div>
@@ -133,9 +129,9 @@ export default function OrderPage() {
             </div>
             <div className="col-md-6">
               <h4>Thông tin hóa đơn</h4>
-              <p>Tổng tiền hàng: {selectedOrder.total}.000 VNĐ</p>
-              <p>Phí vận chuyển: {selectedOrder.shippingFee}.000 VNĐ</p>
-              <p>Tổng thanh toán: {selectedOrder.grandTotal}.000 VNĐ</p>
+              <p>Tổng tiền hàng: {selectedOrder.total.toLocaleString('vi-VN')}.000 VNĐ</p>
+              <p>Phí vận chuyển: {selectedOrder.shippingFee.toLocaleString('vi-VN')}.000 VNĐ</p>
+              <p>Tổng thanh toán: {selectedOrder.grandTotal.toLocaleString('vi-VN')}.000 VNĐ</p>
             </div>
           </div>
 
@@ -150,11 +146,12 @@ export default function OrderPage() {
               </tr>
             </thead>
             <tbody>
-              {selectedOrder.productInfo.map((item, index) => (
+              {selectedOrder.billDetails.map((detail, index) => (
                 <tr key={index}>
-                  <td>{item.name} <strong className="mx-2">x</strong> {item.quantity}</td>
-                  <td>{item.price}.000 VNĐ</td>
-                  <td>{item.price * item.quantity}.000 VNĐ</td>
+                  <td>{detail.product.nameP}</td>
+                  <td>{detail.quantity}</td>
+                  <td>{detail.product.price.toLocaleString('vi-VN')}.000 VNĐ</td>
+                  <td>{(detail.product.price * detail.quantity).toLocaleString('vi-VN')}.000 VNĐ</td>
                 </tr>
               ))}
             </tbody>
@@ -164,3 +161,5 @@ export default function OrderPage() {
     </div>
   );
 }
+
+

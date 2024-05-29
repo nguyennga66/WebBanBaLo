@@ -15,14 +15,15 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class BillDetailController {
+public class BillController {
     @Autowired
     private UserRepository userRepository;
     @Autowired
     private CartRepository cartRepository;
     @Autowired
+    private BillRepository billRepository;
+    @Autowired
     private BillDetailRepository billDetailRepository;
-
     @Autowired
     private ProductRepository productRepository;
 
@@ -44,18 +45,9 @@ public class BillDetailController {
         // Kiểm tra xem giỏ hàng của người dùng có tồn tại không
         Cart existingCart = cartRepository.findByUser(user);
 
-        List<Product> products = bill.getProducts();
-        for (Product product : products) {
-            product = productRepository.findById(product.getId()).orElse(null);
-            if (product == null) {
-                return ResponseEntity.badRequest().body(null); // hoặc xử lý lỗi phù hợp
-            }
-        }
-//        BillDetail savedBillDetail = billDetailRepository.save(billDetail);
-
         // Lưu vào cơ sở dữ liệu
         bill.setCart(existingCart);
-        billDetailRepository.save(bill);
+        billRepository.save(bill);
 
         // Lấy danh sách các mục trong giỏ hàng của người dùng
         List<CartItem> cartItems = cartItemRepository.findByCart(existingCart);
@@ -74,14 +66,14 @@ public class BillDetailController {
     public ResponseEntity<?> getBillDetails(@RequestParam(defaultValue = "0") int page,
                                             @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("id").ascending());
-        Page<Bill> billDetailsPage = billDetailRepository.findAll(pageable);
+        Page<Bill> billDetailsPage = billRepository.findAll(pageable);
         return ResponseEntity.ok(billDetailsPage);
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/bills/{billId}")
     public ResponseEntity<?> getBillDetail(@PathVariable int billId) {
-        Optional<Bill> billDetail = billDetailRepository.findById(billId);
+        Optional<Bill> billDetail = billRepository.findById(billId);
         if (billDetail.isPresent()) {
             return ResponseEntity.ok(billDetail.get());
         } else {

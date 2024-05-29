@@ -34,23 +34,19 @@ export default function Checkout() {
             return;
         }
 
-        // Lưu thông tin sản phẩm vào localStorage dựa trên productId
-        invoice.cartItems.forEach(item => {
-            const productInfo = {
-                productId: item.product.id,
-                name: item.product.nameP,
-                price: item.product.price,
-                quantity: item.quantity
-            };
-            console.log("Product Info:", productInfo); // Kiểm tra thông tin sản phẩm
-            localStorage.setItem(`product_${item.product.id}`, JSON.stringify(productInfo));
-        });
-
         const data = {
             ...formData,
+            userId: userId,
+            billDetails: invoice.cartItems.map((item) => ({
+                product: { id: item.product.id },
+                quantity: item.quantity,
+                price: item.product.price,
+                total: item.product.price * item.quantity,
+              })),
             cart: { user: { id: userId } }, // Sử dụng ID của người dùng đăng nhập
             total: invoice.total,
-            grandTotal: invoice.grandTotal
+            grandTotal: invoice.grandTotal,
+            shippingFee: 20 // Ví dụ về phí vận chuyển
         };
 
         console.log("Checkout Data:", data); // Kiểm tra dữ liệu gửi đi
@@ -58,10 +54,14 @@ export default function Checkout() {
         axios.post("http://localhost:8080/createBill", data)
             .then((response) => {
                 console.log(response.data);
+                // Lưu hóa đơn vào localStorage
+                // localStorage.setItem("productList", JSON.stringify(response.data));
+                
                 // Xoá giỏ hàng từ localStorage trước khi chuyển hướng trang
                 localStorage.removeItem("cartItems");
+                // console.log(productList);
                 // Chuyển hướng qua trang ThankYou sau khi thanh toán thành công
-                // window.location.href = '/thankyou';
+                window.location.href = '/thankyou';
             })
             .catch((error) => {
                 console.error("Error creating BillDetail:", error);
@@ -211,20 +211,28 @@ export default function Checkout() {
                                                 {invoice.cartItems.map((item, index) => (
                                                     <tr key={index}>
                                                         <td>{item.product.nameP} <strong className="mx-2">x</strong> {item.quantity}</td>
-                                                        <td>{item.product.price * item.quantity}.000 VNĐ</td>
+                                                        <td>{(item.product.price * item.quantity).toLocaleString('vi-VN')}.000 VND</td>
                                                     </tr>
                                                 ))}
                                                 <tr>
-                                                    <td className="text-black font-weight-bold"><strong>Tổng tiền hàng</strong></td>
-                                                    <td className="text-black">{invoice.total}.000 VNĐ</td>
+                                                    <td className="text-black font-weight-bold">
+                                                        <strong>Tạm tính</strong>
+                                                    </td>
+                                                    <td className="text-black">{invoice.total.toLocaleString('vi-VN')}.000 VND</td>
                                                 </tr>
                                                 <tr>
-                                                    <td className="text-black font-weight-bold"><strong>Phí vận chuyển</strong></td>
-                                                    <td className="text-black">20.000 VNĐ</td>
+                                                    <td className="text-black font-weight-bold">
+                                                        <strong>Phí vận chuyển</strong>
+                                                    </td>
+                                                    <td className="text-black">{(20000).toLocaleString('vi-VN')}.000 VND</td> {/* Chỉnh sửa tại đây */}
                                                 </tr>
                                                 <tr>
-                                                    <td className="text-black font-weight-bold"><strong>Tổng thanh toán</strong></td>
-                                                    <td className="text-black font-weight-bold">{invoice.grandTotal}.000 VNĐ</td>
+                                                    <td className="text-black font-weight-bold">
+                                                        <strong>Tổng cộng</strong>
+                                                    </td>
+                                                    <td className="text-black font-weight-bold">
+                                                        <strong>{invoice.grandTotal.toLocaleString('vi-VN')}.000 VND</strong>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>

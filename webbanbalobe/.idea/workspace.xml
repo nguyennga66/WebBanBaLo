@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="Merge branch 'main' of https://github.com/nguyennga66/WebBanBaLo into ntkimanh&#10;&#10;# Conflicts:&#10;#&#9;webbanbalobe/.idea/workspace.xml">
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/BillController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Bill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/BillRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SigninController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/BillDetailController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/BillDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/BillDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/BillDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/BillDetailRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Checkout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/OrderDetails.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/OrderPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/OrderPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +29,8 @@
         <option value="com.haulmont.jpb.JpaRepository" />
         <option value="com.haulmont.jpb.NewClass" />
         <option value="AnnotationType" />
-        <option value="com.intellij.jpb.JpaRepository" />
         <option value="Class" />
+        <option value="com.intellij.jpb.JpaRepository" />
       </list>
     </option>
   </component>
@@ -240,7 +242,10 @@
       <workItem from="1716528907762" duration="10476000" />
       <workItem from="1716655905844" duration="3133000" />
       <workItem from="1716735687208" duration="1335000" />
-      <workItem from="1716798528214" duration="3735000" />
+      <workItem from="1716798528214" duration="4238000" />
+      <workItem from="1716832583814" duration="8570000" />
+      <workItem from="1716906037101" duration="3085000" />
+      <workItem from="1716911639067" duration="14882000" />
     </task>
     <servers />
   </component>
@@ -260,6 +265,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SignupController.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
