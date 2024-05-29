@@ -1,6 +1,7 @@
 package web.webbanbalo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import web.webbanbalo.entity.User;
 import web.webbanbalo.repository.UserRepository;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class SignupController {
@@ -20,16 +24,17 @@ public class SignupController {
 
     @CrossOrigin(origins = "*")
     @PostMapping("/signup")
-    public User signUp(@RequestBody User user) {
-        // Kiểm tra xem tên người dùng đã tồn tại hay chưa
+    public ResponseEntity<?> signUp(@RequestBody User user) {
         if (userRepository.findByEmail(user.getEmail()) != null) {
-            throw new RuntimeException("Email already exists");
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("message", "Email đã tồn tại");
+            return ResponseEntity.badRequest().body(errorResponse);
         } else {
-            // Mã hóa mật khẩu
             String encryptedPassword = bCryptPasswordEncoder.encode(user.getPassword());
             user.setPassword(encryptedPassword);
-            // Lưu thông tin người dùng vào cơ sở dữ liệu
-            return userRepository.save(user);
+            userRepository.save(user);
+            return ResponseEntity.ok(user);
         }
     }
 }
+

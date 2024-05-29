@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/ResetPass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="Merge branch 'main' of https://github.com/nguyennga66/WebBanBaLo into ntkimanh&#10;&#10;# Conflicts:&#10;#&#9;webbanbalobe/.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/Component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/Component/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Checkout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,12 +19,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="com.haulmont.jpb.JpaEntity" />
         <option value="com.haulmont.jpb.JpaRepository" />
         <option value="com.haulmont.jpb.NewClass" />
         <option value="AnnotationType" />
         <option value="Class" />
-        <option value="Interface" />
+        <option value="com.intellij.jpb.JpaRepository" />
       </list>
     </option>
   </component>
@@ -51,6 +50,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -62,35 +68,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.UserController.executor": "Run",
-    "Application.UserRegistrationController.executor": "Run",
-    "Application.UserServiceImplement.executor": "Run",
-    "HTTP Request.generated-requests | #1.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.WebbanbalobeApplication.executor": "Run",
-    "git-widget-placeholder": "Nga",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/WebBanBaLo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "swagger",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.UserController.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UserRegistrationController.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UserServiceImplement.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.WebbanbalobeApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ntkimanh&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Toshiba/Desktop/WebBanBalo/WebBanBaLo/webbanbalobe/src/main/java/web/webbanbalo/repository&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;swagger&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="web.webbanbalo.controller" />
@@ -175,7 +180,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-19.0.2-corretto-19.0.2-3183f394aec4-f0552fc0" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -219,11 +225,25 @@
       <workItem from="1714460989065" duration="5787000" />
       <workItem from="1714467481174" duration="948000" />
       <workItem from="1714491610398" duration="4635000" />
-      <workItem from="1716389424593" duration="1002000" />
-      <workItem from="1716393778257" duration="1447000" />
-      <workItem from="1716640821789" duration="2760000" />
-      <workItem from="1716824879180" duration="1123000" />
-      <workItem from="1716860971104" duration="9425000" />
+      <workItem from="1715365050329" duration="1234000" />
+      <workItem from="1715499548931" duration="4563000" />
+      <workItem from="1715530263966" duration="7027000" />
+      <workItem from="1715616939761" duration="315000" />
+      <workItem from="1715617383219" duration="3552000" />
+      <workItem from="1715706258003" duration="5267000" />
+      <workItem from="1715789979420" duration="417000" />
+      <workItem from="1715795585204" duration="585000" />
+      <workItem from="1715879400448" duration="6735000" />
+      <workItem from="1716528907762" duration="10476000" />
+      <workItem from="1716655905844" duration="3133000" />
+      <workItem from="1716735687208" duration="1335000" />
+      <workItem from="1716798528214" duration="4238000" />
+      <workItem from="1716832583814" duration="8570000" />
+      <workItem from="1716906037101" duration="3085000" />
+      <workItem from="1716911639067" duration="14882000" />
+      <workItem from="1716953869818" duration="315000" />
+      <workItem from="1716969775512" duration="5262000" />
+      <workItem from="1716982339665" duration="2031000" />
     </task>
     <servers />
   </component>
@@ -242,7 +262,18 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SignupController.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

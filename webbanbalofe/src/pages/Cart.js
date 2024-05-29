@@ -80,7 +80,20 @@ export default function Cart() {
     });
     return total;
   };
-
+// Thêm hàm để xử lý việc chuyển hướng đến trang thanh toán
+const handleCheckout = () => {
+  // Lưu thông tin hóa đơn vào localStorage
+  const invoice = {
+    cartItems: cartItems,
+    total: calculateTotal(),
+    shippingFee: 20,
+    grandTotal: calculateTotal() + 20
+  };
+  localStorage.setItem('invoice', JSON.stringify(invoice));
+  
+  // Chuyển hướng đến trang thanh toán
+  window.location = '/checkout';
+};
   return (
     <div>
       {/* Phần tiêu đề của giỏ hàng */}
@@ -199,7 +212,7 @@ export default function Cart() {
   
               <div className="row">
                 <div className="col-md-12">
-                  <button className="btn btn-black btn-lg py-3 btn-block" onClick={() => window.location='/checkout'}>Thanh toán</button>
+                  <button className="btn btn-black btn-lg py-3 btn-block" onClick={handleCheckout}>Thanh toán</button>
                 </div>
               </div>
             </div>

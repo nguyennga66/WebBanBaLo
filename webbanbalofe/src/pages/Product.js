@@ -19,18 +19,18 @@ export default function Product() {
     };
 
     const handleSortChange = (sortType) => {
-        if (sortType === 'asc') {
-            fetchProducts('asc');
-        } else {
-            fetchProducts('desc');
-        }
-        setIsOpen(false); // Đóng dropdown sau khi chọn
+        fetchProducts(sortType);
+        setIsOpen(false);
     };
+    
 
     // Gọi API tìm kiếm khi searchQuery thay đổi
-    const fetchProducts = async (sort = 'asc') => {
+    const fetchProducts = async (sort) => {
         try {
-            let url = `http://localhost:8080/products/sort?sort=${sort}&page=${page}&size=${size}`;
+            let url = `http://localhost:8080/products`;
+            if (sort) {
+                url += `?sort=${sort}`;
+            }
             if (searchQuery) {
                 url += `&query=${encodeURIComponent(searchQuery)}`;
             }
@@ -42,7 +42,8 @@ export default function Product() {
             console.error('Error fetching products:', error);
         }
     };
-
+    
+    
     // Gọi API mỗi khi page, size hoặc searchQuery thay đổi
     useEffect(() => {
         fetchProducts();
@@ -150,6 +151,7 @@ export default function Product() {
                                         <div className="dropdown-content" aria-labelledby="triggerId">
                                             <a className="dropdown-item" href="#" onClick={() => handleSortChange('asc')}>Giá tăng dần</a>
                                             <a className="dropdown-item" href="#" onClick={() => handleSortChange('desc')}>Giá giảm dần</a>
+
                                         </div>
                                     )}
                                 </div>
