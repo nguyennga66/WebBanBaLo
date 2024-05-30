@@ -17,7 +17,6 @@ import Contact from './pages/Contact'
 import Signin from './pages/Signin';
 import Register from './pages/Register';
 import Information from './pages/Information';
-import OrderPage from './pages/OrderPage';
 // import FormEditProfile from './Component/FormEditProfile';
 // import ForgotPassword from './pages/ForgotPass';
 // import FormForgotPassword from './Component/FormForgotPassword';
@@ -38,7 +37,6 @@ function App() {
         <Route path="/signin" element={<Signin />} />
         <Route path="/register" element={<Register />} />
         <Route path="/information/:userId" element={<Information />} />
-        <Route path="/orders" element={<OrderPage />} />
         {/* <Route path="/editform" element={<FormEditProfile />} />
         <Route path="/forgot" element={<ForgotPassword/>} />
         <Route path="/forgotform" element={<FormForgotPassword/>} /> */}

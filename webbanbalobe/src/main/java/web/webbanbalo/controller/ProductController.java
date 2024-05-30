@@ -15,7 +15,7 @@ import web.webbanbalo.repository.ProductRepository;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RestController
 public class ProductController {
     @Autowired
@@ -121,15 +121,62 @@ public class ProductController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/search")
+
+    @GetMapping("/products/search")
     public ResponseEntity<Page<Product>> searchProducts(
-            @RequestParam(defaultValue = "") String query,
+            @RequestParam(defaultValue = "") String search,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     ) {
-        Page<Product> products = productRepository.findByNamePContainingIgnoreCase(query, PageRequest.of(page, size));
+        Page<Product> products = productRepository.findByNamePContainingIgnoreCase(search, PageRequest.of(page, size));
         return ResponseEntity.ok(products);
     }
+
+    @GetMapping("/products/category/{categoryId}/search")
+    public ResponseEntity<Page<Product>> searchProductsByCategory(
+            @PathVariable Long categoryId,
+            @RequestParam(defaultValue = "") String search,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Page<Product> products = productRepository.findByNamePContainingIgnoreCaseAndCategoryId(search, categoryId, PageRequest.of(page, size));
+        return ResponseEntity.ok(products);
+    }
+
+    @GetMapping("/products/filter")
+    public ResponseEntity<Page<Product>> searchProductsByCategory(
+            @RequestParam(defaultValue = "") String search,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) Double minPrice,
+            @RequestParam(required = false) Double maxPrice
+    ) {
+        Double min = minPrice != null ? minPrice : 0.0;
+        Double max = maxPrice != null ? maxPrice : Double.MAX_VALUE;
+
+        Page<Product> products = productRepository.findByNamePContainingIgnoreCaseAndPriceBetween(
+                search, min, max, PageRequest.of(page, size));
+        return ResponseEntity.ok(products);
+    }
+
+    @GetMapping("/products/category/{categoryId}/filter")
+    public ResponseEntity<Page<Product>> searchProductsByCategory(
+            @PathVariable Long categoryId,
+            @RequestParam(defaultValue = "") String search,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) Double minPrice,
+            @RequestParam(required = false) Double maxPrice
+    ) {
+        Double min = minPrice != null ? minPrice : 0.0;
+        Double max = maxPrice != null ? maxPrice : Double.MAX_VALUE;
+
+        Page<Product> products = productRepository.findByCategoryIdAndNamePContainingIgnoreCaseAndPriceBetween(
+                categoryId, search, min, max, PageRequest.of(page, size));
+        return ResponseEntity.ok(products);
+    }
+
+
 
     @GetMapping("/products/sort")
     public ResponseEntity<Page<Product>> getProductsSortedByPrice(
@@ -141,6 +188,21 @@ public class ProductController {
             products = productRepository.findAllByOrderByPriceAsc(pageable);
         } else {
             products = productRepository.findAllByOrderByPriceDesc(pageable);
+        }
+        return ResponseEntity.ok(products);
+    }
+
+    @GetMapping("/products/category/{categoryId}/sort")
+    public ResponseEntity<Page<Product>> getProductsByCategorySortedByPrice(
+            @PathVariable int categoryId,
+            @RequestParam(defaultValue = "asc") String sort,
+            Pageable pageable
+    ) {
+        Page<Product> products;
+        if (sort.equals("asc")) {
+            products = productRepository.findByCategoryIdOrderByPriceAsc(categoryId, pageable);
+        } else {
+            products = productRepository.findByCategoryIdOrderByPriceDesc(categoryId, pageable);
         }
         return ResponseEntity.ok(products);
     }

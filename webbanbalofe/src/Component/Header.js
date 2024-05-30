@@ -101,7 +101,6 @@ const handleLogout = () => {
                               {
                                 <>
                                 <NavLink to={`/information/${id}`}>Hồ sơ</NavLink>
-                                <NavLink to="/orders">Đơn mua</NavLink>
                                 <NavLink to="#" onClick={handleLogout}>Đăng xuất</NavLink>
                                 </>
                               }
