@@ -20,6 +20,7 @@ export default function Information() {
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [passwordChangeMessage, setPasswordChangeMessage] = useState("");
+    const [passwordErrors, setPasswordErrors] = useState({});
     const { userId } = useParams();
 
     const [orderList, setOrderList] = useState([]);
@@ -110,33 +111,95 @@ export default function Information() {
         setPhone(updatedUserData.phone);
     };
 
-    const handlePasswordChange = async () => {
-        if (newPassword !== confirmPassword) {
-            setPasswordChangeMessage("Mật khẩu mới và xác nhận mật khẩu không khớp");
-            return;
+    const validateOldPassword = async (value) => {
+        if (!value) {
+            return "Mật khẩu cũ không được để trống";
         }
-    
         try {
-            const response = await axios.put(`http://localhost:8080/users/pass/${userId}`, {
-                oldPassword: oldPassword,
-                newPassword: newPassword
-            });
-            if (response.status === 200) {
-                setPasswordChangeMessage("Thay đổi mật khẩu thành công");
-            } else {
-                setPasswordChangeMessage("Mật khẩu cũ không đúng");
+            const response = await axios.put(`http://localhost:8080/users/pass/${userId}`, { oldPassword: value, newPassword: newPassword});
+            if (response.status !== 200) {
+                return "Mật khẩu cũ không đúng";
             }
         } catch (error) {
-            if (error.response && error.response.status === 401) {
-                setPasswordChangeMessage("Mật khẩu cũ không đúng");
-            } else {
-                setPasswordChangeMessage("Có lỗi xảy ra, vui lòng thử lại");
-            }
+            console.error('Error verifying old password:', error);
+            return "Mật khẩu cũ không đúng";
         }
-        window.location.href = `/information/${userId}`;
+        return null;
     };
-        
 
+    const validateNewPassword = (value) => {
+        if (!value) {
+            return "Mật khẩu mới không được để trống";
+        } else if (value.length < 6) {
+            return "Mật khẩu mới phải có ít nhất 6 ký tự";
+        }
+        return null;
+    };
+
+    const validateConfirmPassword = (value) => {
+        if (!value) {
+            return "Xác nhận mật khẩu mới không được để trống";
+        } else if (value !== newPassword) {
+            return "Mật khẩu xác nhận không khớp";
+        }
+        return null;
+    };
+
+    const handleOldPasswordChange = async (e) => {
+        const value = e.target.value;
+        setOldPassword(value);
+        const error = await validateOldPassword(value);
+        setPasswordErrors(prevErrors => ({ ...prevErrors, oldPassword: error }));
+    };
+
+    const handleNewPasswordChange = (e) => {
+        const value = e.target.value;
+        setNewPassword(value);
+        const error = validateNewPassword(value);
+        setPasswordErrors(prevErrors => ({ ...prevErrors, newPassword: error }));
+    };
+
+    const handleConfirmPasswordChange = (e) => {
+        const value = e.target.value;
+        setConfirmPassword(value);
+        const error = validateConfirmPassword(value);
+        setPasswordErrors(prevErrors => ({ ...prevErrors, confirmPassword: error }));
+    };
+
+    const handlePasswordChange = async () => {
+        const oldPasswordError = await validateOldPassword(oldPassword);
+        const newPasswordError = validateNewPassword(newPassword);
+        const confirmPasswordError = validateConfirmPassword(confirmPassword);
+
+        const errors = {
+            oldPassword: oldPasswordError,
+            newPassword: newPasswordError,
+            confirmPassword: confirmPasswordError,
+        };
+
+        if (Object.values(errors).some(error => error !== null)) {
+            setPasswordErrors(errors);
+            return;
+        }
+
+        try {
+            const response = await axios.put(`http://localhost:8080/users/pass/${userId}`, {
+                oldPassword,
+                newPassword,
+            });
+            if (response.status === 200) {
+                setPasswordChangeMessage('Mật khẩu đã được thay đổi thành công');
+                setOldPassword('');
+                setNewPassword('');
+                setConfirmPassword('');
+                setPasswordErrors({});
+            }
+        } catch (error) {
+            console.error('Error changing password:', error);
+            setPasswordChangeMessage('Có lỗi xảy ra khi thay đổi mật khẩu');
+        }
+    };
+    
     return (
         <div className="main-wrapper">
             {/* Main Content */}
@@ -315,56 +378,59 @@ export default function Information() {
                                             )}
 
 {tab === 'changePass' && (
-                                                <div className="tab-pane active" id="dashboard">
-                                                    <div className="row">
-                                                        <h4><b>Thay đổi mật khẩu <span className="sp111" style={{ textAlign: 'center' }}></span></b></h4>
-                                                        <br />
-                                                        <br />
-                                                        <div className="row justify-content-center">
-                                                        <div className="col-md-6">
-                                                            <form>
-                                                                <div className="form-group" style={{ textAlign: 'left' }}>
-                                                                    <label htmlFor="oldPassword">Mật khẩu cũ</label>
-                                                                    <input
-                                                                        type="password"
-                                                                        className="form-control"
-                                                                        id="oldPassword"
-                                                                        value={oldPassword}
-                                                                        onChange={(e) => setOldPassword(e.target.value)}
-                                                                    />
-                                                                </div>
-                                                                <div className="form-group" style={{ textAlign: 'left' }}>
-                                                                    <label htmlFor="newPassword">Mật khẩu mới</label>
-                                                                    <input
-                                                                        type="password"
-                                                                        className="form-control"
-                                                                        id="newPassword"
-                                                                        value={newPassword}
-                                                                        onChange={(e) => setNewPassword(e.target.value)}
-                                                                    />
-                                                                </div>
-                                                                <div className="form-group" style={{ textAlign: 'left' }}>
-                                                                    <label htmlFor="confirmPassword">Xác nhận mật khẩu mới</label>
-                                                                    <input
-                                                                        type="password"
-                                                                        className="form-control"
-                                                                        id="confirmPassword"
-                                                                        value={confirmPassword}
-                                                                        onChange={(e) => setConfirmPassword(e.target.value)}
-                                                                    />
-                                                                </div>
-                                                                {passwordChangeMessage && (
-                                                                    <div className="alert alert-danger" role="alert">
-                                                                        {passwordChangeMessage}
-                                                                    </div>
-                                                                )}
-                                                                <button type="button" className="btn btn-primary" onClick={handlePasswordChange}>Lưu</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            )}
+                <div className="tab-pane active" id="dashboard">
+                    <div className="row">
+                        <h4><b>Thay đổi mật khẩu <span className="sp111" style={{ textAlign: 'center' }}></span></b></h4>
+                        <br />
+                        <br />
+                        <div className="row justify-content-center">
+                            <div className="col-md-6">
+                                <form>
+                                    <div className="form-group" style={{ textAlign: 'left' }}>
+                                        <label htmlFor="oldPassword">Mật khẩu cũ</label>
+                                        <input
+                                            type="password"
+                                            className="form-control"
+                                            id="oldPassword"
+                                            value={oldPassword}
+                                            onChange={handleOldPasswordChange}
+                                        />
+                                        {passwordErrors.oldPassword && <small className="text-danger">{passwordErrors.oldPassword}</small>}
+                                    </div>
+                                    <div className="form-group" style={{ textAlign: 'left' }}>
+                                        <label htmlFor="newPassword">Mật khẩu mới</label>
+                                        <input
+                                            type="password"
+                                            className="form-control"
+                                            id="newPassword"
+                                            value={newPassword}
+                                            onChange={handleNewPasswordChange}
+                                        />
+                                        {passwordErrors.newPassword && <small className="text-danger">{passwordErrors.newPassword}</small>}
+                                    </div>
+                                    <div className="form-group" style={{ textAlign: 'left' }}>
+                                        <label htmlFor="confirmPassword">Xác nhận mật khẩu mới</label>
+                                        <input
+                                            type="password"
+                                            className="form-control"
+                                            id="confirmPassword"
+                                            value={confirmPassword}
+                                            onChange={handleConfirmPasswordChange}
+                                        />
+                                        {passwordErrors.confirmPassword && <small className="text-danger">{passwordErrors.confirmPassword}</small>}
+                                    </div>
+                                    {passwordChangeMessage && (
+                                        <div className="alert alert-danger" role="alert">
+                                            {passwordChangeMessage}
+                                        </div>
+                                    )}
+                                    <button type="button" className="btn btn-primary" onClick={handlePasswordChange}>Lưu</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
                                         </div>
                                     </div>
                                 </div>
