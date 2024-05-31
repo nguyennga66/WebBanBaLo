@@ -32,7 +32,7 @@ export default function Home() {
             </div>
             <div className="col-lg-7">
               <div className="hero-img-wrap">
-                <img src={require("../images/couch.png")} className="img-fluid" alt="" />
+                <img src={require("../images/balo_home.png")} className="img-fluid" alt="" />
               </div>
             </div>
           </div>

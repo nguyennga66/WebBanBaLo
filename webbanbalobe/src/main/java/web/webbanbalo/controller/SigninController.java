@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import web.webbanbalo.entity.User;
 import web.webbanbalo.repository.UserRepository;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 public class SigninController {
     @Autowired
@@ -21,15 +24,29 @@ public class SigninController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @CrossOrigin(origins = "*")
+    @PostMapping("/check-email")
+    public ResponseEntity<?> checkEmail(@RequestBody Map<String, String> request) {
+        String email = request.get("email");
+        User user = userRepository.findByEmail(email);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("exists", user != null);
+        return ResponseEntity.ok(response);
+    }
+
+    @CrossOrigin(origins = "*")
     @PostMapping("/signin")
     public ResponseEntity<?> signIn(@RequestBody User user, HttpServletRequest request) {
         User u = userRepository.findByEmail(user.getEmail());
-        if (u != null && bCryptPasswordEncoder.matches(user.getPassword(), u.getPassword())) {
-            HttpSession session = request.getSession();
-            session.setAttribute("user", u);
-            return ResponseEntity.ok(u);
-        } else {
-            return ResponseEntity.status(401).body("Invalid email or password");
+        if (u == null) {
+            return ResponseEntity.status(401).body(Map.of("message", "Email không tồn tại"));
         }
+        if (!bCryptPasswordEncoder.matches(user.getPassword(), u.getPassword())) {
+            return ResponseEntity.status(401).body(Map.of("message", "Sai mật khẩu"));
+        }
+
+        HttpSession session = request.getSession();
+        session.setAttribute("user", u);
+        return ResponseEntity.ok(u);
     }
 }
+

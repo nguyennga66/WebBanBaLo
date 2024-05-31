@@ -4,6 +4,7 @@ import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/style.css";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import debounce from "lodash/debounce";
 
 export default function Product() {
     const [products, setProducts] = useState([]);
@@ -13,42 +14,90 @@ export default function Product() {
     const [size, setSize] = useState(10);
     const [totalPages, setTotalPages] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
+    const [currentSort, setCurrentSort] = useState(''); // State để lưu loại sắp xếp hiện tại
+    const [currentCategory, setCurrentCategory] = useState(null); // State để lưu danh mục hiện tại
+    const [minPrice, setMinPrice] = useState('');
+    const [maxPrice, setMaxPrice] = useState('');
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
 
     const handleSortChange = (sortType) => {
-        if (sortType === 'asc') {
-            fetchProducts('asc');
+        setCurrentSort(sortType);
+        if (currentCategory) {
+            fetchProductsByCategory(currentCategory, sortType);
         } else {
-            fetchProducts('desc');
+            fetchProducts(sortType);
         }
-        setIsOpen(false); // Đóng dropdown sau khi chọn
+        setIsOpen(false);
     };
 
-    // Gọi API tìm kiếm khi searchQuery thay đổi
-    const fetchProducts = async (sort = 'asc') => {
+    const fetchProducts = async (sort = currentSort) => {
         try {
-            let url = `http://localhost:8080/products/sort?sort=${sort}&page=${page}&size=${size}`;
+            let url = `http://localhost:8080/products`;
+            if (sort) {
+                url += `/sort?sort=${sort}&page=${page}&size=${size}`;
+            }
             if (searchQuery) {
-                url += `&query=${encodeURIComponent(searchQuery)}`;
+                url += `/search?search=${searchQuery}&page=${page}&size=${size}`;
+            }
+            if (minPrice) {
+                url = `http://localhost:8080/products/filter?`;
+                url += `&minPrice=${minPrice}`;
+            }
+            if (maxPrice) {
+                url = `http://localhost:8080/products/filter?`;
+                url += `&maxPrice=${maxPrice}`;
             }
             const response = await fetch(url);
             const data = await response.json();
             setProducts(data.content);
             setTotalPages(data.totalPages);
+
+            console.log(url);
         } catch (error) {
             console.error('Error fetching products:', error);
         }
     };
 
-    // Gọi API mỗi khi page, size hoặc searchQuery thay đổi
-    useEffect(() => {
-        fetchProducts();
-    }, [page, size, searchQuery]);
+    const fetchProductsByCategory = async (categoryId, sort = currentSort) => {
+        try {
+            setCurrentCategory(categoryId);
+            let url = `http://localhost:8080/products/category/${categoryId}`;
+            if (sort) {
+                url += `/sort?sort=${sort}&page=${page}&size=${size}`;
+            }
+            if (searchQuery) {
+                url += `/search?search=${searchQuery}&page=${page}&size=${size}`;
+            }
+            if (minPrice) {
+                url = `http://localhost:8080/products/category/${categoryId}/filter?`;
+                url += `&minPrice=${minPrice}`;
+            }
+            if (maxPrice) {
+                url = `http://localhost:8080/products/category/${categoryId}/filter?`;
+                url += `&maxPrice=${maxPrice}`;
+            }
+            const response = await fetch(url);
+            const data = await response.json();
+            setProducts(data.content);
+            setTotalPages(data.totalPages);
 
-    // Gọi API để lấy danh mục sản phẩm
+            console.log(url);
+        } catch (error) {
+            console.error('Error fetching products by category:', error);
+        }
+    };
+
+    useEffect(() => {
+        if (currentCategory) {
+            fetchProductsByCategory(currentCategory);
+        } else {
+            fetchProducts();
+        }
+    }, [page, size, searchQuery, currentSort, minPrice, maxPrice]);
+
     useEffect(() => {
         fetch('http://localhost:8080/category')
             .then(response => response.json())
@@ -69,23 +118,16 @@ export default function Product() {
         fetchProductsByCategory(categoryId);
     };
 
-    const fetchProductsByCategory = async (categoryId) => {
-        try {
-            const response = await fetch(
-                `http://localhost:8080/products/category/${categoryId}?page=${page}&size=${size}`
-            );
-            const data = await response.json();
-            // Cập nhật state
-            setProducts(data.content);
-            setTotalPages(data.totalPages);
-        } catch (error) {
-            console.error('Error fetching products by category:', error);
-        }
-    };
-
-    // Xử lý chuyển trang
     const handlePageChange = (newPage) => {
         setPage(newPage);
+    };
+
+    const handleMinPriceChange = (event) => {
+        setMinPrice(event.target.value);
+    };
+
+    const handleMaxPriceChange = (event) => {
+        setMaxPrice(event.target.value);
     };
 
     return (
@@ -98,35 +140,54 @@ export default function Product() {
                             <div className="categories-section">
                                 <h4 className="categories-title" style={{ textAlign: 'left' }}>Danh mục sản phẩm</h4>
                                 <ul className="categories-list list-unstyled" style={{ textAlign: 'left' }}>
-                                {categories.map((category) => (
-                                    <li key={category.id} className="category-item" >
-                                        <span
-                                            className="category-link"
-                                            onClick={() => handleCategoryClick(category.id)} // Sử dụng hàm xử lý sự kiện nhấp chuột
-                                            style={{ cursor: 'pointer' }} // Đặt con trỏ chuột thành dạng pointer
-                                        >
-                                            <span className="category-icon">&#x1F4E6;</span>
-                                            <span className="category-name">{category.nameC}</span>
-                                        </span>
-                                    </li>
-                                ))}
-                            </ul>
+                                    {categories.map((category) => (
+                                        <li key={category.id} className="category-item">
+                                            <span
+                                                className="category-link"
+                                                onClick={() => handleCategoryClick(category.id)} // Sử dụng hàm xử lý sự kiện nhấp chuột
+                                                style={{ cursor: 'pointer' }} // Đặt con trỏ chuột thành dạng pointer
+                                            >
+                                                <span className="category-icon">&#x1F4E6;</span>
+                                                <span className="category-name">{category.nameC}</span>
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                            <div class="border-bottom mb-4 pb-4">
-                                <h5 class="font-weight-semi-bold mb-4">Lọc sản phẩm theo giá</h5>
+                            <br></br>
+                            <div className="border-bottom mb-4 pb-4">
+                                <h4 className="font-weight-semi-bold mb-4">Lọc sản phẩm theo giá</h4>
                                 <form>
-                                    {/* Form lọc sản phẩm theo giá */}
+                                    <div className="form-group">
+                                        <label htmlFor="minPrice">Giá thấp nhất</label>
+                                        <input
+                                            type="number"
+                                            className="form-control"
+                                            id="minPrice"
+                                            value={minPrice}
+                                            onChange={handleMinPriceChange}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="maxPrice">Giá cao nhất</label>
+                                        <input
+                                            type="number"
+                                            className="form-control"
+                                            id="maxPrice"
+                                            value={maxPrice}
+                                            onChange={handleMaxPriceChange}
+                                        />
+                                    </div>
                                 </form>
                             </div>
                         </div>
 
-
                         {/* Cột chứa danh sách sản phẩm */}
                         <div className="col-lg-9">
                             {/* Thanh tìm kiếm */}
-                            <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div className="d-flex align-items-center justify-content-between mb-4">
                                 <form action="">
-                                    <div class="input-group">
+                                    <div className="input-group">
                                         <input
                                             type="text"
                                             className="form-control"
@@ -135,8 +196,8 @@ export default function Product() {
                                             onChange={handleSearchChange}
                                             style={{ width: '300px', marginRight: '10px' }}
                                         />
-                                        <div class="input-group-append">
-                                            <span class="input-group-text bg-transparent text-primary">
+                                        <div className="input-group-append">
+                                            <span className="input-group-text bg-transparent text-primary">
                                                 <FaSearch />
                                             </span>
                                         </div>
@@ -147,7 +208,7 @@ export default function Product() {
                                         Sắp xếp theo
                                     </button>
                                     {isOpen && (
-                                        <div className="dropdown-content" aria-labelledby="triggerId">
+                                        <div className="dropdown-menu show" aria-labelledby="triggerId">
                                             <a className="dropdown-item" href="#" onClick={() => handleSortChange('asc')}>Giá tăng dần</a>
                                             <a className="dropdown-item" href="#" onClick={() => handleSortChange('desc')}>Giá giảm dần</a>
                                         </div>
