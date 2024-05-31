@@ -99,7 +99,9 @@ function UserRegistration() {
                 password: '',
                 confirmPassword: ''
             });
+
             navigate('/signin');
+
         } catch (error) {
             setErrors({ submit: error.response.data.message || 'Đăng ký không thành công' });
             setSuccess('');
