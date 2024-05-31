@@ -49,4 +49,3 @@ public class SigninController {
         return ResponseEntity.ok(u);
     }
 }
-
