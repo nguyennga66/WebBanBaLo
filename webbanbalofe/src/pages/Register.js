@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function UserRegistration() {
@@ -12,6 +13,7 @@ function UserRegistration() {
     });
     const [errors, setErrors] = useState({});
     const [success, setSuccess] = useState('');
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -97,6 +99,9 @@ function UserRegistration() {
                 password: '',
                 confirmPassword: ''
             });
+
+            navigate('/signin');
+
         } catch (error) {
             setErrors({ submit: error.response.data.message || 'Đăng ký không thành công' });
             setSuccess('');

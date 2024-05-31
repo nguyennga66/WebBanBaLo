@@ -176,8 +176,6 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-
-
     @GetMapping("/products/sort")
     public ResponseEntity<Page<Product>> getProductsSortedByPrice(
             @RequestParam(defaultValue = "asc") String sort,
@@ -207,4 +205,3 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 }
-
