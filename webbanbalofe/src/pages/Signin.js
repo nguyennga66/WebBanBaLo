@@ -105,6 +105,7 @@ export default function Signin() {
               {error && <p style={{ color: 'red' }}>{error}</p>}
               <input type="submit" value="" />
             </form>
+            <NavLink to="/register" style={{color: 'white'}}>Bạn chưa có tài khoản? Đăng ký</NavLink>
           </div>
         </div>
         {/* Footer */}

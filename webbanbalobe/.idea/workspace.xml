@@ -4,84 +4,316 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="Merge branch 'main' of https://github.com/nguyennga66/WebBanBaLo into ntkimanh&#10;&#10;# Conflicts:&#10;#&#9;webbanbalobe/.idea/workspace.xml">
+    <list default="true" id="75b23d9e-a722-4649-9c2d-7547c77fd0e6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/css/fa-brands.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/css/fa-brands.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/css/fa-regular.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/css/fa-regular.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/css/fa-solid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/css/fa-solid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/css/fontawesome-all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/css/fontawesome-all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/css/fontawesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/css/fontawesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/_animated.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/_bordered-pulled.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/_core.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/_fixed-width.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/_icons.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/_larger.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/_list.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/_mixins.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/_rotated-flipped.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/_screen-reader.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/_stacked.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/_variables.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/fa-brands.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/fa-regular.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/fa-solid.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/less/fontawesome.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/_animated.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/_bordered-pulled.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/_core.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/_fixed-width.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/_icons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/_larger.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/_list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/_rotated-flipped.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/_screen-reader.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/_stacked.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/fa-brands.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/fa-regular.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/fa-solid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/scss/fontawesome.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/font-awesome/webfonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/css/material-design-iconic-font.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/css/material-design-iconic-font.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/css/materialdesignicons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/material-design-iconic-font/fonts/materialdesignicons-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/themify-icons/fonts/themify.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/themify-icons/fonts/themify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/themify-icons/fonts/themify.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/themify-icons/fonts/themify.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/themify-icons/ie7/ie7.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/themify-icons/ie7/ie7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/themify-icons/themify-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/themify-icons/themify-icons.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/css/weather-icons-core.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/css/weather-icons-variables.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/css/weather-icons-wind.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/css/weather-icons-wind.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/css/weather-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/css/weather-icons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/fonts/weathericons-regular-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/fonts/weathericons-regular-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/fonts/weathericons-regular-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/fonts/weathericons-regular-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/fonts/weathericons-regular-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/css/variables-beaufort.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/css/variables-day.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/css/variables-direction.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/css/variables-misc.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/css/variables-moon.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/css/variables-neutral.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/css/variables-night.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/css/variables-time.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/css/variables-wind-names.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-classes/classes-beaufort.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-classes/classes-day.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-classes/classes-direction.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-classes/classes-misc.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-classes/classes-moon-aliases.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-classes/classes-moon.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-classes/classes-neutral.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-classes/classes-night.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-classes/classes-time.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-classes/classes-wind-aliases.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-classes/classes-wind-degrees.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-classes/classes-wind.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-variables/variables-beaufort.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-variables/variables-day.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-variables/variables-direction.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-variables/variables-misc.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-variables/variables-moon.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-variables/variables-neutral.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-variables/variables-night.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-variables/variables-time.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/icon-variables/variables-wind-names.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/mappings/wi-forecast-io.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/mappings/wi-owm.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/mappings/wi-wmo4680.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/mappings/wi-yahoo.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/weather-icons-classes.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/weather-icons-core.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/weather-icons-variables.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/weather-icons-wind.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/weather-icons-wind.min.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/weather-icons.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/less/weather-icons.min.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-classes/classes-beaufort.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-classes/classes-day.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-classes/classes-direction.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-classes/classes-misc.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-classes/classes-moon-aliases.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-classes/classes-moon.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-classes/classes-neutral.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-classes/classes-night.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-classes/classes-time.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-classes/classes-wind-aliases.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-classes/classes-wind-degrees.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-classes/classes-wind.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-variables/variables-beaufort.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-variables/variables-day.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-variables/variables-direction.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-variables/variables-misc.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-variables/variables-moon.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-variables/variables-neutral.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-variables/variables-night.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-variables/variables-time.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/icon-variables/variables-wind-names.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/mappings/wi-forecast-io.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/mappings/wi-owm.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/mappings/wi-wmo4680.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/mappings/wi-yahoo.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/weather-icons-classes.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/weather-icons-core.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/weather-icons-variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/weather-icons-wind.min.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/weather-icons-wind.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/weather-icons.min.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/icons/weather-icons/sass/weather-icons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/admin/style.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/js/admin/app-style-switcher.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/js/admin/custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/js/admin/pages/dashboards/dashboard1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/js/admin/sidebarmenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/js/admin/waves.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_accordion.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_alert.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_badge.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_breadcrumb.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_button-group.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_card.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_carousel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_close.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_containers.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_dropdown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_forms.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_functions.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_grid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_helpers.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_images.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_list-group.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_modal.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_nav.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_navbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_pagination.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_popover.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_progress.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_reboot.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_root.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_spinners.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_tables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_toasts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_tooltip.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_transitions.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_type.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_utilities.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/bootstrap-grid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/bootstrap-reboot.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/bootstrap-utilities.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/bootstrap.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/forms/_floating-labels.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/forms/_form-check.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/forms/_form-control.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/forms/_form-range.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/forms/_form-select.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/forms/_form-text.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/forms/_input-group.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/forms/_labels.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/forms/_validation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/helpers/_clearfix.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/helpers/_colored-links.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/helpers/_position.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/helpers/_ratio.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/helpers/_stretched-link.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/helpers/_text-truncation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/helpers/_visually-hidden.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_alert.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_border-radius.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_box-shadow.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_breakpoints.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_caret.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_clearfix.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_container.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_deprecate.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_forms.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_gradients.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_grid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_image.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_list-group.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_lists.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_pagination.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_reset-text.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_resize.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_table-variants.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_text-truncate.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_transition.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_utilities.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/mixins/_visually-hidden.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/utilities/_api.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/bootstrap/vendor/_rfs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/components.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/core/animation/animation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/core/breadcrumb/breadcrumb.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/core/buttons/buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/core/core.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/core/extra/extra.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/core/layout/layout.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/core/loader/spinner.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/core/scafholdings/scafholding.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/core/sidebar/sidebar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/core/topbar/header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/core/topbar/notify.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/core/wave-effects/wave-effects.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/custom.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/mixins/padding-margin.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/responsive.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/theme-colors/theme-colors.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/variable.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/widgets/comments.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/widgets/feeds.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/widgets/profile.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/widgets/steamline.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/scss/admin/widgets/widgets.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/package.json" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/BillDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/BillDetailRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/ResetPass.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="com.haulmont.jpb.JpaRepository" />
-        <option value="com.haulmont.jpb.NewClass" />
-        <option value="AnnotationType" />
-
-        <option value="Interface" />
-        <option value="Class" />
-       
-        <option value="com.intellij.jpb.JpaRepository" />
-
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;kimanh21202&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/nguyennga66/WebBanBaLo.git&quot;,
-    &quot;accountId&quot;: &quot;dd82a3ba-f213-4e30-9f36-709922b55520&quot;
-  }
-}</component>
-  <component name="JpbToolWindowState">
-    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
+  &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="2fAFfR5imyPkLSoji4aJ4XeDAHS" />
+  <component name="ProjectId" id="2hEksW9xWhL4M4XIpDqf7kfwXZL" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
-
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.UserController.executor": "Run",
-    "Application.UserRegistrationController.executor": "Run",
-    "Application.UserServiceImplement.executor": "Run",
-    "HTTP Request.generated-requests | #1.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -89,79 +321,17 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.WebbanbalobeApplication.executor": "Run",
-    "git-widget-placeholder": "ntkimanh",
-    "ignore.virus.scanning.warn.message": "true",
+    "git-widget-placeholder": "Nga",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Toshiba/Desktop/20130197_NguyenThiKimAnh_bai2",
+    "last_opened_file_path": "D:/WebBanBaLo",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "swagger",
     "vue.rearranger.settings.migration": "true"
-
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="web.webbanbalo.controller" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Toshiba\Desktop\WebBanBalo\WebBanBaLo\webbanbalobe\src\main\java\web\webbanbalo\repository" />
-      <recent name="C:\Users\Toshiba\Desktop\WebBanBalo\WebBanBaLo\webbanbalobe\src\main\java\web\webbanbalo\controller" />
-      <recent name="C:\Users\Toshiba\Desktop\WebBanBalo\WebBanBaLo\webbanbalobe\src\main\java\web\webbanbalo\entity" />
-      <recent name="D:\WebBanBaLo\webbanbalobe\.idea" />
-    </key>
-    <key name="ExtractSuperBase.RECENT_KEYS">
-      <recent name="web.webbanbalo.security" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Spring Boot.WebbanbalobeApplication">
-    <configuration name="SignupController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="web.webbanbalo.controller.SignupController" />
-      <module name="webbanbalobe" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="web.webbanbalo.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="web.webbanbalo.controller.UserController" />
-      <module name="webbanbalobe" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="web.webbanbalo.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceImplement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="web.webbanbalo.Service.implement.UserServiceImplement" />
-      <module name="webbanbalobe" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="web.webbanbalo.Service.implement.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
+}]]></component>
+  <component name="RunManager">
     <configuration name="WebbanbalobeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="webbanbalobe" />
@@ -179,119 +349,31 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.WebbanbalobeApplication" />
-        <item itemvalue="HTTP Request.generated-requests | #1" />
-        <item itemvalue="Application.SignupController" />
-        <item itemvalue="Application.UserController" />
-        <item itemvalue="Application.UserServiceImplement" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="jdk-19.0.2-corretto-19.0.2-3183f394aec4-f0552fc0" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b2ccb97c-9036-4a97-9402-99a187cfe73c" name="Changes" comment="" />
-      <created>1713236082467</created>
+      <changelist id="75b23d9e-a722-4649-9c2d-7547c77fd0e6" name="Changes" comment="" />
+      <created>1717166830237</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1713236082467</updated>
-      <workItem from="1713236083020" duration="275000" />
-      <workItem from="1713270112063" duration="1825000" />
-      <workItem from="1713426987490" duration="6062000" />
-      <workItem from="1713459441418" duration="2416000" />
-      <workItem from="1713463401566" duration="3666000" />
-      <workItem from="1713492951987" duration="5646000" />
-      <workItem from="1713545028737" duration="3884000" />
-      <workItem from="1713693256309" duration="1385000" />
-      <workItem from="1713720995468" duration="8781000" />
-      <workItem from="1713757777719" duration="1107000" />
-      <workItem from="1713776218589" duration="800000" />
-      <workItem from="1713792585808" duration="2780000" />
-      <workItem from="1713795424517" duration="229000" />
-      <workItem from="1713801121800" duration="7233000" />
-      <workItem from="1713809126637" duration="3567000" />
-      <workItem from="1713892356194" duration="68000" />
-      <workItem from="1713892998389" duration="783000" />
-      <workItem from="1713941833370" duration="387000" />
-      <workItem from="1713942665610" duration="2890000" />
-      <workItem from="1713945654803" duration="2697000" />
-      <workItem from="1713948426804" duration="9272000" />
-      <workItem from="1713968158174" duration="978000" />
-      <workItem from="1713969226155" duration="1387000" />
-      <workItem from="1713978037221" duration="1316000" />
-      <workItem from="1714058094528" duration="5921000" />
-      <workItem from="1714358012730" duration="2201000" />
-      <workItem from="1714360321777" duration="1946000" />
-      <workItem from="1714409235006" duration="1837000" />
-      <workItem from="1714411240962" duration="5606000" />
-      <workItem from="1714460989065" duration="5787000" />
-      <workItem from="1714467481174" duration="948000" />
-      <workItem from="1714491610398" duration="4635000" />
-
-      <workItem from="1715365050329" duration="1234000" />
-      <workItem from="1715499548931" duration="4563000" />
-      <workItem from="1715530263966" duration="7027000" />
-      <workItem from="1715616939761" duration="315000" />
-      <workItem from="1715617383219" duration="3552000" />
-      <workItem from="1715706258003" duration="5267000" />
-      <workItem from="1715789979420" duration="417000" />
-      <workItem from="1715795585204" duration="585000" />
-      <workItem from="1715879400448" duration="6735000" />
-      <workItem from="1716528907762" duration="10476000" />
-      <workItem from="1716655905844" duration="3133000" />
-      <workItem from="1716735687208" duration="1335000" />
-      <workItem from="1716798528214" duration="4238000" />
-      <workItem from="1716832583814" duration="8570000" />
-      <workItem from="1716906037101" duration="3085000" />
-      <workItem from="1716911639067" duration="14882000" />
-      <workItem from="1716953869818" duration="315000" />
-      <workItem from="1716969775512" duration="5262000" />
-      <workItem from="1716982339665" duration="11352000" />
-      <workItem from="1717053316778" duration="1220000" />
-      <workItem from="1717057086078" duration="59000" />
-      <workItem from="1717060661452" duration="30000" />
-      <workItem from="1717086708134" duration="11831000" />
-
+      <updated>1717166830237</updated>
+      <workItem from="1717166831308" duration="4621000" />
+      <workItem from="1717509472610" duration="637000" />
+      <workItem from="1717597570416" duration="1144000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/SignupController.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
