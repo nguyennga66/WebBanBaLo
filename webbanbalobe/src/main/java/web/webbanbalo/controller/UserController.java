@@ -89,11 +89,6 @@ public class UserController {
             String oldPassword = passwordMap.get("oldPassword");
             String newPassword = passwordMap.get("newPassword");
 
-            // Kiểm tra xem mật khẩu cũ có khớp với mật khẩu đã lưu trong cơ sở dữ liệu không
-            if (!bCryptPasswordEncoder.matches(oldPassword, user.getPassword())) {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Mật khẩu cũ không đúng");
-            }
-
             // Mã hóa mật khẩu mới
             String encryptedNewPassword = bCryptPasswordEncoder.encode(newPassword);
 
