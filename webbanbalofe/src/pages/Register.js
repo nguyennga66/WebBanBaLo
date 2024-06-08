@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Footer from '../Component/Footer'
+import Header from '../Component/Header'
 
 function UserRegistration() {
     const [formData, setFormData] = useState({
@@ -109,6 +111,8 @@ function UserRegistration() {
     };
 
     return (
+        <div>
+        <Header />
       <div data-vide-bg="video/keyboard">
       <div className="main-container">
         <div className="header-w3l">
@@ -208,6 +212,8 @@ function UserRegistration() {
           <div className="footer">
           </div>
         </div>
+      </div>
+      <Footer />
       </div>
     );
 }

@@ -7,6 +7,8 @@ import axios from 'axios';
 import { NavLink } from "react-router-dom";
 
 import { useNavigate } from 'react-router-dom';
+import Footer from '../Component/Footer'
+import Header from '../Component/Header'
 
 export default function Signin() {
   const [formData, setFormData] = useState({
@@ -64,7 +66,9 @@ export default function Signin() {
   };    
 
     return (
-    <div data-vide-bg="video/keyboard">
+      <div>
+        <Header />
+     <div data-vide-bg="video/keyboard">
       <div className="main-container">
         {/* Header */}
         <div className="header-w3l">
@@ -112,6 +116,8 @@ export default function Signin() {
         <div className="footer">
         </div>
       </div>
+    </div>
+    <Footer />
     </div>
   );
 };

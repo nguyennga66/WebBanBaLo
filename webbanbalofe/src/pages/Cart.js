@@ -5,6 +5,8 @@ import "../css/tiny-slider.css";
 import "../css/style.css";
 import { FaTrash } from 'react-icons/fa';
 import axios from 'axios';
+import Footer from '../Component/Footer'
+import Header from '../Component/Header'
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -96,6 +98,7 @@ const handleCheckout = () => {
 };
   return (
     <div>
+    <Header />
       {/* Phần tiêu đề của giỏ hàng */}
       <div className="row mb-5" style={{ margin: "20px 20px" }}>
         <div className="col-md-12">
@@ -219,6 +222,7 @@ const handleCheckout = () => {
           </div>
         </div>
       </div>
+    <Footer />
     </div>
   );
 }  

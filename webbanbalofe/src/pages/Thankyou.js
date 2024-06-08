@@ -3,10 +3,13 @@ import { NavLink } from "react-router-dom";
 import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/style.css";
+import Footer from '../Component/Footer'
+import Header from '../Component/Header'
 
 export default function Thankyou() {
   return (
     <div>
+      <Header />
       <div className="untree_co-section">
         <div className="container">
           <div className="row">
@@ -42,6 +45,7 @@ export default function Thankyou() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

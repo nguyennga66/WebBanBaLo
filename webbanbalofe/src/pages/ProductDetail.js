@@ -5,6 +5,8 @@ import "../css/tiny-slider.css";
 import "../css/style.css";
 import "../css/product-detail.css";
 import { FaHeart } from 'react-icons/fa';
+import Footer from '../Component/Footer'
+import Header from '../Component/Header'
 
 export default function ProductDetail() {
     const { id } = useParams();
@@ -80,6 +82,7 @@ export default function ProductDetail() {
 
     return (
         <div>
+            <Header />
             <div className="container mt-4">
                 <div id="thongbao" className="alert alert-danger d-none face" role="alert">
                     <button type="button" className="close" data-dismiss="alert" aria-label="Close">
@@ -127,6 +130,7 @@ export default function ProductDetail() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

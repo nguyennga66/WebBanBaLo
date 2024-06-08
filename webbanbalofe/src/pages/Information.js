@@ -7,6 +7,8 @@ import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/style.css";
 import "../css/information.css";
+import Footer from '../Component/Footer'
+import Header from '../Component/Header'
 
 export default function Information() {
     const [tab, setTab] = useState('personal'); 
@@ -201,6 +203,8 @@ export default function Information() {
     };
     
     return (
+        <div>
+            <Header />
         <div className="main-wrapper">
             {/* Main Content */}
             <div className="main-content-wrap section-ptb my-account-page" style={{ padding: '30px 0' }}>
@@ -439,6 +443,8 @@ export default function Information() {
                     </div>
                 </div>
             </div>
+        </div>
+        <Footer />
         </div>
     );
 }
