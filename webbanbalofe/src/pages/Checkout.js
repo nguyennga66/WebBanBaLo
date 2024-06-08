@@ -3,6 +3,8 @@ import axios from "axios";
 import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/style.css";
+import Footer from '../Component/Footer'
+import Header from '../Component/Header'
 
 
 export default function Checkout() {
@@ -117,6 +119,7 @@ export default function Checkout() {
 
     return (
         <div>
+            <Header />
             <div className="hero">
                 <div className="container">
                     <div className="row justify-content-between">
@@ -295,6 +298,7 @@ export default function Checkout() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

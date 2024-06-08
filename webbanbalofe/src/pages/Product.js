@@ -5,6 +5,8 @@ import "../css/tiny-slider.css";
 import "../css/style.css";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import debounce from "lodash/debounce";
+import Footer from '../Component/Footer'
+import Header from '../Component/Header'
 
 export default function Product() {
     const [products, setProducts] = useState([]);
@@ -132,6 +134,7 @@ export default function Product() {
 
     return (
         <div>
+            <Header />
             <div className="untree_co-section product-section before-footer-section">
                 <div className="container">
                     <div className="row">
@@ -253,6 +256,7 @@ export default function Product() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
