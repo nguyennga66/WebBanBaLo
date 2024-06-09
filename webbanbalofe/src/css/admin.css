@@ -1,9 +1,9 @@
-/* Dropdown menu */
 .dropdown-content {
     position: absolute;
     top: 100%;
     left: 0;
     background-color: white;
+    color: black;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     overflow: hidden;
@@ -72,8 +72,8 @@
   
   .sidebar-link {
     display: block;
-    padding: 10px 20px;
-    color: #b8c7ce;
+    padding: 10px 15px;
+    color: #333;
     font-size: 14px;
     transition: all 0.3s;
   }
@@ -81,6 +81,35 @@
   .sidebar-link:hover {
     background-color: #f9bf29;
   }
+
+  .sidebar-nav a,
+.sidebar-nav button {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav button:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.1); /* Optional hover effect */
+}
+
+/* Additional styling to ensure links appear correctly */
+.sidebar-nav .submenu-item a {
+  padding-left: 20px;
+  display: block;
+}
+
+.sidebar-nav .submenu-item a:hover {
+  color: #ffffff;
+}
   
   .hide-menu {
     margin-left: 10px;
@@ -93,6 +122,7 @@
   .submenu {
     display: none;
     padding-left: 20px;
+    margin-top: 5px;
   }
   
   .submenu li {
@@ -107,6 +137,18 @@
     color: #ffffff;
   }
   
+  .submenu-item {
+    padding: 5px 0;
+  }
+  
+  .submenu-item a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .submenu-item a:hover {
+    color: #ffffff;
+  }
   /* Container */
   .container-fluid {
     padding: 20px;
