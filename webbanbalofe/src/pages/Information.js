@@ -300,11 +300,15 @@ export default function Information() {
                                                                 <tbody>
                                                                 {selectedOrder.billDetails.map((detail, index) => (
                                                                     <tr key={index}>
-                                                                    <td>{detail.product.nameP}</td>
+                                                                    <td>
+                                                                        <NavLink className="product-item" target="_blank" to={`/product_page/${detail.product.id}`}>
+                                                                            {detail.product.nameP}</NavLink>
+                                                                    </td>
                                                                     <td>{detail.quantity}</td>
                                                                     <td>{detail.product.price.toLocaleString('vi-VN')}.000 VNĐ</td>
                                                                     <td>{(detail.product.price * detail.quantity).toLocaleString('vi-VN')}.000 VNĐ</td>
                                                                     </tr>
+
                                                                 ))}
                                                                 </tbody>
                                                             </table>
@@ -314,7 +318,7 @@ export default function Information() {
                                                 </div>
                                             )}
 
-{tab === 'changePass' && (
+                                            {tab === 'changePass' && (
                                                 <div className="tab-pane active" id="dashboard">
                                                     <div className="row">
                                                         <h4><b>Thay đổi mật khẩu <span className="sp111" style={{ textAlign: 'center' }}></span></b></h4>

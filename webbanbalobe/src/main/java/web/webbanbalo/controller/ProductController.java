@@ -9,8 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import web.webbanbalo.entity.Category;
 import web.webbanbalo.entity.Product;
+import web.webbanbalo.entity.Review;
 import web.webbanbalo.repository.CategoryRepository;
 import web.webbanbalo.repository.ProductRepository;
+import web.webbanbalo.repository.ReviewRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +24,10 @@ public class ProductController {
     private ProductRepository productRepository;
 
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private ReviewRepository reviewRepository;
+
 
     public ProductController(ProductRepository productRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
@@ -181,13 +187,15 @@ public class ProductController {
     @GetMapping("/products/sort")
     public ResponseEntity<Page<Product>> getProductsSortedByPrice(
             @RequestParam(defaultValue = "asc") String sort,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
             Pageable pageable
     ) {
         Page<Product> products;
         if (sort.equals("asc")) {
-            products = productRepository.findAllByOrderByPriceAsc(pageable);
+            products = productRepository.findAllByOrderByPriceAsc(PageRequest.of(page, size));
         } else {
-            products = productRepository.findAllByOrderByPriceDesc(pageable);
+            products = productRepository.findAllByOrderByPriceDesc(PageRequest.of(page, size));
         }
         return ResponseEntity.ok(products);
     }
@@ -205,6 +213,14 @@ public class ProductController {
             products = productRepository.findByCategoryIdOrderByPriceDesc(categoryId, pageable);
         }
         return ResponseEntity.ok(products);
+    }
+
+
+    // Lấy tất cả các đánh giá của một sản phẩm
+    @GetMapping("/{id}/reviews")
+    public ResponseEntity<List<Review>> getReviewsByProductId(@PathVariable int id) {
+        List<Review> reviews = reviewRepository.findByProductId(id);
+        return ResponseEntity.ok(reviews);
     }
 }
 

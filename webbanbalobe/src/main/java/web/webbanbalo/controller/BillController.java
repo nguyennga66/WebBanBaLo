@@ -29,6 +29,7 @@ public class BillController {
 
     @Autowired
     private CartItemRepository cartItemRepository;
+
     @CrossOrigin(origins = "*")
     @PostMapping("/createBill")
     public ResponseEntity<String> createBillDetail(@RequestBody Bill bill) {

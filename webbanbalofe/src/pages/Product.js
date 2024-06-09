@@ -35,19 +35,26 @@ export default function Product() {
 
     const fetchProducts = async (sort = currentSort) => {
         try {
-            let url = `http://localhost:8080/products`;
+            let url = `http://localhost:8080/products/filter?`;
             if (sort) {
-                url += `/sort?sort=${sort}&page=${page}&size=${size}`;
+                setSearchQuery('');
+                setMinPrice('');
+                setMaxPrice('');
+                setCurrentSort(null);
+                url = `http://localhost:8080/products/sort?sort=${sort}&page=${page}&size=${size}`;
             }
             if (searchQuery) {
-                url += `/search?search=${searchQuery}&page=${page}&size=${size}`;
+
+                url = `http://localhost:8080/products/search?search=${searchQuery}&page=${page}&size=${size}`;
             }
             if (minPrice) {
-                url = `http://localhost:8080/products/filter?`;
+                setSearchQuery('');
+                setCurrentSort(null);
                 url += `&minPrice=${minPrice}`;
             }
             if (maxPrice) {
-                url = `http://localhost:8080/products/filter?`;
+                setSearchQuery('');
+                setCurrentSort(null);
                 url += `&maxPrice=${maxPrice}`;
             }
             const response = await fetch(url);
