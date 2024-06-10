@@ -4,251 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="add admin page">
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Canvas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Sidebar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Topbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/css/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/custom-select.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/large/img1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/logo-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/logo-light-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/logo-light-text.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/logo-text.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/1-old.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/agent.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/agent2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/arijit.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/d1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/d2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/d3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/d4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/d5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/genu.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/govinda.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/hritik.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/pawandeep.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/ritesh.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/sonu.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/varun.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/js/admin/app-style-switcher.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/js/admin/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/js/admin/pages/dashboards/dashboard1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/js/admin/sidebarmenu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/js/admin/waves.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/Profile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/chartist/dist/chartist.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/chartist/dist/chartist.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/counterup/jquery.counterup.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/gmaps.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/gmaps.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/gmaps.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/jquery.gmaps.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.controls.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.events.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.geofences.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.geometry.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.layers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.map_types.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.markers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.native_extensions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.overlays.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.static.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.streetview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/gmaps/lib/gmaps.utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/jquery/dist/core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/jquery/dist/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/jquery/dist/jquery.slim.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/perfect-scrollbar/dist/js/perfect-scrollbar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/perfect-scrollbar/dist/perfect-scrollbar.common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/perfect-scrollbar/dist/perfect-scrollbar.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/perfect-scrollbar/dist/perfect-scrollbar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/popper.js/dist/esm/popper-utils.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/popper.js/dist/esm/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/popper.js/dist/popper-utils.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/popper.js/dist/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/popper.js/dist/umd/popper-utils.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/bower_components/popper.js/dist/umd/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/custom-select.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/large/img1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/logo-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/logo-light-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/logo-light-text.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/logo-text.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/1-old.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/agent.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/agent2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/arijit.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/d1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/d2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/d3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/d4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/d5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/genu.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/govinda.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/hritik.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/pawandeep.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/ritesh.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/sonu.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/plugins/images/users/varun.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_accordion.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_badge.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_breadcrumb.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_button-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_card.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_carousel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_close.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_containers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_functions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_helpers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_images.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_modal.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_nav.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_navbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_popover.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_progress.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_reboot.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_root.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_spinners.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_toasts.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_tooltip.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_transitions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_type.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_utilities.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/bootstrap-grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/bootstrap-reboot.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/bootstrap-utilities.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/bootstrap.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/forms/_floating-labels.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/forms/_form-check.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/forms/_form-control.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/forms/_form-range.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/forms/_form-select.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/forms/_form-text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/forms/_input-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/forms/_labels.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/forms/_validation.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/helpers/_clearfix.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/helpers/_colored-links.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/helpers/_position.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/helpers/_ratio.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/helpers/_stretched-link.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/helpers/_text-truncation.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/helpers/_visually-hidden.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_border-radius.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_box-shadow.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_breakpoints.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_caret.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_clearfix.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_container.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_deprecate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_gradients.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_image.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_lists.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_reset-text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_resize.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_table-variants.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_text-truncate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_transition.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_utilities.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/mixins/_visually-hidden.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/utilities/_api.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/bootstrap/vendor/_rfs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/components.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/core/animation/animation.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/core/breadcrumb/breadcrumb.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/core/buttons/buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/core/core.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/core/extra/extra.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/core/layout/layout.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/core/loader/spinner.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/core/scafholdings/scafholding.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/core/sidebar/sidebar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/core/topbar/header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/core/topbar/notify.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/core/wave-effects/wave-effects.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/custom.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/mixins/padding-margin.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/responsive.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/theme-colors/theme-colors.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/variable.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/widgets/comments.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/widgets/feeds.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/widgets/profile.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/widgets/steamline.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/scss/admin/widgets/widgets.scss" afterDir="false" />
+    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="add manage user page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/Component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Checkout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Contact.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/ForgotPass.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/ForgotPass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Information.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Information.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/ProductDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/ProductDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Signin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Thankyou.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Thankyou.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/ResetPass.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/UserManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/UserManagement.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +72,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/WebBanBaLo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/WebBanBaLo/webbanbalobe&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -401,7 +161,10 @@
       <workItem from="1717148003751" duration="3545000" />
       <workItem from="1717509453430" duration="658000" />
       <workItem from="1717598121886" duration="634000" />
-      <workItem from="1717731313197" duration="978000" />
+      <workItem from="1717731313197" duration="1367000" />
+      <workItem from="1717939607204" duration="1336000" />
+      <workItem from="1718001527576" duration="616000" />
+      <workItem from="1718006607094" duration="595000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -635,7 +398,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717731455222</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="add admin page">
+      <option name="closed" value="true" />
+      <created>1717839502337</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1717839502337</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add manage user page">
+      <option name="closed" value="true" />
+      <created>1717945819099</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1717945819099</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -654,7 +433,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="back-end: add product to cart" />
     <MESSAGE value="back-end: update cart" />
     <MESSAGE value="back-end: remove product from cart" />
     <MESSAGE value="front-end and update back-end: add product to cart" />
@@ -679,6 +457,7 @@
     <MESSAGE value="validation change password" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="add admin page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add admin page" />
+    <MESSAGE value="add manage user page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add manage user page" />
   </component>
 </project>
