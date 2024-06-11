@@ -7,10 +7,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import web.webbanbalo.entity.BillDetail;
 import web.webbanbalo.entity.Category;
 import web.webbanbalo.entity.Product;
+import web.webbanbalo.entity.View;
+import web.webbanbalo.repository.BillDetailRepository;
 import web.webbanbalo.repository.CategoryRepository;
 import web.webbanbalo.repository.ProductRepository;
+import web.webbanbalo.repository.ViewRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +26,12 @@ public class ProductController {
     private ProductRepository productRepository;
 
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private ViewRepository viewRepository;
+
+    @Autowired
+    private BillDetailRepository billDetailRepository;
 
     public ProductController(ProductRepository productRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
@@ -203,5 +213,30 @@ public class ProductController {
             products = productRepository.findByCategoryIdOrderByPriceDesc(categoryId, pageable);
         }
         return ResponseEntity.ok(products);
+    }
+
+    @GetMapping("/products/{id}/views")
+    public int getViewCount(@PathVariable int id) {
+        View viewCount = viewRepository.findByProductId(id);
+        return viewCount != null ? viewCount.getViewCount() : 0;
+    }
+
+    @PostMapping("/products/{id}/view")
+    public void incrementViewCount(@PathVariable int id) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+        View viewCount = viewRepository.findByProductId(id);
+        if (viewCount == null) {
+            viewCount = new View();
+            viewCount.setProduct(product);
+            viewCount.setViewCount(0);
+        }
+        viewCount.setViewCount(viewCount.getViewCount() + 1);
+        viewRepository.save(viewCount);
+    }
+
+    @GetMapping("/products/{id}/purchases")
+    public int getPurchaseCount(@PathVariable int id) {
+        List<BillDetail> billDetails = billDetailRepository.findByProductId(id);
+        return billDetails.stream().mapToInt(BillDetail::getQuantity).sum();
     }
 }
