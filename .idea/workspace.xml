@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="back-end: update forgot password">
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/ResetPass.js" afterDir="false" />
+    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="add manage user page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Signin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/UserManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/UserManagement.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +72,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/WebBanBaLo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/WebBanBaLo/webbanbalobe&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -158,7 +155,16 @@
       <workItem from="1715785133344" duration="1264000" />
       <workItem from="1716394628116" duration="1403000" />
       <workItem from="1716644217020" duration="656000" />
-      <workItem from="1716869881086" duration="1215000" />
+      <workItem from="1716869881086" duration="1766000" />
+      <workItem from="1716986934212" duration="604000" />
+      <workItem from="1717147280232" duration="379000" />
+      <workItem from="1717148003751" duration="3545000" />
+      <workItem from="1717509453430" duration="658000" />
+      <workItem from="1717598121886" duration="634000" />
+      <workItem from="1717731313197" duration="1367000" />
+      <workItem from="1717939607204" duration="1336000" />
+      <workItem from="1718001527576" duration="616000" />
+      <workItem from="1718006607094" duration="595000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -352,7 +358,63 @@
       <option name="project" value="LOCAL" />
       <updated>1716877981924</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="hoàn thiện chức năng forgot password">
+      <option name="closed" value="true" />
+      <created>1716879962616</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1716879962616</updated>
+    </task>
+    <task id="LOCAL-00026" summary="update forgot password">
+      <option name="closed" value="true" />
+      <created>1717148036760</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1717148036760</updated>
+    </task>
+    <task id="LOCAL-00027" summary="validation update personal information">
+      <option name="closed" value="true" />
+      <created>1717151360545</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1717151360545</updated>
+    </task>
+    <task id="LOCAL-00028" summary="validation change password">
+      <option name="closed" value="true" />
+      <created>1717166591800</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1717166591800</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1717731455222</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1717731455222</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add admin page">
+      <option name="closed" value="true" />
+      <created>1717839502337</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1717839502337</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add manage user page">
+      <option name="closed" value="true" />
+      <created>1717945819099</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1717945819099</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,12 +433,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update" />
-    <MESSAGE value="update convert to react" />
-    <MESSAGE value="Pagination" />
-    <MESSAGE value="update cart, checkout, contact page" />
-    <MESSAGE value="update checkout, home, thankyou page" />
-    <MESSAGE value="back-end: add product to cart" />
     <MESSAGE value="back-end: update cart" />
     <MESSAGE value="back-end: remove product from cart" />
     <MESSAGE value="front-end and update back-end: add product to cart" />
@@ -395,6 +451,13 @@
     <MESSAGE value="front-end: update Information.js page" />
     <MESSAGE value="back-end: forgot password" />
     <MESSAGE value="back-end: update forgot password" />
-    <option name="LAST_COMMIT_MESSAGE" value="back-end: update forgot password" />
+    <MESSAGE value="hoàn thiện chức năng forgot password" />
+    <MESSAGE value="update forgot password" />
+    <MESSAGE value="validation update personal information" />
+    <MESSAGE value="validation change password" />
+    <MESSAGE value="fix bug" />
+    <MESSAGE value="add admin page" />
+    <MESSAGE value="add manage user page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add manage user page" />
   </component>
 </project>

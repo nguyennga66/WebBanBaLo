@@ -1,0 +1,382 @@
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    padding: 10px 20px;
+    text-align: left;
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .user-account {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Sidebar */
+  .left-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px;
+    background-color: #3b5d50;
+    overflow-y: auto;
+  }
+  
+  .scroll-sidebar {
+    position: relative;
+    height: calc(100% - 65px);
+    overflow-y: auto;
+  }
+  
+  .sidebar-nav {
+    padding-top: 20px;
+  }
+  
+  #sidebarnav li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-item {
+    position: relative;
+  }
+  
+  .sidebar-link {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+  
+  .sidebar-link:hover {
+    background-color: #f9bf29;
+  }
+
+  .sidebar-nav a,
+.sidebar-nav button {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav button:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.1); /* Optional hover effect */
+}
+
+/* Additional styling to ensure links appear correctly */
+.sidebar-nav .submenu-item a {
+  padding-left: 20px;
+  display: block;
+}
+
+.sidebar-nav .submenu-item a:hover {
+  color: #ffffff;
+}
+  
+  .hide-menu {
+    margin-left: 10px;
+  }
+  
+  .drop-down {
+    margin-left: 10px;
+  }
+  
+  .submenu {
+    display: none;
+    padding-left: 20px;
+    margin-top: 5px;
+  }
+  
+  .submenu li {
+    margin-bottom: 5px;
+  }
+  
+  .submenu a {
+    color: #b8c7ce;
+  }
+  
+  .submenu a:hover {
+    color: #ffffff;
+  }
+  
+  .submenu-item {
+    padding: 5px 0;
+  }
+  
+  .submenu-item a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .submenu-item a:hover {
+    color: #ffffff;
+  }
+  /* Container */
+  .container-fluid {
+    padding: 20px;
+  }
+  
+  /* White Box */
+  .white-box {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  /* Analytics Info */
+  .analytics-info {
+    text-align: center;
+  }
+  
+  /* Box Title */
+  .box-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #444;
+  }
+  
+  /* List Inline */
+  .list-inline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+  
+  /* Two Part */
+  .two-part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Counter */
+  .counter {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  /* Text Colors */
+  .text-success {
+    color: #28a745;
+  }
+  
+  .text-purple {
+    color: #6f42c1;
+  }
+  
+  .text-info {
+    color: #17a2b8;
+  }
+  
+  /* Table */
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  .table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+  }
+  
+  .table .table {
+    background-color: #ffffff;
+  }
+  
+  .table-bordered {
+    border: 1px solid #dee2e6;
+  }
+  
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #dee2e6;
+  }
+  
+  .table-bordered thead th,
+  .table-bordered thead td {
+    border-bottom-width: 2px;
+  }
+  
+  .txt-oflo {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* Sidebar */
+#page-wrapper {
+    margin-left: 260px; /* Đảm bảo trang chính không bị đè lên bởi Sidebar */
+  }
+  
+  /* Container */
+  .container-fluid {
+    padding: 20px;
+  }
+  
+  /* White Box */
+  .white-box {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  /* Analytics Info */
+  .analytics-info {
+    text-align: center;
+  }
+  
+  /* Box Title */
+  .box-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #444;
+  }
+  
+  /* List Inline */
+  .list-inline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+  
+  /* Two Part */
+  .two-part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Counter */
+  .counter {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+  /* Text Colors */
+  .text-success {
+    color: #28a745;
+  }
+  
+  .text-purple {
+    color: #6f42c1;
+  }
+  
+  .text-info {
+    color: #17a2b8;
+  }
+  
+  /* Table */
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  .table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+  }
+  
+  .table .table {
+    background-color: #ffffff;
+  }
+  
+  .table-bordered {
+    border: 1px solid #dee2e6;
+  }
+  
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #dee2e6;
+  }
+  
+  .table-bordered thead th,
+  .table-bordered thead td {
+    border-bottom-width: 2px;
+  }
+  
+  .txt-oflo {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  

@@ -7,8 +7,6 @@ import {
 import './App.css';
 import Home from './pages/Home'
 import Cart from './pages/Cart'
-import Footer from './Component/Footer'
-import Header from './Component/Header'
 import Product from './pages/Product'
 import ProductDetail from './pages/ProductDetail'
 import Thankyou from './pages/Thankyou'
@@ -17,15 +15,17 @@ import Contact from './pages/Contact'
 import Signin from './pages/Signin';
 import Register from './pages/Register';
 import Information from './pages/Information';
-// import FormEditProfile from './Component/FormEditProfile';
-// import ForgotPassword from './pages/ForgotPass';
-// import FormForgotPassword from './Component/FormForgotPassword';
+import FormEditProfile from './Component/FormEditProfile';
+import ForgotPassword from './pages/ForgotPass';
+import FormForgotPassword from './Component/FormForgotPassword';
+import Admin from './pages/admin/Home';
+import ProfileAdmin from './pages/admin/Profile'
+import UserManagement from './pages/admin/UserManagement'
 
 function App() {
   return (
       <>
       <BrowserRouter>
-      <Header />
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/thankyou" element={<Thankyou/>}/>
@@ -37,11 +37,13 @@ function App() {
         <Route path="/signin" element={<Signin />} />
         <Route path="/register" element={<Register />} />
         <Route path="/information/:userId" element={<Information />} />
-        {/* <Route path="/editform" element={<FormEditProfile />} />
+        <Route path="/editform" element={<FormEditProfile />} />
         <Route path="/forgot" element={<ForgotPassword/>} />
-        <Route path="/forgotform" element={<FormForgotPassword/>} /> */}
+        <Route path="/forgotform" element={<FormForgotPassword/>} />
+        <Route path="/admin" element={<Admin/>} />
+        <Route path="/profile" element={<ProfileAdmin/>} />
+        <Route path="/user_manage" element={<UserManagement/>} />
       </Routes>
-      <Footer />
       </BrowserRouter>
         </>
   );

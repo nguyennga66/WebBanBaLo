@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Footer from '../Component/Footer'
+import Header from '../Component/Header'
 
 function UserRegistration() {
     const [formData, setFormData] = useState({
@@ -12,6 +15,7 @@ function UserRegistration() {
     });
     const [errors, setErrors] = useState({});
     const [success, setSuccess] = useState('');
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -97,6 +101,9 @@ function UserRegistration() {
                 password: '',
                 confirmPassword: ''
             });
+
+            navigate('/signin');
+
         } catch (error) {
             setErrors({ submit: error.response.data.message || 'Đăng ký không thành công' });
             setSuccess('');
@@ -104,6 +111,8 @@ function UserRegistration() {
     };
 
     return (
+        <div>
+        <Header />
       <div data-vide-bg="video/keyboard">
       <div className="main-container">
         <div className="header-w3l">
@@ -203,6 +212,8 @@ function UserRegistration() {
           <div className="footer">
           </div>
         </div>
+      </div>
+      <Footer />
       </div>
     );
 }
