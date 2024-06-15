@@ -5,75 +5,93 @@ import "../css/tiny-slider.css";
 import "../css/style.css";
 import "../css/product-detail.css";
 import { FaHeart } from 'react-icons/fa';
-import Footer from '../Component/Footer'
-import Header from '../Component/Header'
+import Footer from '../Component/Footer';
+import Header from '../Component/Header';
 
 export default function ProductDetail() {
     const { id } = useParams();
     console.log('ID sản phẩm từ URL:', id);
 
-    const [product, setProduct] = useState(null); // Trạng thái để lưu trữ thông tin chi tiết của sản phẩm
-    const [quantity, setQuantity] = useState(1); // Mặc định số lượng là 1
+    const [product, setProduct] = useState(null);
+    const [quantity, setQuantity] = useState(1);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userId, setUserId] = useState("");
 
     useEffect(() => {
-        // Gọi API để lấy thông tin chi tiết sản phẩm dựa trên ID từ URL
-        fetch(`http://localhost:8080/products/${id}`)
-            .then(response => response.json())
-            .then(data => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`http://localhost:8080/products/${id}`);
+                const data = await response.json();
                 setProduct(data);
-            })
-            .catch(error => {
+                await increaseViewCount();
+            } catch (error) {
                 console.error('Lỗi khi gọi API để lấy chi tiết sản phẩm:', error);
-            });
+            }
+        };
+    
+        fetchData();
     }, [id]);
+    
+    const increaseViewCount = async () => {
+        try {
+            const response = await fetch(`http://localhost:8080/products/views/${id}`);
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            console.log('View count increased:', data);
+        } catch (error) {
+            console.error('Lỗi khi tăng view count:', error);
+        }
+    };    
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
         if (user) {
-          setIsLoggedIn(true);
-          setUserId(user.id);
-          console.log("useEffect is called");
-    
+            setIsLoggedIn(true);
+            setUserId(user.id);
         }
-    
-      }, []);
+    }, []);
 
     const handleQuantityChange = (event) => {
-        const quantityValue = parseInt(event.target.value);
-        setQuantity(quantityValue > 0 ? quantityValue : 1); // Số lượng không được nhỏ hơn 1
+        const quantityValue = parseInt(event.target.value, 10);
+        setQuantity(quantityValue > 0 ? quantityValue : 1);
     };
 
-    const handleAddToCart = () => {
+    const handleAddToCart = async () => {
         if (isLoggedIn) {
-            // Nếu đã đăng nhập, chuyển hướng đến trang giỏ hàng
             window.location.href = `/cart/${userId}`;
         } else {
-            // Nếu chưa đăng nhập, hiển thị trang đăng nhập
             window.location.href = '/signin';
         }
+
         const cartItem = {
-           cart: { user: { id: userId } }, // Sử dụng ID của người dùng đăng nhập
-        product: { id: product.id },
-        quantity: quantity
+            cart: { user: { id: userId } },
+            product: { id: product.id },
+            quantity: quantity
         };
 
-        fetch('http://localhost:8080/carts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(cartItem)
-        })
-        .then(response => response.text())
-        .then(data => {
+        try {
+            const response = await fetch('http://localhost:8080/carts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cartItem)
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.text();
             alert(data);
-        })
-        .catch(error => {
+        } catch (error) {
             console.error('Lỗi khi gửi yêu cầu:', error);
             alert('Có lỗi xảy ra khi thêm vào giỏ hàng');
-        });
+        }
     };
 
     if (!product) {
@@ -96,7 +114,7 @@ export default function ProductDetail() {
                             <div className="preview col-md-6">
                                 <div className="preview-pic tab-content">
                                     <div className="tab-pane active" id="pic-1">
-                                        <img src={require(`../images/product/${product.image}`)} alt="Product" style={{ width: '350px',height: '310px'}}/>
+                                        <img src={require(`../images/product/${product.image}`)} alt="Product" style={{ width: '350px', height: '310px' }} />
                                     </div>
                                 </div>
                             </div>

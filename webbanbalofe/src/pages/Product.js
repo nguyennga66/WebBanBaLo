@@ -37,7 +37,7 @@ export default function Product() {
 
     const fetchProducts = async (sort = currentSort) => {
         try {
-            let url = `http://localhost:8080/products`;
+            let url = `http://localhost:8080/products?page=${page}&size=${size}`;
             if (sort) {
                 url += `/sort?sort=${sort}&page=${page}&size=${size}`;
             }

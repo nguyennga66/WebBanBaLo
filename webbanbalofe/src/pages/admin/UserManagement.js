@@ -79,7 +79,7 @@ function UserManagement() {
       case 0:
         return 'Đang hoạt động';
       case 1:
-        return 'Không hoạt động';
+        return 'Bị khóa';
       default:
         return 'Không xác định';
     }
@@ -217,7 +217,7 @@ function UserManagement() {
                        >
 <option value="">Chọn trạng thái</option>
 <option value="0">Đang hoạt động</option>
-<option value="1">Không hoạt động</option>
+<option value="1">Bị khóa</option>
 </select>
 </div>
                           </div>
@@ -298,7 +298,7 @@ function UserManagement() {
                        >
 <option value="">Chọn trạng thái</option>
 <option value="0">Đang hoạt động</option>
-<option value="1">Không hoạt động</option>
+<option value="1">Bị khóa</option>
 </select>
 </div>
                           </div>
