@@ -2,6 +2,9 @@ package web.webbanbalo.entity;
 
 import jakarta.persistence.*;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -15,6 +18,7 @@ public class Bill {
     private String email;
     private String phone;
     private String orderNotes;
+    private String createDate;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -43,6 +47,8 @@ public class Bill {
         this.email = email;
         this.phone = phone;
         this.orderNotes = orderNotes;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
+        this.createDate = formatter.format(new Date());
         this.billDetails = billDetails;
         this.cart = cart;
         this.total = total;
@@ -64,7 +70,13 @@ public class Bill {
                 ", grandTotal=" + grandTotal +
                 '}';
     }
+    public String getCreateDate() {
+        return createDate;
+    }
 
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
     public int getId() {
         return id;
     }

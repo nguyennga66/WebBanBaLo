@@ -32,16 +32,17 @@ export default function Information() {
     const pageSize = 10;
   
     useEffect(() => {
-      // Gọi API để lấy danh sách hóa đơn của người dùng với phân trang
-      axios.get(`http://localhost:8080/bills?userId=${userId}&page=${currentPage}&size=${pageSize}`)
-        .then((response) => {
-          setOrderList(response.data.content);
-          setTotalPages(response.data.totalPages);
-        })
-        .catch((error) => {
-          console.error("Lỗi khi gọi API để lấy danh sách hóa đơn:", error);
-        });
-    }, [currentPage, userId]);
+        // Gọi API để lấy danh sách hóa đơn của người dùng với phân trang
+        axios.get(`http://localhost:8080/bills/user/${userId}?page=${currentPage}&size=${pageSize}`)
+          .then((response) => {
+            setOrderList(response.data.content);
+            setTotalPages(response.data.totalPages);
+          })
+          .catch((error) => {
+            console.error("Lỗi khi gọi API để lấy danh sách hóa đơn:", error);
+          });
+      }, [currentPage, userId]);
+
   
     const handlePageChange = (page) => {
       setCurrentPage(page);
@@ -284,6 +285,7 @@ export default function Information() {
                                                                 <th>Email</th>
                                                                 <th>Số điện thoại</th>
                                                                 <th>Tổng tiền</th>
+                                                                <th>Ngày tạo</th>
                                                                 <th>Chi tiết</th>
                                                                 </tr>
                                                             </thead>
@@ -296,6 +298,7 @@ export default function Information() {
                                                                     <td>{order.email}</td>
                                                                     <td>{order.phone}</td>
                                                                     <td>{order.grandTotal.toLocaleString('vi-VN')}.000 VNĐ</td>
+                                                                    <td>{order.createDate}</td>
                                                                     <td>
                                                                     <button
                                                                         onClick={() => handleViewDetails(order.id)}
