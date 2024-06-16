@@ -31,8 +31,7 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<BillDetail> billDetails;
 
-    public Product(int id, String nameP, double price, String image, int quantity, String description, Category category) {
-        this.id = id;
+    public Product(String nameP, double price, String image, int quantity, String description, Category category) {
         this.nameP = nameP;
         this.price = price;
         this.image = image;
