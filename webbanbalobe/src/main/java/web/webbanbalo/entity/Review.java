@@ -21,12 +21,14 @@ public class Review {
     @Column(length = 10000)
     private String comment;
 
-    public Review(int id, User user, Product product, int rating, String comment) {
+    private String createDate;
+    public Review(int id, User user, Product product, int rating, String comment, String createDate) {
         this.id = id;
         this.user = user;
         this.product = product;
         this.rating = rating;
         this.comment = comment;
+        this.createDate = createDate;
     }
 
     public Review() {
@@ -71,6 +73,14 @@ public class Review {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 }
 

@@ -16,8 +16,8 @@ export default function Product() {
     const [size, setSize] = useState(10);
     const [totalPages, setTotalPages] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
-    const [currentSort, setCurrentSort] = useState(''); // State để lưu loại sắp xếp hiện tại
-    const [currentCategory, setCurrentCategory] = useState(null); // State để lưu danh mục hiện tại
+    const [currentSort, setCurrentSort] = useState('');
+    const [currentCategory, setCurrentCategory] = useState(null);
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
 
@@ -27,38 +27,59 @@ export default function Product() {
 
     const handleSortChange = (sortType) => {
         setCurrentSort(sortType);
-        if (currentCategory) {
-            fetchProductsByCategory(currentCategory, sortType);
-        } else {
-            fetchProducts(sortType);
-        }
+        setSearchQuery('');
+        setMinPrice('');
+        setMaxPrice('');
+        setPage(0);
         setIsOpen(false);
     };
 
-    const fetchProducts = async (sort = currentSort) => {
-        try {
-            let url = `http://localhost:8080/products/filter?`;
-            if (sort) {
-                setSearchQuery('');
-                setMinPrice('');
-                setMaxPrice('');
-                setCurrentSort(null);
-                url = `http://localhost:8080/products/sort?sort=${sort}&page=${page}&size=${size}`;
-            }
-            if (searchQuery) {
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+        setMinPrice('');
+        setMaxPrice('');
+        setCurrentSort('');
+        setPage(0);
+    };
 
+    const handleMinPriceChange = (event) => {
+        setMinPrice(event.target.value);
+        setSearchQuery('');
+        setCurrentSort('');
+        setPage(0);
+    };
+
+    const handleMaxPriceChange = (event) => {
+        setMaxPrice(event.target.value);
+        setSearchQuery('');
+        setCurrentSort('');
+        setPage(0);
+    };
+
+    const handleCategoryClick = (categoryId) => {
+        setCurrentCategory(categoryId);
+        setSearchQuery('');
+        setMinPrice('');
+        setMaxPrice('');
+        setCurrentSort('');
+        setPage(0);
+    };
+
+    const handlePageChange = (newPage) => {
+        setPage(newPage);
+    };
+
+    const fetchProducts = async () => {
+        try {
+            let url = `http://localhost:8080/products/filter?page=${page}&size=${size}`;
+            if (currentSort) {
+                url = `http://localhost:8080/products/sort?sort=${currentSort}&page=${page}&size=${size}`;
+            } else if (searchQuery) {
                 url = `http://localhost:8080/products/search?search=${searchQuery}&page=${page}&size=${size}`;
+            } else if (minPrice || maxPrice) {
+                url = `http://localhost:8080/products/filter?minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${size}`;
             }
-            if (minPrice) {
-                setSearchQuery('');
-                setCurrentSort(null);
-                url += `&minPrice=${minPrice}`;
-            }
-            if (maxPrice) {
-                setSearchQuery('');
-                setCurrentSort(null);
-                url += `&maxPrice=${maxPrice}`;
-            }
+
             const response = await fetch(url);
             const data = await response.json();
             setProducts(data.content);
@@ -70,24 +91,17 @@ export default function Product() {
         }
     };
 
-    const fetchProductsByCategory = async (categoryId, sort = currentSort) => {
+    const fetchProductsByCategory = async () => {
         try {
-            setCurrentCategory(categoryId);
-            let url = `http://localhost:8080/products/category/${categoryId}`;
-            if (sort) {
-                url += `/sort?sort=${sort}&page=${page}&size=${size}`;
+            let url = `http://localhost:8080/products/category/${currentCategory}?page=${page}&size=${size}`;
+            if (currentSort) {
+                url = `http://localhost:8080/products/category/${currentCategory}/sort?sort=${currentSort}&page=${page}&size=${size}`;
+            } else if (searchQuery) {
+                url = `http://localhost:8080/products/category/${currentCategory}/search?search=${searchQuery}&page=${page}&size=${size}`;
+            } else if (minPrice || maxPrice) {
+                url = `http://localhost:8080/products/category/${currentCategory}/filter?minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${size}`;
             }
-            if (searchQuery) {
-                url += `/search?search=${searchQuery}&page=${page}&size=${size}`;
-            }
-            if (minPrice) {
-                url = `http://localhost:8080/products/category/${categoryId}/filter?`;
-                url += `&minPrice=${minPrice}`;
-            }
-            if (maxPrice) {
-                url = `http://localhost:8080/products/category/${categoryId}/filter?`;
-                url += `&maxPrice=${maxPrice}`;
-            }
+
             const response = await fetch(url);
             const data = await response.json();
             setProducts(data.content);
@@ -101,11 +115,11 @@ export default function Product() {
 
     useEffect(() => {
         if (currentCategory) {
-            fetchProductsByCategory(currentCategory);
+            fetchProductsByCategory();
         } else {
             fetchProducts();
         }
-    }, [page, size, searchQuery, currentSort, minPrice, maxPrice]);
+    }, [page, size, searchQuery, currentSort, minPrice, maxPrice, currentCategory]);
 
     useEffect(() => {
         fetch('http://localhost:8080/category')
@@ -117,27 +131,6 @@ export default function Product() {
                 console.error('Error fetching categories:', error);
             });
     }, []);
-
-    const handleSearchChange = (event) => {
-        setSearchQuery(event.target.value);
-    };
-
-    const handleCategoryClick = (categoryId) => {
-        setPage(0); // Đặt lại trang về trang đầu tiên khi chọn danh mục mới
-        fetchProductsByCategory(categoryId);
-    };
-
-    const handlePageChange = (newPage) => {
-        setPage(newPage);
-    };
-
-    const handleMinPriceChange = (event) => {
-        setMinPrice(event.target.value);
-    };
-
-    const handleMaxPriceChange = (event) => {
-        setMaxPrice(event.target.value);
-    };
 
     return (
         <div>
@@ -154,8 +147,8 @@ export default function Product() {
                                         <li key={category.id} className="category-item">
                                             <span
                                                 className="category-link"
-                                                onClick={() => handleCategoryClick(category.id)} // Sử dụng hàm xử lý sự kiện nhấp chuột
-                                                style={{ cursor: 'pointer' }} // Đặt con trỏ chuột thành dạng pointer
+                                                onClick={() => handleCategoryClick(category.id)}
+                                                style={{ cursor: 'pointer' }}
                                             >
                                                 <span className="category-icon">&#x1F4E6;</span>
                                                 <span className="category-name">{category.nameC}</span>

@@ -213,11 +213,4 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-
-    // Lấy tất cả các đánh giá của một sản phẩm
-    @GetMapping("/{id}/reviews")
-    public ResponseEntity<List<Review>> getReviewsByProductId(@PathVariable int id) {
-        List<Review> reviews = reviewRepository.findByProductId(id);
-        return ResponseEntity.ok(reviews);
-    }
 }
