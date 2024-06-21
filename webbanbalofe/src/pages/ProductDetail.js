@@ -99,50 +99,31 @@ export default function ProductDetail() {
 
     const handleReviewSubmit = (event) => {
         event.preventDefault();
-    
-        // Kiểm tra xem người dùng đã mua sản phẩm
-        fetch(`http://localhost:8080/bills/user/${userId}/product/${product.id}`)
-            .then(response => response.json())
-            .then(hasPurchased => {
-                if (!hasPurchased) {
-                    alert('Bạn không được phép đánh giá khi chưa mua sản phẩm');
-                    return;
-                }
-    
-                // Tiến hành gửi đánh giá nếu người dùng đã mua sản phẩm
-                const reviewData = {
-                    user: { id: userId },
-                    product: { id: product.id },
-                    rating: newReview.rating,
-                    comment: newReview.comment,
-                    name: newReview.name,
-                    email: newReview.email
-                };
-                return fetch('http://localhost:8080/reviews', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(reviewData)
-                });
-            })
-            .then(response => {
-                if (response) {
-                    return response.json();
-                }
-            })
-            .then(data => {
-                if (data) {
-                    setReviews([...reviews, data]);
-                    setNewReview({ rating: 0, comment: '', name: '', email: '' });
-                }
-            })
-            .catch(error => {
-                console.error('Lỗi khi gửi đánh giá:', error);
-                alert('Có lỗi xảy ra khi gửi đánh giá');
-            });
+        const reviewData = {
+            user: { id: userId },
+            product: { id: product.id },
+            rating: newReview.rating,
+            comment: newReview.comment,
+            name: newReview.name,
+            email: newReview.email
+        };
+        fetch('http://localhost:8080/reviews', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reviewData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            setReviews([...reviews, data]);
+            setNewReview({ rating: 0, comment: '', name: '', email: '' });
+        })
+        .catch(error => {
+            console.error('Lỗi khi gửi đánh giá:', error);
+            alert('Có lỗi xảy ra khi gửi đánh giá');
+        });
     };
-    
 
     const handleRatingChange = (rating) => {
         setNewReview({ ...newReview, rating });

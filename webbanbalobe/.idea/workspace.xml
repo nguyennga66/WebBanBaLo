@@ -6,16 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="75b23d9e-a722-4649-9c2d-7547c77fd0e6" name="Changes" comment="chuc nang danh gia san pham">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Product.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/ProductDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/ProductDetail.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,12 +120,35 @@
       <workItem from="1718699182968" duration="4332000" />
       <workItem from="1718730143911" duration="4624000" />
       <workItem from="1718759668698" duration="7174000" />
-      <workItem from="1718991007633" duration="5290000" />
+      <workItem from="1718991007633" duration="5648000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="ntkimanh" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="chuc nang danh gia san pham" />
