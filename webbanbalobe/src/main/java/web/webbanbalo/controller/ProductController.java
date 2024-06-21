@@ -75,9 +75,26 @@ public class ProductController {
     }
 
     @GetMapping("/products/{id}")
-    public Product getProductById(@PathVariable int id){
-        Product prod = productRepository.findById(id).get();
-        return prod;
+    public ResponseEntity<Product> getProductByIdAndIncreaseView(@PathVariable int id) {
+        Optional<Product> productOptional = productRepository.findById(id);
+        if (!productOptional.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Product product = productOptional.get();
+
+        View productView = viewRepository.findByProductId(id);
+        if (productView == null) {
+            productView = new View();
+            productView.setProduct(product);
+            productView.setViewCount(1); // Lần đầu tiên xem sản phẩm
+        } else {
+            productView.setViewCount(productView.getViewCount() + 1); // Tăng số lượt view
+        }
+
+        viewRepository.save(productView); // Lưu lại số lượt view mới
+
+        return ResponseEntity.ok(product);
     }
 
     @GetMapping("/products/category/{id}")
@@ -214,29 +231,6 @@ public class ProductController {
             products = productRepository.findByCategoryIdOrderByPriceDesc(categoryId, pageable);
         }
         return ResponseEntity.ok(products);
-    }
-
-    @GetMapping("/products/views/{id}")
-    public ResponseEntity<View> getProductViewById(@PathVariable int id) {
-        Optional<Product> productOptional = productRepository.findById(id);
-        if (!productOptional.isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-
-        Product product = productOptional.get();
-
-        View productView = viewRepository.findByProductId(id);
-        if (productView == null) {
-            productView = new View();
-            productView.setProduct(product);
-            productView.setViewCount(1); // Lần đầu tiên xem sản phẩm
-        } else {
-            productView.setViewCount(productView.getViewCount() + 1); // Tăng số lượt view
-        }
-
-        viewRepository.save(productView); // Lưu lại số lượt view mới
-
-        return ResponseEntity.ok(productView);
     }
 
     @GetMapping("/products/{id}/purchases")

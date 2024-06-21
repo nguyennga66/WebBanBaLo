@@ -351,6 +351,7 @@ export default function Information() {
                                                                 <p>Tổng tiền hàng: {selectedOrder.total.toLocaleString('vi-VN')}.000 VNĐ</p>
                                                                 <p>Phí vận chuyển: {selectedOrder.shippingFee.toLocaleString('vi-VN')}.000 VNĐ</p>
                                                                 <p>Tổng thanh toán: {selectedOrder.grandTotal.toLocaleString('vi-VN')}.000 VNĐ</p>
+                                                                <p>Trạng thái: {selectedOrder.status === 0 ? 'Chưa duyệt' : selectedOrder.status === 1 ? 'Đang vận chuyển' : 'Đã hủy'}</p>
                                                                 </div>
                                                             </div>
 

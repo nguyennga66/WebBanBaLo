@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
@@ -16,6 +16,7 @@ export default function ProductDetail() {
     const [quantity, setQuantity] = useState(1);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userId, setUserId] = useState("");
+    const fetchDataRef = useRef(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,29 +24,17 @@ export default function ProductDetail() {
                 const response = await fetch(`http://localhost:8080/products/${id}`);
                 const data = await response.json();
                 setProduct(data);
-                await increaseViewCount();
+                console.log('fetchData called');
             } catch (error) {
                 console.error('Lỗi khi gọi API để lấy chi tiết sản phẩm:', error);
             }
         };
-    
-        fetchData();
-    }, [id]);
-    
-    const increaseViewCount = async () => {
-        try {
-            const response = await fetch(`http://localhost:8080/products/views/${id}`);
-    
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-    
-            const data = await response.json();
-            console.log('View count increased:', data);
-        } catch (error) {
-            console.error('Lỗi khi tăng view count:', error);
+
+        if (!fetchDataRef.current) {
+            fetchData();
+            fetchDataRef.current = true;
         }
-    };    
+    }, [id]);
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));

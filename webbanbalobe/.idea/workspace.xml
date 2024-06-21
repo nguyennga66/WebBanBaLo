@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75b23d9e-a722-4649-9c2d-7547c77fd0e6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/View.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/ViewRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/security/Security.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/OrderList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/BillController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/BillDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/BillDetailRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Bill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/Component/admin/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/Component/admin/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Information.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Information.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/ProductDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/ProductDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/Profile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/UserManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/UserManagement.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -56,7 +66,7 @@
     "Spring Boot.WebbanbalobeApplication.executor": "Run",
     "git-widget-placeholder": "Nga",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/WebBanBaLo",
+    "last_opened_file_path": "D:/WebBanBaLo/webbanbalobe",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -107,7 +117,15 @@
       <workItem from="1717939619759" duration="1197000" />
       <workItem from="1718001547582" duration="3098000" />
       <workItem from="1718006605211" duration="614000" />
-      <workItem from="1718115369798" duration="1854000" />
+      <workItem from="1718115369798" duration="2134000" />
+      <workItem from="1718176043300" duration="959000" />
+      <workItem from="1718201860683" duration="2441000" />
+      <workItem from="1718289320966" duration="2796000" />
+      <workItem from="1718334139953" duration="2485000" />
+      <workItem from="1718348509870" duration="19450000" />
+      <workItem from="1718721195525" duration="1725000" />
+      <workItem from="1718938694338" duration="5680000" />
+      <workItem from="1718980205296" duration="1637000" />
     </task>
     <servers />
   </component>
