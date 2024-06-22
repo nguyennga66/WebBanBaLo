@@ -3,9 +3,8 @@ import axios from "axios";
 import "../css/bootstrap.min.css";
 import "../css/tiny-slider.css";
 import "../css/style.css";
-import Footer from '../Component/Footer'
-import Header from '../Component/Header'
-
+import Footer from '../Component/Footer';
+import Header from '../Component/Header';
 
 export default function Checkout() {
     const userId = JSON.parse(localStorage.getItem('user')).id;
@@ -31,6 +30,7 @@ export default function Checkout() {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
 
+        // Validate each field as it is updated
         setFormErrors({ ...formErrors, [name]: validateField(name, value) });
     };
 
@@ -66,6 +66,25 @@ export default function Checkout() {
     };
 
     const handleCheckout = () => {
+        // Check if required fields are filled
+        const requiredFields = ["fullName", "address", "email", "phone"];
+        const newFormErrors = {};
+        let hasError = false;
+
+        requiredFields.forEach(field => {
+            if (!formData[field].trim()) {
+                newFormErrors[field] = "Vui lòng nhập thông tin";
+                hasError = true;
+            }
+        });
+
+        if (hasError) {
+            setFormErrors({ ...formErrors, ...newFormErrors });
+            console.error("Form không hợp lệ");
+            return;
+        }
+
+        // Proceed with checkout logic
         const formValid = Object.values(formErrors).every(error => error === "");
 
         if (!formValid) {
@@ -74,7 +93,7 @@ export default function Checkout() {
         }
 
         if (!invoice) {
-            console.error("No invoice found");
+            console.error("Không tìm thấy hóa đơn");
             return;
         }
 
@@ -86,29 +105,28 @@ export default function Checkout() {
                 quantity: item.quantity,
                 price: item.product.price,
                 total: item.product.price * item.quantity,
-              })),
+            })),
             cart: { user: { id: userId } }, // Sử dụng ID của người dùng đăng nhập
             total: invoice.total,
             grandTotal: invoice.grandTotal,
             shippingFee: 20 // Ví dụ về phí vận chuyển
         };
 
-        console.log("Checkout Data:", data); // Kiểm tra dữ liệu gửi đi
+        console.log("Dữ liệu thanh toán:", data); // Kiểm tra dữ liệu gửi đi
 
         axios.post("http://localhost:8080/createBill", data)
             .then((response) => {
                 console.log(response.data);
                 // Lưu hóa đơn vào localStorage
                 // localStorage.setItem("productList", JSON.stringify(response.data));
-                
+
                 // Xoá giỏ hàng từ localStorage trước khi chuyển hướng trang
                 localStorage.removeItem("cartItems");
-                // console.log(productList);
                 // Chuyển hướng qua trang ThankYou sau khi thanh toán thành công
                 window.location.href = '/thankyou';
             })
             .catch((error) => {
-                console.error("Error creating BillDetail:", error);
+                console.error("Lỗi khi tạo hóa đơn:", error);
                 // Xử lý lỗi
             });
     };
@@ -154,7 +172,6 @@ export default function Checkout() {
                                         {formErrors.fullName && <div className="invalid-feedback">{formErrors.fullName}</div>}
                                     </div>
                                 </div>
-                                <br></br>
 
                                 <div className="form-group row">
                                     <div className="col-md-12" style={{ textAlign: "left" }}>
@@ -237,7 +254,7 @@ export default function Checkout() {
                                         <div className="input-group w-75 couponcode-wrap">
                                             <input type="text" className="form-control me-2" id="c_code" placeholder="Nhập mã giảm giá" aria-label="Coupon Code" aria-describedby="button-addon2" />
                                             <div className="input-group-append">
-                                                <button className="btn btn-black btn-sm" type="button" id="button-addon2">Áp dụng</button>
+                                            <button className="btn btn-black btn-sm" type="button" id="button-addon2">Áp dụng</button>
                                             </div>
                                         </div>
 
