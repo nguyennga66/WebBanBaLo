@@ -69,7 +69,7 @@ export default function Product() {
         setPage(newPage);
     };
 
-    const fetchProducts = async (sort = currentSort) => {
+    const fetchProducts = async () => {
         try {
             let url = `http://localhost:8080/products/filter?page=${page}&size=${size}`;
             if (currentSort) {

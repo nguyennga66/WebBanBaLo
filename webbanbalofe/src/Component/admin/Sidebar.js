@@ -23,6 +23,12 @@ function Sidebar() {
       <div className="scroll-sidebar">
         <nav className="sidebar-nav">
           <ul id="sidebarnav">
+          <li className="sidebar-item">
+              <NavLink className="sidebar-link waves-effect waves-dark sidebar-link" to="/" aria-expanded="false">
+                <i className="fa fa-user" aria-hidden="true"></i>
+                <span className="hide-menu">Trang chủ</span>
+              </NavLink>
+            </li>
             <li className="sidebar-item pt-2">
               <NavLink className="sidebar-link waves-effect waves-dark sidebar-link" to="/admin" aria-expanded="false">
                 <i className="fa fa-cloud" aria-hidden="true"></i>

@@ -11,8 +11,10 @@ import "../css/tiny-slider.css";
 import "../css/style.css";
 import "../css/product-detail.css";
 
+
 export default function ProductDetail() {
     const { id } = useParams();
+    console.log('ID sản phẩm từ URL:', id);
     const [product, setProduct] = useState(null);
     const [quantity, setQuantity] = useState(1);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -35,6 +37,7 @@ export default function ProductDetail() {
         }
     }, []);
 
+
     useEffect(() => {
         fetch(`http://localhost:8080/products/${id}`)
             .then(response => response.json())
@@ -47,6 +50,16 @@ export default function ProductDetail() {
     }, [id]);
 
     useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+          setIsLoggedIn(true);
+          setUserId(user.id);
+          console.log("useEffect is called");
+        }
+    }, []);
+
+    useEffect(() => {
+
         fetch(`http://localhost:8080/reviews/${id}`)
             .then(response => response.json())
             .then(data => {
@@ -63,7 +76,9 @@ export default function ProductDetail() {
     };
 
     const handleAddToCart = () => {
-        if (!isLoggedIn) {
+        if (isLoggedIn) {
+            window.location.href = `/cart/${userId}`;
+        } else {
             window.location.href = '/signin';
             return;
         }
@@ -202,6 +217,43 @@ export default function ProductDetail() {
         });
     };
 
+    const handleReviewChange = (event) => {
+        const { name, value } = event.target;
+        setNewReview({ ...newReview, [name]: value });
+    };
+
+    const handleReviewSubmit = (event) => {
+        event.preventDefault();
+        const reviewData = {
+            user: { id: userId },
+            product: { id: product.id },
+            rating: newReview.rating,
+            comment: newReview.comment,
+            name: newReview.name,
+            email: newReview.email
+        };
+        fetch('http://localhost:8080/reviews', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reviewData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            setReviews([...reviews, data]);
+            setNewReview({ rating: 0, comment: '', name: '', email: '' });
+        })
+        .catch(error => {
+            console.error('Lỗi khi gửi đánh giá:', error);
+            alert('Có lỗi xảy ra khi gửi đánh giá');
+        });
+    };
+
+    const handleRatingChange = (rating) => {
+        setNewReview({ ...newReview, rating });
+    };
+
     if (!product) {
         return <div>Đang tải thông tin sản phẩm...</div>;
     }
@@ -313,5 +365,5 @@ export default function ProductDetail() {
                     </div>
                     <Footer />
                 </div>
-            );
-        }
+);
+}

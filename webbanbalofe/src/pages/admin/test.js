@@ -13,40 +13,6 @@ export default function ProductManagement() {
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(5);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
-  const images = require.context('../../images/product', false, /\.(png|jpe?g|svg)$/);
-  const [page, setPage] = useState(0);
-  const [size, setSize] = useState(100);
-  
-  const getImage = (imageName) => {
-    try {
-      return images(`./${imageName}`);
-    } catch (error) {
-      console.error('Hình ảnh không tìm thấy:', imageName);
-      return null; // hoặc đường dẫn hình ảnh thay thế
-    }
-  };
-
-  const handleImageClick = (image) => {
-    setSelectedImage(image);
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setCurrentProduct({ ...currentProduct, image: reader.result });
-        setImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
 
   useEffect(() => {
     fetchProducts();
@@ -54,9 +20,7 @@ export default function ProductManagement() {
 
   const fetchProducts = async () => {
     try {
-
-      const response = await axios.get(`http://localhost:8080/products?page=${page}&size=${size}`);
-
+      const response = await axios.get('http://localhost:8080/products');
       setProducts(response.data.content);
     } catch (error) {
       console.error('Error fetching products', error);
@@ -65,34 +29,20 @@ export default function ProductManagement() {
 
   const handleAddProduct = () => {
     setCurrentProduct({ id: null, nameP: '', image: '', price: '', quantity: '', description: '', category: { nameC: '' } });
-    setImagePreview(null);
     setShowModal(true);
   };
 
   const handleEditProduct = (product) => {
     setCurrentProduct(product);
-    setImagePreview(getImage(product.image));
     setShowModal(true);
   };
 
   const handleSaveProduct = async () => {
     try {
-        const formData = new FormData();
-      formData.append('nameP', currentProduct.nameP);
-      formData.append('price', currentProduct.price);
-      formData.append('quantity', currentProduct.quantity);
-      formData.append('description', currentProduct.description);
-      formData.append('category', JSON.stringify(currentProduct.category));
-      if (currentProduct.image instanceof Blob) {
-        formData.append('image', currentProduct.image);
-      } else {
-        formData.append('imagePath', currentProduct.image);
-      }
-
       if (currentProduct.id) {
-        await axios.put(`http://localhost:8080/products/${currentProduct.id}`, formData);
+        await axios.put(`http://localhost:8080/products/${currentProduct.id}`, currentProduct);
       } else {
-        await axios.post('http://localhost:8080/products', formData);
+        await axios.post('http://localhost:8080/products', currentProduct);
       }
       await fetchProducts();
       setShowModal(false);
@@ -152,14 +102,7 @@ export default function ProductManagement() {
                   {currentProducts.map(product => (
                     <tr key={product.id}>
                       <td>{product.id}</td>
-                      <td>
-                        <img 
-                          src={getImage(product.image)} 
-                          alt="Product" 
-                          style={{ width: '100px', cursor: 'pointer' }} 
-                          onClick={() => handleImageClick(getImage(product.image))}
-                        />
-                      </td>
+                      <td><img src={require(`../images/product/${product.image}`)} alt="Product" style={{ width: '100px' }} /></td>
                       <td>{product.nameP}</td>
                       <td>{product.price}</td>
                       <td>{product.quantity}</td>
@@ -196,25 +139,22 @@ export default function ProductManagement() {
                     <div className="modal-body">
                       <form>
                         <div className="form-group">
-                            <label>Tên sản phẩm</label> 
+                          <label>Ảnh sản phẩm (URL)</label>
+                          <input
+                            type="text"
+                            name="image"
+                            value={currentProduct.image}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label>Tên sản phẩm</label>
                           <input
                             type="text"
                             name="nameP"
                             value={currentProduct.nameP}
                             onChange={handleChange}
                           />
-                        </div>
-                        <div className="form-group">
-                          
-                        <label>Ảnh sản phẩm</label>
-                          <input
-                            type="file"
-                            name="image"
-                            onChange={handleImageChange}
-                          />
-                          {imagePreview && (
-                            <img src={imagePreview} alt="Product Preview" style={{ width: '100px', marginTop: '10px' }} />
-                          )}
                         </div>
                         <div className="form-group">
                           <label>Giá</label>
@@ -265,12 +205,6 @@ export default function ProductManagement() {
           </div>
         </div>
       </div>
-      {selectedImage && (
-        <div className="image-modal" onClick={closeModal}>
-          <span className="close">&times;</span>
-          <img className="image-modal-content" src={selectedImage} alt="Selected" />
-        </div>
-      )}
     </div>
   );
 }

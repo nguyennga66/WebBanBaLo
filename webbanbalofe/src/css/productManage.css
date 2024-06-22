@@ -101,12 +101,11 @@
     display: flex;
     justify-content: center;
     padding: 10px 0;
-  }
+}
 
   .page-item {
     margin: 0 5px;
   }
-
   .page-item.active .page-link {
     background-color: #3b5d50;
     color: white;
@@ -163,4 +162,3 @@
     text-decoration: none;
     cursor: pointer;
   }
-

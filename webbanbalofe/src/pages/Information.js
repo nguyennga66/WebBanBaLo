@@ -43,7 +43,6 @@ export default function Information() {
          console.error("Lỗi khi gọi API để lấy danh sách hóa đơn:", error);
        });
    }, [currentPage, userId]);
-
   
     const handlePageChange = (page) => {
       setCurrentPage(page);
