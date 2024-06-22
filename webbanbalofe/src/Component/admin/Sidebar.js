@@ -43,8 +43,8 @@ function Sidebar() {
                   
                     <NavLink to="/user_manage">Người dùng</NavLink>
                   
-                    <NavLink to="/manage/products">Sản phẩm</NavLink>
-                    <NavLink to ="/manage/categories">Loại sản phẩm</NavLink>
+                    <NavLink to="/product_manage">Sản phẩm</NavLink>
+                    <NavLink to ="/category_manage">Loại sản phẩm</NavLink>
                   
                     <NavLink to="/order_list">Đơn hàng</NavLink>
                   

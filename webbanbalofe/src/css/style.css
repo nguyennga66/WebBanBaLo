@@ -854,3 +854,124 @@ textarea {
   border: 1px solid rgba(0,0,0,.15);
   border-radius: .25rem;
 } */
+
+
+/* Đặt các kiểu chung cho toàn bộ phần đánh giá */
+.tab-pane {
+  margin-top: 30px;
+}
+
+.tab-pane .row {
+  margin-top: 20px;
+}
+
+/* Đặt các kiểu cho phần đánh giá hiện tại */
+.media {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.media img {
+  border-radius: 50%;
+}
+
+.media h6 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.media .text-primary {
+  display: flex;
+  margin-top: 5px;
+}
+
+.media .text-primary i {
+  margin-right: 5px;
+}
+
+/* Đặt các kiểu cho phần viết đánh giá */
+.leave-review {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.leave-review h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.leave-review small {
+  display: block;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.leave-review .form-group {
+  margin-bottom: 15px;
+}
+
+.leave-review label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.leave-review textarea {
+  resize: none;
+}
+
+.leave-review .btn {
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.leave-review .btn:hover {
+  background-color: #0056b3;
+}
+
+.leave-review .text-primary {
+  display: inline-flex;
+  margin-top: 5px;
+}
+
+.leave-review .text-primary i {
+  margin-right: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.leave-review .text-primary i:hover {
+  color: #f1c40f;
+}
+
+.leave-review .rating {
+  margin-bottom: 15px;
+}
+
+.leave-review .rating p {
+  margin-right: 10px;
+  display: inline;
+}
+.fa, .far, .fas {
+  font-family: "Font Awesome 5 Free";
+}
+.fa, .fab, .fad, .fal, .far, .fas {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+.star-icon.rated, .star-icon:hover {
+    cursor: pointer; /* Con trỏ chỉ vào icon sao */
+}
+#tab-pane-2 .col-md-6{
+  text-align: left;
+}

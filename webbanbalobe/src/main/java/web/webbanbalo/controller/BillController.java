@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import web.webbanbalo.entity.*;
 import web.webbanbalo.repository.*;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,6 +51,11 @@ public class BillController {
         // Lưu vào cơ sở dữ liệu
         bill.setCart(existingCart);
         bill.setStatus(0);
+
+        // Khởi tạo ngày tạo hóa đơn theo định dạng dd/mm/yy - time
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
+        bill.setCreateDate(formatter.format(new Date()));
+
         billRepository.save(bill);
 
         // Lấy danh sách các mục trong giỏ hàng của người dùng
@@ -71,6 +79,15 @@ public class BillController {
         return ResponseEntity.ok(billDetailsPage);
     }
 
+    @CrossOrigin(origins = "*")
+    @GetMapping("/bills/user/{userId}")
+    public ResponseEntity<?> getBillDetailsByUserId(@PathVariable int userId,
+                                                    @RequestParam(defaultValue = "0") int page,
+                                                    @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("id").ascending());
+        Page<Bill> billDetailsPage = billRepository.findByUserId(userId, pageable);
+        return ResponseEntity.ok(billDetailsPage);
+    }
     @CrossOrigin(origins = "*")
     @GetMapping("/bills/{billId}")
     public ResponseEntity<?> getBillDetail(@PathVariable int billId) {

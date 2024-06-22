@@ -12,10 +12,12 @@ import web.webbanbalo.dto.ProductViewDto;
 import web.webbanbalo.entity.BillDetail;
 import web.webbanbalo.entity.Category;
 import web.webbanbalo.entity.Product;
+import web.webbanbalo.entity.Review;
 import web.webbanbalo.entity.View;
 import web.webbanbalo.repository.BillDetailRepository;
 import web.webbanbalo.repository.CategoryRepository;
 import web.webbanbalo.repository.ProductRepository;
+import web.webbanbalo.repository.ReviewRepository;
 import web.webbanbalo.repository.ViewRepository;
 
 import java.util.*;
@@ -27,6 +29,9 @@ public class ProductController {
     private ProductRepository productRepository;
 
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private ReviewRepository reviewRepository;
 
     @Autowired
     private ViewRepository viewRepository;
@@ -69,8 +74,9 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    public Page<Product> getProducts(Pageable pageable) {
-        // Trả về danh sách sản phẩm phân trang
+    public Page<Product> getProducts(@RequestParam(value = "page", defaultValue = "0") int page,
+                                     @RequestParam(value = "size", defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
         return productRepository.findAll(pageable);
     }
 
@@ -207,13 +213,15 @@ public class ProductController {
     @GetMapping("/products/sort")
     public ResponseEntity<Page<Product>> getProductsSortedByPrice(
             @RequestParam(defaultValue = "asc") String sort,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
             Pageable pageable
     ) {
         Page<Product> products;
         if (sort.equals("asc")) {
-            products = productRepository.findAllByOrderByPriceAsc(pageable);
+            products = productRepository.findAllByOrderByPriceAsc(PageRequest.of(page, size));
         } else {
-            products = productRepository.findAllByOrderByPriceDesc(pageable);
+            products = productRepository.findAllByOrderByPriceDesc(PageRequest.of(page, size));
         }
         return ResponseEntity.ok(products);
     }

@@ -7,10 +7,12 @@ import { FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 import Footer from '../Component/Footer'
 import Header from '../Component/Header'
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState([]);
   const { userId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Gọi API để lấy thông tin giỏ hàng từ backend
@@ -96,6 +98,11 @@ const handleCheckout = () => {
   // Chuyển hướng đến trang thanh toán
   window.location = '/checkout';
 };
+
+const handleProduct = () => {
+  navigate('/product'); // Điều hướng đến trang danh sách sản phẩm
+};
+
   return (
     <div>
     <Header />
@@ -165,7 +172,7 @@ const handleCheckout = () => {
         <div className="col-md-6">
           <div className="row mb-5">
             <div className="col-md-6">
-              <button className="btn btn-outline-black btn-sm btn-block">Tiếp tục mua sắm</button>
+              <button className="btn btn-outline-black btn-sm btn-block" onClick={handleProduct}>Tiếp tục mua sắm</button>
             </div>
           </div>
           <div className="row">

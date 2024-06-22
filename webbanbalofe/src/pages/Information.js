@@ -30,18 +30,20 @@ export default function Information() {
     const [totalPages, setTotalPages] = useState(0);
     const [selectedOrder, setSelectedOrder] = useState(null);
     const pageSize = 10;
+    const [favoriteProducts, setFavoriteProducts] = useState([]);
   
     useEffect(() => {
-      // Gọi API để lấy danh sách hóa đơn của người dùng với phân trang
-      axios.get(`http://localhost:8080/bills?userId=${userId}&page=${currentPage}&size=${pageSize}`)
-        .then((response) => {
-          setOrderList(response.data.content);
-          setTotalPages(response.data.totalPages);
-        })
-        .catch((error) => {
-          console.error("Lỗi khi gọi API để lấy danh sách hóa đơn:", error);
-        });
-    }, [currentPage, userId]);
+       // Gọi API để lấy danh sách hóa đơn của người dùng với phân trang
+       axios.get(`http://localhost:8080/bills/user/${userId}?page=${currentPage}&size=${pageSize}`)
+       .then((response) => {
+         setOrderList(response.data.content);
+         setTotalPages(response.data.totalPages);
+       })
+       .catch((error) => {
+         console.error("Lỗi khi gọi API để lấy danh sách hóa đơn:", error);
+       });
+   }, [currentPage, userId]);
+
   
     const handlePageChange = (page) => {
       setCurrentPage(page);
@@ -201,6 +203,19 @@ export default function Information() {
             setPasswordChangeMessage('Có lỗi xảy ra khi thay đổi mật khẩu');
         }
     };
+
+    useEffect(() => {
+        const fetchFavoriteProducts = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/favorites/${userId}`);
+                setFavoriteProducts(response.data);
+            } catch (error) {
+                console.error('Error fetching favorite products:', error);
+            }
+        };
+
+        fetchFavoriteProducts();
+    }, [userId]);
     
     return (
         <div>
@@ -227,6 +242,9 @@ export default function Information() {
                                         <ul role="tablist" className="nav flex-column dashboard-list" style={{ textAlign: 'left' }}>
                                             <li className={`nav-item ${tab === 'personal' ? 'active' : ''}`}>
                                                 <NavLink className="nav-link" onClick={() => setTab('personal')}>Thông tin cá nhân</NavLink>
+                                            </li>
+                                            <li className={`nav-item ${tab === 'favorite' ? 'active' : ''}`}>
+                                                <NavLink className="nav-link" onClick={() => setTab('favorite')}>Sản phẩm yêu thích</NavLink>
                                             </li>
                                             <li className={`nav-item ${tab === 'orders' ? 'active' : ''}`}>
                                                 <NavLink className="nav-link" onClick={() => setTab('orders')}>Đơn hàng</NavLink>
@@ -270,7 +288,7 @@ export default function Information() {
                                                 </div>
                                             )}
 
-                                            {tab === 'orders' && (
+{tab === 'orders' && (
                                                 <div className="tab-pane active" id="dashboard">
                                                     <div className="table-responsive d222">
                                                         <h4><b>Đơn hàng<span className="sp111" style={{ textAlign: 'center' }}></span></b></h4>
@@ -284,6 +302,7 @@ export default function Information() {
                                                                 <th>Email</th>
                                                                 <th>Số điện thoại</th>
                                                                 <th>Tổng tiền</th>
+                                                                <th>Ngày tạo</th>
                                                                 <th>Chi tiết</th>
                                                                 </tr>
                                                             </thead>
@@ -296,6 +315,7 @@ export default function Information() {
                                                                     <td>{order.email}</td>
                                                                     <td>{order.phone}</td>
                                                                     <td>{order.grandTotal.toLocaleString('vi-VN')}.000 VNĐ</td>
+                                                                    <td>{order.createDate}</td>
                                                                     <td>
                                                                     <button
                                                                         onClick={() => handleViewDetails(order.id)}
@@ -351,7 +371,6 @@ export default function Information() {
                                                                 <p>Tổng tiền hàng: {selectedOrder.total.toLocaleString('vi-VN')}.000 VNĐ</p>
                                                                 <p>Phí vận chuyển: {selectedOrder.shippingFee.toLocaleString('vi-VN')}.000 VNĐ</p>
                                                                 <p>Tổng thanh toán: {selectedOrder.grandTotal.toLocaleString('vi-VN')}.000 VNĐ</p>
-                                                                <p>Trạng thái: {selectedOrder.status === 0 ? 'Chưa duyệt' : selectedOrder.status === 1 ? 'Đang vận chuyển' : 'Đã hủy'}</p>
                                                                 </div>
                                                             </div>
 
@@ -381,7 +400,6 @@ export default function Information() {
                                                     </div>
                                                 </div>
                                             )}
-
 {tab === 'changePass' && (
                 <div className="tab-pane active" id="dashboard">
                     <div className="row">
@@ -436,6 +454,48 @@ export default function Information() {
                     </div>
                 </div>
             )}
+           {tab === 'favorite' && (
+  <div className="card mt-4">
+    <div className="card-body">
+      <h3 className="card-title mb-4">Sản phẩm yêu thích</h3>
+      <div className="table-responsive">
+        <table className="table table-bordered">
+          <thead className="thead-light">
+            <tr>
+              <th>Hình ảnh</th>
+              <th>Tên sản phẩm</th>
+              <th>Giá</th>
+              <th>Chi tiết</th>
+            </tr>
+          </thead>
+          <tbody>
+            {favoriteProducts.map((product) => (
+              <tr key={product.product.id}>
+                <td className="align-middle text-center">
+                  <img
+                    src={require(`../images/product/${product.product.image}`)}
+                    className="img-fluid"
+                    alt={product.product.nameP}
+                    style={{ maxWidth: '100px' }}
+                  />
+                </td>
+                <td className="align-middle">{product.product.nameP}</td>
+                <td className="align-middle">{product.product.price}.000 VNĐ</td>
+                <td className="align-middle text-center">
+                  <NavLink to={`/product_page/${product.product.id}`} className="btn btn-primary">
+                    Chi tiết
+                  </NavLink>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+)}
+
+
                                         </div>
                                     </div>
                                 </div>
