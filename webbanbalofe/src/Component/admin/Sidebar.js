@@ -36,12 +36,6 @@ function Sidebar() {
               </NavLink>
             </li>
             <li className="sidebar-item">
-              <NavLink className="sidebar-link waves-effect waves-dark sidebar-link" to="/profile" aria-expanded="false">
-                <i className="fa fa-user" aria-hidden="true"></i>
-                <span className="hide-menu">Trang cá nhân</span>
-              </NavLink>
-            </li>
-            <li className="sidebar-item">
               <NavLink
                 className="dropdown"
                 onMouseEnter={handleMouseEnter}
@@ -58,7 +52,7 @@ function Sidebar() {
                     <NavLink to="/product_manage">Sản phẩm</NavLink>
                     <NavLink to ="/category_manage">Loại sản phẩm</NavLink>
                   
-                    <NavLink to="/manage/orders">Đơn hàng</NavLink>
+                    <NavLink to="/order_list">Đơn hàng</NavLink>
                   
                 </ul>
               )}

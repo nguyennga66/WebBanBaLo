@@ -7,15 +7,20 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import web.webbanbalo.dto.ProductPurchaseDto;
+import web.webbanbalo.dto.ProductViewDto;
+import web.webbanbalo.entity.BillDetail;
 import web.webbanbalo.entity.Category;
 import web.webbanbalo.entity.Product;
 import web.webbanbalo.entity.Review;
+import web.webbanbalo.entity.View;
+import web.webbanbalo.repository.BillDetailRepository;
 import web.webbanbalo.repository.CategoryRepository;
 import web.webbanbalo.repository.ProductRepository;
 import web.webbanbalo.repository.ReviewRepository;
+import web.webbanbalo.repository.ViewRepository;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -28,6 +33,12 @@ public class ProductController {
     @Autowired
     private ReviewRepository reviewRepository;
 
+
+    @Autowired
+    private ViewRepository viewRepository;
+
+    @Autowired
+    private BillDetailRepository billDetailRepository;
 
     public ProductController(ProductRepository productRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
@@ -64,15 +75,33 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    public Page<Product> getProducts(Pageable pageable) {
-        // Trả về danh sách sản phẩm phân trang
+    public Page<Product> getProducts(@RequestParam(value = "page", defaultValue = "0") int page,
+                                     @RequestParam(value = "size", defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
         return productRepository.findAll(pageable);
     }
 
     @GetMapping("/products/{id}")
-    public Product getProductById(@PathVariable int id){
-        Product prod = productRepository.findById(id).get();
-        return prod;
+    public ResponseEntity<Product> getProductByIdAndIncreaseView(@PathVariable int id) {
+        Optional<Product> productOptional = productRepository.findById(id);
+        if (!productOptional.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Product product = productOptional.get();
+
+        View productView = viewRepository.findByProductId(id);
+        if (productView == null) {
+            productView = new View();
+            productView.setProduct(product);
+            productView.setViewCount(1); // Lần đầu tiên xem sản phẩm
+        } else {
+            productView.setViewCount(productView.getViewCount() + 1); // Tăng số lượt view
+        }
+
+        viewRepository.save(productView); // Lưu lại số lượt view mới
+
+        return ResponseEntity.ok(product);
     }
 
     @GetMapping("/products/category/{id}")
@@ -213,4 +242,39 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
+    @GetMapping("/products/{id}/purchases")
+    public int getPurchaseCount(@PathVariable int id) {
+        List<BillDetail> billDetails = billDetailRepository.findByProductId(id);
+        return billDetails.stream().mapToInt(BillDetail::getQuantity).sum();
+    }
+
+    @GetMapping("/products/views")
+    public List<ProductViewDto> getAllViewCounts() {
+        List<View> views = viewRepository.findAll();
+        List<ProductViewDto> viewDtos = new ArrayList<>();
+        for (View view : views) {
+            ProductViewDto dto = new ProductViewDto();
+            dto.setId(view.getProduct().getId());
+            dto.setViewCount(view.getViewCount());
+            viewDtos.add(dto);
+        }
+        return viewDtos;
+    }
+
+    @GetMapping("/products/purchases")
+    public List<ProductPurchaseDto> getAllPurchaseCounts() {
+        List<BillDetail> billDetails = billDetailRepository.findAll();
+        Map<Integer, Integer> purchaseCounts = new HashMap<>();
+        for (BillDetail billDetail : billDetails) {
+            int productId = billDetail.getProduct().getId();
+            purchaseCounts.put(productId, purchaseCounts.getOrDefault(productId, 0) + billDetail.getQuantity());
+        }
+        List<ProductPurchaseDto> result = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry : purchaseCounts.entrySet()) {
+            int productId = entry.getKey();
+            int purchaseCount = entry.getValue();
+            result.add(new ProductPurchaseDto(productId, purchaseCount));
+        }
+        return result;
+    }
 }

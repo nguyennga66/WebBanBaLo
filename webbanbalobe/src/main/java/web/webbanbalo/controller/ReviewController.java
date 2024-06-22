@@ -27,6 +27,7 @@ public class ReviewController {
     @Autowired
     private ProductRepository productRepository;
 
+    // Tạo mới một đánh giá
     @CrossOrigin(origins = "*")
     @PostMapping("/reviews")
     public ResponseEntity<Review> createReview(@RequestBody Review review) {
@@ -34,7 +35,6 @@ public class ReviewController {
         if (review.getUser() == null || review.getProduct() == null) {
             return ResponseEntity.badRequest().build();
         }
-
         // Lấy thông tin user từ cơ sở dữ liệu để sử dụng
         Optional<User> userOptional = userRepository.findById(review.getUser().getId());
         if (userOptional.isEmpty()) {
@@ -63,5 +63,3 @@ public class ReviewController {
         return ResponseEntity.ok(reviews);
     }
 }
-
-

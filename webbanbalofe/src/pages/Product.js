@@ -91,7 +91,7 @@ export default function Product() {
         }
     };
 
-    const fetchProductsByCategory = async () => {
+     const fetchProductsByCategory = async () => {
         try {
             let url = `http://localhost:8080/products/category/${currentCategory}?page=${page}&size=${size}`;
             if (currentSort) {

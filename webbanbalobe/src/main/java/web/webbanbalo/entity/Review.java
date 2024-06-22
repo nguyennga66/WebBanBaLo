@@ -83,4 +83,3 @@ public class Review {
         this.createDate = createDate;
     }
 }
-

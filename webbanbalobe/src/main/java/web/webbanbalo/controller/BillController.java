@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import web.webbanbalo.entity.*;
 import web.webbanbalo.repository.*;
+
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -51,6 +52,8 @@ public class BillController {
         // Lưu vào cơ sở dữ liệu
         bill.setCart(existingCart);
 
+        bill.setStatus(0);
+
         // Khởi tạo ngày tạo hóa đơn theo định dạng dd/mm/yy - time
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
         bill.setCreateDate(formatter.format(new Date()));
@@ -81,6 +84,15 @@ public class BillController {
 
 
     @CrossOrigin(origins = "*")
+    @GetMapping("/bills/user/{userId}")
+    public ResponseEntity<?> getBillDetailsByUserId(@PathVariable int userId,
+                                                    @RequestParam(defaultValue = "0") int page,
+                                                    @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("id").ascending());
+        Page<Bill> billDetailsPage = billRepository.findByUserId(userId, pageable);
+        return ResponseEntity.ok(billDetailsPage);
+    }
+    @CrossOrigin(origins = "*")
     @GetMapping("/bills/{billId}")
     public ResponseEntity<?> getBillDetail(@PathVariable int billId) {
         Optional<Bill> billDetail = billRepository.findById(billId);
@@ -88,6 +100,34 @@ public class BillController {
             return ResponseEntity.ok(billDetail.get());
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Hóa đơn không tồn tại.");
+        }
+    }
+
+    @CrossOrigin(origins = "*")
+    @PutMapping("/approve/{billId}")
+    public ResponseEntity<?> approveOrder(@PathVariable int billId) {
+        Optional<Bill> optionalBill = billRepository.findById(billId);
+        if (optionalBill.isPresent()) {
+            Bill bill = optionalBill.get();
+            bill.setStatus(1); // đang vận chuyển
+            billRepository.save(bill);
+            return ResponseEntity.ok(bill);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @CrossOrigin(origins = "*")
+    @PutMapping("/cancel/{billId}")
+    public ResponseEntity<?> cancel(@PathVariable int billId) {
+        Optional<Bill> optionalBill = billRepository.findById(billId);
+        if (optionalBill.isPresent()) {
+            Bill bill = optionalBill.get();
+            bill.setStatus(2); // đang vận chuyển
+            billRepository.save(bill);
+            return ResponseEntity.ok(bill);
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 }

@@ -19,6 +19,7 @@ public class Bill {
     private String phone;
     private String orderNotes;
     private String createDate;
+    private int status;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -40,7 +41,7 @@ public class Bill {
     public Bill() {
     }
 
-    public Bill(int userId, String fullName, String address, String email, String phone, String orderNotes, List<BillDetail> billDetails, Cart cart, int total, int shippingFee, int grandTotal) {
+    public Bill(int userId, String fullName, String address, String email, String phone, String orderNotes, int status, List<BillDetail> billDetails, Cart cart, int total, int shippingFee, int grandTotal) {
         this.userId = userId;
         this.fullName = fullName;
         this.address = address;
@@ -49,6 +50,7 @@ public class Bill {
         this.orderNotes = orderNotes;
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
         this.createDate = formatter.format(new Date());
+        this.status = status;
         this.billDetails = billDetails;
         this.cart = cart;
         this.total = total;
@@ -65,6 +67,7 @@ public class Bill {
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", orderNotes='" + orderNotes + '\'' +
+                ", status='"+ status + '\'' +
                 ", total=" + total +
                 ", shippingFee=" + shippingFee +
                 ", grandTotal=" + grandTotal +
@@ -171,5 +174,13 @@ public class Bill {
 
     public void setGrandTotal(int grandTotal) {
         this.grandTotal = grandTotal;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

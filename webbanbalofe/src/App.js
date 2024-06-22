@@ -19,10 +19,10 @@ import FormEditProfile from './Component/FormEditProfile';
 import ForgotPassword from './pages/ForgotPass';
 import FormForgotPassword from './Component/FormForgotPassword';
 import Admin from './pages/admin/Home';
-import ProfileAdmin from './pages/admin/Profile'
 import UserManagement from './pages/admin/UserManagement'
 import ProductManagement from './pages/admin/ProductManagement'
 import CategoryManagement from './pages/admin/CategoryManagement'
+import OrderList from './pages/admin/OrderList'
 
 function App() {
   return (
@@ -43,10 +43,10 @@ function App() {
         <Route path="/forgot" element={<ForgotPassword/>} />
         <Route path="/forgotform" element={<FormForgotPassword/>} />
         <Route path="/admin" element={<Admin/>} />
-        <Route path="/profile" element={<ProfileAdmin/>} />
         <Route path="/user_manage" element={<UserManagement/>} />
         <Route path="/product_manage" element={<ProductManagement/>} />
         <Route path="/category_manage" element={<CategoryManagement/>} />
+        <Route path="/order_list" element={<OrderList/>} />
       </Routes>
       </BrowserRouter>
         </>

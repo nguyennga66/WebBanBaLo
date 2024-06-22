@@ -16,7 +16,9 @@ export default function ProductManagement() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const images = require.context('../../images/product', false, /\.(png|jpe?g|svg)$/);
-
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(100);
+  
   const getImage = (imageName) => {
     try {
       return images(`./${imageName}`);
@@ -52,7 +54,9 @@ export default function ProductManagement() {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/products');
+
+      const response = await axios.get(`http://localhost:8080/products?page=${page}&size=${size}`);
+
       setProducts(response.data.content);
     } catch (error) {
       console.error('Error fetching products', error);
@@ -73,7 +77,7 @@ export default function ProductManagement() {
 
   const handleSaveProduct = async () => {
     try {
-      const formData = new FormData();
+        const formData = new FormData();
       formData.append('nameP', currentProduct.nameP);
       formData.append('price', currentProduct.price);
       formData.append('quantity', currentProduct.quantity);
@@ -192,7 +196,7 @@ export default function ProductManagement() {
                     <div className="modal-body">
                       <form>
                         <div className="form-group">
-                          <label>Tên sản phẩm</label>
+                            <label>Tên sản phẩm</label> 
                           <input
                             type="text"
                             name="nameP"
@@ -201,7 +205,8 @@ export default function ProductManagement() {
                           />
                         </div>
                         <div className="form-group">
-                          <label>Ảnh sản phẩm</label>
+                          
+                        <label>Ảnh sản phẩm</label>
                           <input
                             type="file"
                             name="image"
@@ -260,7 +265,6 @@ export default function ProductManagement() {
           </div>
         </div>
       </div>
-
       {selectedImage && (
         <div className="image-modal" onClick={closeModal}>
           <span className="close">&times;</span>
@@ -302,4 +306,3 @@ const Pagination = ({ productsPerPage, totalProducts, paginate, currentPage }) =
     </nav>
   );
 };
-
