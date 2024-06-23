@@ -51,19 +51,19 @@ export default function Signin() {
       navigate('/');
       window.location.reload();
     } catch (error) {
-      // if (error.response) {
-        const errorMessage = error.response.data.message || 'Đăng nhập không thành công';
+      if (error.response && error.response.data && error.response.data.message) {
+        const errorMessage = error.response.data.message;
         if (errorMessage === 'Sai mật khẩu') {
           setPasswordError(errorMessage);
         } else {
-          setError('Đăng nhập không thành công');
+          setError(errorMessage);
         }
-      // } else {
-      //   setError('Đăng nhập không thành công');
-      // }
+      } else {
+        setError('Đăng nhập không thành công');
+      }
       console.error("Đăng nhập không thành công:", error.response);
     }
-  };    
+  };  
 
     return (
       <div>

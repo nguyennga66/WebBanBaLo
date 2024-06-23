@@ -12,7 +12,6 @@ import web.webbanbalo.entity.*;
 import web.webbanbalo.repository.*;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -70,6 +69,15 @@ public class BillController {
         cartItemRepository.deleteAll(cartItems);
 
         return ResponseEntity.ok().body("Hóa đơn được tạo thành công.");
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping("/bills")
+    public ResponseEntity<?> getBillDetails(@RequestParam(defaultValue = "0") int page,
+                                            @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by("id").ascending());
+        Page<Bill> billDetailsPage = billRepository.findAll(pageable);
+        return ResponseEntity.ok(billDetailsPage);
     }
 
     @CrossOrigin(origins = "*")

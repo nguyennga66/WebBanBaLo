@@ -1,60 +1,52 @@
-import React, { useState } from "react";
-import axios from 'axios';
-import "../css/bootstrap.min.css";
-import "../css/tiny-slider.css";
-import "../css/style.css";
-import "../css/information.css";
+import React, { useState } from 'react';
+import validator from 'validator';
 
-export default function FormEditProfile({ userId, fullName, address, email, phone, onUpdateSuccess }) {
-    const [editedFullName, setEditedFullName] = useState(fullName);
-    const [editedAddress, setEditedAddress] = useState(address);
-    const [editedEmail, setEditedEmail] = useState(email);
-    const [editedPhone, setEditedPhone] = useState(phone);
+const FormComponent = ({ fullName: initialFullName, address: initialAddress, email: initialEmail, phone: initialPhone, onUpdateSuccess }) => {
+    const [editedFullName, setEditedFullName] = useState(initialFullName);
+    const [editedAddress, setEditedAddress] = useState(initialAddress);
+    const [editedEmail, setEditedEmail] = useState(initialEmail);
+    const [editedPhone, setEditedPhone] = useState(initialPhone);
     const [errors, setErrors] = useState({});
 
-    const validate = (name, value, currentErrors) => {
-        const newErrors = { ...currentErrors };
-        switch (name) {
-            case 'fullName':
-                if (!value) {
-                    newErrors.fullName = "Họ và tên không được để trống";
-                } else {
-                    delete newErrors.fullName;
-                }
-                break;
-            case 'address':
-                if (!value) {
-                    newErrors.address = "Địa chỉ không được để trống";
-                } else {
-                    delete newErrors.address;
-                }
-                break;
-            case 'email':
-                if (!value) {
-                    newErrors.email = "Email không được để trống";
-                } else if (!/\S+@\S+\.\S+/.test(value)) {
-                    newErrors.email = "Email không hợp lệ";
-                } else {
-                    delete newErrors.email;
-                }
-                break;
-            case 'phone':
-                if (!value) {
-                    newErrors.phone = "Số điện thoại không được để trống";
-                } else if (!/^\d{10}$/.test(value)) {
-                    newErrors.phone = "Số điện thoại không hợp lệ";
-                } else {
-                    delete newErrors.phone;
-                }
-                break;
-            default:
-                break;
+    const validate = () => {
+        let newErrors = {};
+
+        if (!validator.trim(editedFullName)) {
+            newErrors.fullName = "Họ và tên không được để trống";
+        } else {
+            delete newErrors.fullName; // Xóa lỗi nếu hợp lệ
         }
-        return newErrors;
+
+        if (!validator.trim(editedAddress)) {
+            newErrors.address = "Địa chỉ không được để trống";
+        } else {
+            delete newErrors.address; // Xóa lỗi nếu hợp lệ
+        }
+
+        if (!validator.trim(editedEmail)) {
+            newErrors.email = "Email không được để trống";
+        } else if (!validator.isEmail(editedEmail)) {
+            newErrors.email = "Email không hợp lệ";
+        } else {
+            delete newErrors.email; // Xóa lỗi nếu hợp lệ
+        }
+
+        if (!validator.trim(editedPhone)) {
+            newErrors.phone = "Số điện thoại không được để trống";
+        } else if (!validator.isMobilePhone(editedPhone, 'vi-VN')) {
+            newErrors.phone = "Số điện thoại không hợp lệ";
+        } else {
+            delete newErrors.phone; // Xóa lỗi nếu hợp lệ
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0; // Trả về true nếu không có lỗi
     };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+
+        // Cập nhật giá trị ngay khi có sự thay đổi
         switch (name) {
             case 'fullName':
                 setEditedFullName(value);
@@ -71,28 +63,26 @@ export default function FormEditProfile({ userId, fullName, address, email, phon
             default:
                 break;
         }
-        const newErrors = validate(name, value, errors);
-        setErrors(newErrors);
+
+        // Kiểm tra validation ngay khi người dùng nhập liệu
+        validate();
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (Object.keys(errors).length > 0) {
-            return;
-        }
-        try {
-            const user = {
-                fullName: editedFullName,
-                address: editedAddress,
-                email: editedEmail,
-                phone: editedPhone
-            };
-            const response = await axios.put(`http://localhost:8080/users/${userId}`, user);
-            if (response.status === 200) {
+        if (validate()) {
+            try {
+                const user = {
+                    fullName: editedFullName,
+                    address: editedAddress,
+                    email: editedEmail,
+                    phone: editedPhone
+                };
+                // Gọi API để cập nhật thông tin người dùng
                 onUpdateSuccess(user);
+            } catch (error) {
+                console.error('Error updating user:', error);
             }
-        } catch (error) {
-            console.error('Error updating user:', error);
         }
     };
 
@@ -158,4 +148,6 @@ export default function FormEditProfile({ userId, fullName, address, email, phon
             </div>
         </div>
     );
-}
+};
+
+export default FormComponent;

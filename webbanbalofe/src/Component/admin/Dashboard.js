@@ -18,19 +18,13 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         // Fetch views data
-        const viewsResponse = await fetch('http://localhost:8080/products/views');
-        if (!viewsResponse.ok) {
-          throw new Error('Failed to fetch views data');
-        }
-        const viewsData = await viewsResponse.json();
+        const viewsResponse = await axios.get('http://localhost:8080/products/views');
+        const viewsData = viewsResponse.data; // Get data from response
         setViewData(viewsData);
 
         // Fetch purchases data
-        const purchasesResponse = await fetch('http://localhost:8080/products/purchases');
-        if (!purchasesResponse.ok) {
-          throw new Error('Failed to fetch purchases data');
-        }
-        const purchasesData = await purchasesResponse.json();
+        const purchasesResponse = await axios.get('http://localhost:8080/products/purchases');
+        const purchasesData = purchasesResponse.data; // Get data from response
         setPurchaseData(purchasesData);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -45,7 +39,7 @@ const Dashboard = () => {
     const fetchTotalRevenue = async () => {
       try {
         const response = await axios.get('http://localhost:8080/revenue');
-        setTotalRevenue(response.data);
+        setTotalRevenue(response.data); // Get data from response
       } catch (error) {
         console.error('Error fetching total revenue', error);
       }
@@ -58,7 +52,7 @@ const Dashboard = () => {
     const fetchTotalFavorites = async () => {
       try {
         const response = await axios.get('http://localhost:8080/totalFavorites');
-        setTotalFavorites(response.data);
+        setTotalFavorites(response.data); // Get data from response
       } catch (error) {
         console.error('Error fetching total favorites', error);
       }
@@ -71,7 +65,7 @@ const Dashboard = () => {
     const fetchTotalViews = async () => {
       try {
         const response = await axios.get('http://localhost:8080/totalViews');
-        setTotalViews(response.data);
+        setTotalViews(response.data); // Get data from response
       } catch (error) {
         console.error('Error fetching total views', error);
       }
@@ -81,7 +75,7 @@ const Dashboard = () => {
   }, []);
 
   // Check if data is loaded and valid
-  if (!viewData.length || !purchaseData.length) {
+  if (viewData.length === 0 || purchaseData.length === 0) {
     console.log('No data loaded yet');
     return <div>Loading data...</div>;
   }
@@ -174,7 +168,6 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      {error && <div className="alert alert-danger">{error}</div>}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { FaHeart, FaTrash } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons';
+import axios from 'axios';
 import Header from '../Component/Header';
 import Footer from '../Component/Footer';
 import "../css/bootstrap.min.css";
@@ -27,8 +28,7 @@ export default function ProductDetail() {
         email: '',
         comment: ''
     });
-    const [canReview, setCanReview] = useState(false); // State để kiểm tra có thể đánh giá hay không
-
+    const [canReview, setCanReview] = useState(false);
     const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
@@ -41,10 +41,9 @@ export default function ProductDetail() {
     }, []);
 
     useEffect(() => {
-        fetch(`http://localhost:8080/products/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                setProduct(data);
+        axios.get(`http://localhost:8080/products/${id}`)
+            .then(response => {
+                setProduct(response.data);
             })
             .catch(error => {
                 console.error('Lỗi khi gọi API để lấy chi tiết sản phẩm:', error);
@@ -52,10 +51,9 @@ export default function ProductDetail() {
     }, [id]);
 
     useEffect(() => {
-        fetch(`http://localhost:8080/reviews/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                setReviews(data);
+        axios.get(`http://localhost:8080/reviews/${id}`)
+            .then(response => {
+                setReviews(response.data);
             })
             .catch(error => {
                 console.error('Lỗi khi gọi API để lấy đánh giá sản phẩm:', error);
@@ -63,13 +61,10 @@ export default function ProductDetail() {
     }, [id]);
 
     useEffect(() => {
-        // Kiểm tra xem người dùng đã mua sản phẩm chưa
         if (isLoggedIn) {
-            fetch(`http://localhost:8080/bills/user/${userId}?page=0&size=100`) // Lấy tất cả các hóa đơn của người dùng
-                .then(response => response.json())
-                .then(data => {
-                    // Kiểm tra trong tất cả các hóa đơn
-                    const hasPurchased = data.content.some(bill => {
+            axios.get(`http://localhost:8080/bills/user/${userId}?page=0&size=100`)
+                .then(response => {
+                    const hasPurchased = response.data.content.some(bill => {
                         return bill.billDetails.some(detail => detail.product.id === parseInt(id));
                     });
                     setCanReview(hasPurchased);
@@ -102,21 +97,9 @@ export default function ProductDetail() {
             quantity: quantity
         };
 
-        fetch('http://localhost:8080/carts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(cartItem)
-        })
+        axios.post('http://localhost:8080/carts', cartItem)
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(data => {
-                alert(data);
+                alert(response.data);
                 window.location.href = `/cart/${userId}`;
             })
             .catch(error => {
@@ -145,21 +128,9 @@ export default function ProductDetail() {
             comment: newReview.comment,
         };
 
-        fetch('http://localhost:8080/reviews', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(reviewData)
-        })
+        axios.post('http://localhost:8080/reviews', reviewData)
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                setReviews([...reviews, data]);
+                setReviews([...reviews, response.data]);
                 setNewReview({ rating: 0, comment: '' });
             })
             .catch(error => {
@@ -169,23 +140,14 @@ export default function ProductDetail() {
     };
 
     const handleDeleteReview = (reviewId) => {
-        fetch(`http://localhost:8080/reviews/${reviewId}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
+        axios.delete(`http://localhost:8080/reviews/${reviewId}`)
+            .then(response => {
                 setReviews(reviews.filter(review => review.id !== reviewId));
-            } else {
+            })
+            .catch(error => {
+                console.error('Error deleting review:', error);
                 alert('Error deleting review');
-            }
-        })
-        .catch(error => {
-            console.error('Error deleting review:', error);
-            alert('Error deleting review');
-        });
+            });
     };
 
     const handleRatingChange = (rating) => {
@@ -196,14 +158,10 @@ export default function ProductDetail() {
         const checkIfFavorite = async () => {
             if (isLoggedIn) {
                 try {
-                    const response = await fetch(`http://localhost:8080/favorites/${userId}`);
-                    if (response.ok) {
-                        const favorites = await response.json();
-                        const isProductFavorited = favorites.some(favorite => favorite.product.id === parseInt(id));
-                        setIsFavorite(isProductFavorited);
-                    } else {
-                        setIsFavorite(false);
-                    }
+                    const response = await axios.get(`http://localhost:8080/favorites/${userId}`);
+                    const favorites = response.data;
+                    const isProductFavorited = favorites.some(favorite => favorite.product.id === parseInt(id));
+                    setIsFavorite(isProductFavorited);
                 } catch (error) {
                     console.error('Error checking if product is favorited:', error);
                     setIsFavorite(false);
@@ -214,9 +172,8 @@ export default function ProductDetail() {
         checkIfFavorite();
     }, [isLoggedIn, userId, id]);
 
-    // Handlers for adding and removing favorites
     const handleAddFavorite = () => {
-        if (role === 1) { // Nếu role là 1 (admin)
+        if (role === 1) {
             alert('Admin không thể thêm sản phẩm vào yêu thích');
             return;
         }
@@ -226,47 +183,36 @@ export default function ProductDetail() {
             product: { id: product.id }
         };
 
-        fetch('http://localhost:8080/favorites', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(favoriteData)
-        })
-        .then(response => response.text())
-        .then(data => {
-            setIsFavorite(true);
-            alert(data); // Replace with proper notification handling
-        })
-        .catch(error => {
-            console.error('Error adding favorite:', error);
-            alert('Failed to add to favorites'); // Replace with proper error handling
-        });
+        axios.post('http://localhost:8080/favorites', favoriteData)
+            .then(response => {
+                setIsFavorite(true);
+                alert(response.data);
+            })
+            .catch(error => {
+                console.error('Error adding favorite:', error);
+                alert('Failed to add to favorites');
+            });
     };
 
     const handleRemoveFavorite = () => {
-        fetch(`http://localhost:8080/favorites/${userId}/${product.id}`, {
-            method: 'DELETE'
-        })
-        .then(response => response.text())
-        .then(data => {
-            setIsFavorite(false);
-            alert(data); // Replace with proper notification handling
-        })
-        .catch(error => {
-            console.error('Error removing favorite:', error);
-            alert('Failed to remove from favorites'); // Replace with proper error handling
-        });
+        axios.delete(`http://localhost:8080/favorites/${userId}/${product.id}`)
+            .then(response => {
+                setIsFavorite(false);
+                alert(response.data);
+            })
+            .catch(error => {
+                console.error('Error removing favorite:', error);
+                alert('Failed to remove from favorites');
+            });
     };
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
         if (user) {
-          setIsLoggedIn(true);
-          setRole(user.role);
+            setIsLoggedIn(true);
+            setRole(user.role);
         }
-    
-      }, []);
+    }, []);
 
     if (!product) {
         return <div>Đang tải thông tin sản phẩm...</div>;

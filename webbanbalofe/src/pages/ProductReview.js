@@ -8,27 +8,27 @@ export default function ProductReview({ productId }) {
         fetchReviews();
     }, []);
 
+    // Fetching reviews using Axios
     const fetchReviews = async () => {
         try {
-            const response = await fetch(`http://localhost:8080/products/${productId}/reviews`);
-            const data = await response.json();
-            setReviews(data);
+            const response = await axios.get(`http://localhost:8080/products/${productId}/reviews`);
+            setReviews(response.data);
         } catch (error) {
             console.error('Error fetching reviews:', error);
         }
     };
-
+    
+    // Submitting a review using Axios
     const handleReviewSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:8080/products/${productId}/reviews`, {
-                method: 'POST',
+            const response = await axios.post(`http://localhost:8080/products/${productId}/reviews`, {
+                content: newReview,
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ content: newReview }),
             });
-            if (response.ok) {
+            if (response.status === 200 || response.status === 201) {
                 fetchReviews(); // Refresh reviews after submitting a new one
                 setNewReview(''); // Clear the input
             } else {
@@ -38,7 +38,7 @@ export default function ProductReview({ productId }) {
             console.error('Error submitting review:', error);
         }
     };
-
+    
     return (
         <div className="product-reviews">
             <h4>Đánh giá sản phẩm</h4>
