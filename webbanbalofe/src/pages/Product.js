@@ -73,8 +73,7 @@ export default function Product() {
     const handlePageChange = (newPage) => {
         setPage(newPage);
     };
-    
-    // Thêm hàm fetchProductRatings vào Product component
+
     const fetchProductRatings = async (products) => {
         try {
             const promises = products.map(async (product) => {
@@ -88,21 +87,20 @@ export default function Product() {
                     return { productId: product.id, averageRating: 0, totalReviews: 0 };
                 }
             });
-    
+
             const ratings = await Promise.all(promises);
             const ratingsMap = {};
             ratings.forEach(rating => {
                 ratingsMap[rating.productId] = { averageRating: rating.averageRating, totalReviews: rating.totalReviews };
             });
-    
+
             setAverageRatings(ratingsMap);
         } catch (error) {
             console.error('Error fetching product ratings:', error);
         }
     };
-    
 
-// Cập nhật hàm fetchProducts và fetchProductsByCategory
+     // Cập nhật hàm fetchProducts và fetchProductsByCategory
 const fetchProducts = async () => {
     try {
         let url = `http://localhost:8080/products/filter?page=${page}&size=${size}`;
@@ -113,33 +111,31 @@ const fetchProducts = async () => {
         } else if (minPrice || maxPrice) {
             url = `http://localhost:8080/products/filter?minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${size}`;
         }
-
         const response = await fetch(url);
         const data = await response.json();
         setProducts(data.content);
         setTotalPages(data.totalPages);
+         // Sau khi set products, gọi fetchProductRatings
+         fetchProductRatings(data.content);
 
-        // Sau khi set products, gọi fetchProductRatings
-        fetchProductRatings(data.content);
+         console.log(url);
+     } catch (error) {
+         console.error('Error fetching products:', error);
+     }
+ };
+ 
+ const fetchProductsByCategory = async () => {
+     try {
+         let url = `http://localhost:8080/products/category/${currentCategory}?page=${page}&size=${size}`;
+         if (currentSort) {
+             url = `http://localhost:8080/products/category/${currentCategory}/sort?sort=${currentSort}&page=${page}&size=${size}`;
+         } else if (searchQuery) {
+             url = `http://localhost:8080/products/category/${currentCategory}/search?search=${searchQuery}&page=${page}&size=${size}`;
+         } else if (minPrice || maxPrice) {
+             url = `http://localhost:8080/products/category/${currentCategory}/filter?minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${size}`;
+         }
 
-        console.log(url);
-    } catch (error) {
-        console.error('Error fetching products:', error);
-    }
-};
-
-const fetchProductsByCategory = async () => {
-    try {
-        let url = `http://localhost:8080/products/category/${currentCategory}?page=${page}&size=${size}`;
-        if (currentSort) {
-            url = `http://localhost:8080/products/category/${currentCategory}/sort?sort=${currentSort}&page=${page}&size=${size}`;
-        } else if (searchQuery) {
-            url = `http://localhost:8080/products/category/${currentCategory}/search?search=${searchQuery}&page=${page}&size=${size}`;
-        } else if (minPrice || maxPrice) {
-            url = `http://localhost:8080/products/category/${currentCategory}/filter?minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${size}`;
-        }
-
-        const response = await fetch(url);
+         const response = await fetch(url);
         const data = await response.json();
         setProducts(data.content);
         setTotalPages(data.totalPages);
@@ -177,7 +173,6 @@ const renderRatingStars = (averageRating, totalReviews) => {
 
     return stars;
 };
-
 
     useEffect(() => {
         if (currentCategory) {
@@ -288,21 +283,24 @@ const renderRatingStars = (averageRating, totalReviews) => {
                             <div className="row">
                                 {/* Danh sách sản phẩm */}
                                 {Array.isArray(products) && products.map(product => (
-                                    <div className="col-md-4 mb-4" key={product.id}>
-                                        <NavLink className="product-item" to={`/product_page/${product.id}`}>
-                                            <img src={require(`../images/product/${product.image}`)} className="img-fluid product-thumbnail" alt="Product" />
-                                            <h3 className="product-title">{product.nameP}</h3>
-                                            <strong className="product-price">{product.price}.000 VNĐ</strong>
-                                            <div className="product-rating">
+    <div className="col-md-4 mb-4" key={product.id}>
+        <NavLink className="product-item" to={`/product_page/${product.id}`}>
+            {product.image.startsWith('http') ? (
+                <img src={product.image} className="img-fluid product-thumbnail" alt="Product" />
+            ) : (
+                <img src={require(`../images/product/${product.image}`)} className="img-fluid product-thumbnail" alt="Product" />
+            )}
+            <h3 className="product-title">{product.nameP}</h3>
+            <strong className="product-price">{product.price}.000 VNĐ</strong>
+            <div className="product-rating">
                                                 {averageRatings[product.id] && renderRatingStars(averageRatings[product.id].averageRating, averageRatings[product.id].totalReviews)}
                                             </div>
-                                            <span className="icon-cross">
-                                                <FaShoppingCart style={{ color: 'white' }} />
-                                            </span>
-                                        </NavLink>
-                                    </div>
-                                ))}
-
+            <span className="icon-cross">
+                <FaShoppingCart style={{ color: 'white' }} />
+            </span>
+        </NavLink>
+    </div>
+))}
                             </div>
                             {/* Phân trang */}
                             <div className="pagination-container">

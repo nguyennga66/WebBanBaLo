@@ -4,39 +4,39 @@
     margin: auto;
     padding: 20px;
   }
-  
+
   /* Table styling */
   table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
   }
-  
+
   th, td {
     border: 1px solid #ddd;
     padding: 8px;
   }
-  
+
   th {
     background-color: #f2f2f2;
     text-align: left;
   }
-  
+
   tr:nth-child(even) {
     background-color: #f9f9f9;
   }
-  
+
   tr:hover {
     background-color: #f1f1f1;
   }
-  
+
   /* Button styling */
   button {
     margin-right: 5px;
   }
-  
+
   /* Modal styling */
-  /* .modal {
+  /*.modal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,70 +49,69 @@
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
   } */
-  
+
   .modal-content {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     width: 50%;
   }
-  
+
   .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
-  
+
   .close:hover,
   .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
   }
-  
+
   .modal-header,
   .modal-body,
   .modal-footer {
     padding: 15px;
   }
-  
+
   .form-group label {
     display: block;
     margin-bottom: 5px;
   }
-  
+
   .form-group input,
   .form-group textarea {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
   }
-  
+
   /* Toggle description styling */
   .toggle-description {
     color: blue;
     cursor: pointer;
     margin-left: 5px;
   }
-  
+
   /* Pagination styling */
   .pagination {
     display: flex;
     justify-content: center;
     padding: 10px 0;
-  }
-  
+}
+
   .page-item {
     margin: 0 5px;
   }
-  
   .page-item.active .page-link {
     background-color: #3b5d50;
     color: white;
     border: 1px solid #3b5d50;
   }
-  
+
   .page-link {
     color: #3b5d50;
     padding: 8px 12px;
@@ -120,7 +119,7 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  
+
   .page-item.disabled .page-link {
     cursor: not-allowed;
     color: #ccc;
@@ -139,14 +138,14 @@
     overflow: auto;
     background-color: rgba(0,0,0,0.9);
   }
-  
+
   .image-modal-content {
     margin: auto;
     display: block;
     width: 80%;
     max-width: 700px;
   }
-  
+
   .image-modal .close {
     position: absolute;
     top: 15px;
@@ -156,14 +155,10 @@
     font-weight: bold;
     transition: 0.3s;
   }
-  
+
   .image-modal .close:hover,
   .image-modal .close:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
   }
-  
-  
-  
-  

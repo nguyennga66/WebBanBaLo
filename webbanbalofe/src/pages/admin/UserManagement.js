@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../css/userManage.css';
-import Topbar from '../../Component/admin/Topbar';
 import Sidebar from '../../Component/admin/Sidebar';
 
 function UserManagement() {
@@ -79,7 +78,7 @@ function UserManagement() {
       case 0:
         return 'Đang hoạt động';
       case 1:
-        return 'Không hoạt động';
+        return 'Bị vô hiệu hoá';
       default:
         return 'Không xác định';
     }
@@ -87,7 +86,6 @@ function UserManagement() {
 
   return (
     <div className="container mt-4">
-      <Topbar />
       <div id="page-wrapper">
         <div className="row">
           <Sidebar />
@@ -217,7 +215,7 @@ function UserManagement() {
                        >
 <option value="">Chọn trạng thái</option>
 <option value="0">Đang hoạt động</option>
-<option value="1">Không hoạt động</option>
+<option value="1">Vô hiệu hóa</option>
 </select>
 </div>
                           </div>
@@ -298,7 +296,7 @@ function UserManagement() {
                        >
 <option value="">Chọn trạng thái</option>
 <option value="0">Đang hoạt động</option>
-<option value="1">Không hoạt động</option>
+<option value="1">Vô hiệu hóa</option>
 </select>
 </div>
                           </div>

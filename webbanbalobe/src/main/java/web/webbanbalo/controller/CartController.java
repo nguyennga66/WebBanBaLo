@@ -46,7 +46,7 @@
             int userId = cart.getUser().getId();
 
             // Kiểm tra xem người dùng có tồn tại không
-            User user = userRepository.findById(userId).get();
+            User user = userRepository.findById(userId).orElse(null);
             if (user == null) {
                 return ResponseEntity.badRequest().body("User not found");
             }
@@ -67,8 +67,9 @@
             }
 
             // Kiểm tra xem mục giỏ hàng đã tồn tại chưa
-            CartItem existingCartItem = cartItemRepository.findByCartAndProduct(existingCart, product).orElse(null);
-            if (existingCartItem == null) {
+            Optional<CartItem> optionalCartItem = cartItemRepository.findByCartAndProduct(existingCart, product);
+            CartItem existingCartItem;
+            if (optionalCartItem.isEmpty()) {
                 // Nếu không có mục giỏ hàng, tạo mới
                 existingCartItem = new CartItem();
                 existingCartItem.setCart(existingCart);
@@ -76,6 +77,7 @@
                 existingCartItem.setQuantity(cartItemRequest.getQuantity());
             } else {
                 // Nếu có mục giỏ hàng, cập nhật số lượng
+                existingCartItem = optionalCartItem.get();
                 existingCartItem.setQuantity(existingCartItem.getQuantity() + cartItemRequest.getQuantity());
             }
 

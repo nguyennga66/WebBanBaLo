@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../css/productManage.css';
-import Topbar from '../../Component/admin/Topbar';
 import Sidebar from '../../Component/admin/Sidebar';
+import { storage } from '../../firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-export default function ProductManagement() {
+const ProductManagement = () => {
   const [products, setProducts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [currentProduct, setCurrentProduct] = useState({
@@ -15,14 +16,17 @@ export default function ProductManagement() {
   const [productsPerPage] = useState(5);
   const [selectedImage, setSelectedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
-  const images = require.context('../../images/product', false, /\.(png|jpe?g|svg)$/);
+  const images = require.context('../../images/product', false, /\.(png|jpe?g|svg|ifif)$/);
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(100);
+  const [categories, setCategories] = useState([]);
 
   const getImage = (imageName) => {
     try {
       return images(`./${imageName}`);
     } catch (error) {
-      console.error('Hình ảnh không tìm thấy:', imageName);
-      return null; // hoặc đường dẫn hình ảnh thay thế
+      console.error('Hình ảnh không tìm thấy:', error);
+      return null;
     }
   };
 
@@ -35,7 +39,7 @@ export default function ProductManagement() {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setCurrentProduct({ ...currentProduct, image: reader.result });
+        setCurrentProduct({ ...currentProduct, image: file});
         setImagePreview(reader.result);
       };
       reader.readAsDataURL(file);
@@ -52,7 +56,7 @@ export default function ProductManagement() {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/products');
+      const response = await axios.get(`http://localhost:8080/products?page=${page}&size=${size}`);
       setProducts(response.data.content);
     } catch (error) {
       console.error('Error fetching products', error);
@@ -60,39 +64,50 @@ export default function ProductManagement() {
   };
 
   const handleAddProduct = () => {
-    setCurrentProduct({ id: null, nameP: '', image: '', price: '', quantity: '', description: '', category: { nameC: '' } });
+    setCurrentProduct({ id: null, nameP: '', image: '', price: '', quantity: '', description: '', category: { id: '', nameC: '' } });
     setImagePreview(null);
     setShowModal(true);
   };
 
   const handleEditProduct = (product) => {
     setCurrentProduct(product);
-    setImagePreview(getImage(product.image));
+    setImagePreview(getImage(product.image) || (product.image));
     setShowModal(true);
   };
 
-  const handleSaveProduct = async () => {
+  const handleDeleteProduct = async(product) => {
     try {
-      const formData = new FormData();
-      formData.append('nameP', currentProduct.nameP);
-      formData.append('price', currentProduct.price);
-      formData.append('quantity', currentProduct.quantity);
-      formData.append('description', currentProduct.description);
-      formData.append('category', JSON.stringify(currentProduct.category));
+      await axios.delete(`http://localhost:8080/products/${product.id}`);
+      await fetchProducts();
+    } catch (error) {
+      console.error('Error fetching products', error);
+    }
+  }
+
+  const handleSaveProduct = async () => {
+    console.log('Saving product:', currentProduct);
+    try {
       if (currentProduct.image instanceof Blob) {
-        formData.append('image', currentProduct.image);
-      } else {
-        formData.append('imagePath', currentProduct.image);
+        // Upload image to Firebase Storage
+        console.log('Uploading image:', currentProduct.image.name);
+        const storageRef = ref(storage, 'images/' + currentProduct.image.name);
+        await uploadBytes(storageRef, currentProduct.image);
+        const imageUrl = await getDownloadURL(storageRef);
+        currentProduct.image = imageUrl;
+        console.log('Image uploaded, URL:', imageUrl);
       }
 
       if (currentProduct.id) {
-        await axios.put(`http://localhost:8080/products/${currentProduct.id}`, formData);
+        console.log('Updating product:', currentProduct.id);
+        await axios.put(`http://localhost:8080/products/${currentProduct.id}`, currentProduct);
       } else {
-        await axios.post('http://localhost:8080/products', formData);
+        console.log('Adding new product');
+        await axios.post('http://localhost:8080/products', currentProduct);
       }
+
       await fetchProducts();
       setShowModal(false);
-      setCurrentProduct({ id: null, nameP: '', image: '', price: '', quantity: '', description: '', category: { nameC: '' } });
+      setCurrentProduct({ id: null, nameP: '', image: '', price: '', quantity: '', description: '', category: {id: '', nameC: '' } });
     } catch (error) {
       console.error('Error saving product', error);
     }
@@ -101,7 +116,7 @@ export default function ProductManagement() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === 'category') {
-      setCurrentProduct({ ...currentProduct, category: { nameC: value } });
+      setCurrentProduct({ ...currentProduct, category: categories.find(category => category.id === parseInt(value)) });
     } else {
       setCurrentProduct({ ...currentProduct, [name]: value });
     }
@@ -114,16 +129,25 @@ export default function ProductManagement() {
     }));
   };
 
+  useEffect(() => {
+    fetch('http://localhost:8080/category')
+        .then(response => response.json())
+        .then(data => {
+            setCategories(data);
+        })
+        .catch(error => {
+            console.error('Error fetching categories:', error);
+        });
+}, []);
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  // Get current products
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
   return (
     <div className="container mt-4">
-      <Topbar />
       <div id="page-wrapper">
         <div className="row">
           <Sidebar />
@@ -150,10 +174,10 @@ export default function ProductManagement() {
                       <td>{product.id}</td>
                       <td>
                         <img 
-                          src={getImage(product.image)} 
+                          src={getImage(product.image) || (product.image)} 
                           alt="Product" 
                           style={{ width: '100px', cursor: 'pointer' }} 
-                          onClick={() => handleImageClick(getImage(product.image))}
+                          onClick={() => handleImageClick(product.image)}
                         />
                       </td>
                       <td>{product.nameP}</td>
@@ -161,7 +185,7 @@ export default function ProductManagement() {
                       <td>{product.quantity}</td>
                       <td>
                         {expandedDescriptions[product.id] ? product.description : product.description.slice(0, 100)}
-                        {product.description.length > 100 && (
+                        {product.description?.length > 100 && (
                           <span className="toggle-description" onClick={() => toggleDescription(product.id)}>
                             {expandedDescriptions[product.id] ? ' Thu gọn' : '... Xem thêm'}
                           </span>
@@ -170,6 +194,7 @@ export default function ProductManagement() {
                       <td>{product.category.nameC}</td>
                       <td>
                         <button className="btn btn-secondary" onClick={() => handleEditProduct(product)}>Sửa</button>
+                        <button className="btn btn-secondary" style={{backgroundColor: 'red'}} onClick={() => handleDeleteProduct(product)}>Xóa</button>
                       </td>
                     </tr>
                   ))}
@@ -240,12 +265,19 @@ export default function ProductManagement() {
                         </div>
                         <div className="form-group">
                           <label>Phân loại</label>
-                          <input
-                            type="text"
+                          <select
+                            className="form-control"
                             name="category"
-                            value={currentProduct.category.nameC}
+                            value={currentProduct.category.id}
                             onChange={handleChange}
-                          />
+                          >
+                            <option value="" disabled>Chọn loại sản phẩm</option>
+                            {categories.map(category => (
+                              <option key={category.id} value={category.id}>
+                                {category.nameC}
+                              </option>
+                            ))}
+                          </select>
                         </div>
                       </form>
                     </div>
@@ -260,7 +292,7 @@ export default function ProductManagement() {
           </div>
         </div>
       </div>
-
+      
       {selectedImage && (
         <div className="image-modal" onClick={closeModal}>
           <span className="close">&times;</span>
@@ -269,7 +301,7 @@ export default function ProductManagement() {
       )}
     </div>
   );
-}
+};
 
 const Pagination = ({ productsPerPage, totalProducts, paginate, currentPage }) => {
   const pageNumbers = [];
@@ -303,3 +335,4 @@ const Pagination = ({ productsPerPage, totalProducts, paginate, currentPage }) =
   );
 };
 
+export default ProductManagement;

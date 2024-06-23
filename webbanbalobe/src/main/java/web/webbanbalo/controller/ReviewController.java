@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import web.webbanbalo.entity.Bill;
 import web.webbanbalo.entity.Review;
 import web.webbanbalo.entity.User;
+
 import web.webbanbalo.repository.BillRepository;
 import web.webbanbalo.repository.ReviewRepository;
 import web.webbanbalo.repository.UserRepository;
@@ -27,6 +28,7 @@ public class ReviewController {
     @Autowired
     private BillRepository billRepository; // Bổ sung BillRepository
 
+    // Tạo mới một đánh giá
     @CrossOrigin(origins = "*")
     @PostMapping("/reviews")
     public ResponseEntity<?> createReview(@RequestBody Review review) {
@@ -39,7 +41,6 @@ public class ReviewController {
         Optional<Bill> bill = billRepository.findFirstByCartUserAndBillDetailsProduct(review.getUser().getId(), review.getProduct().getId());
         if (bill.isEmpty()) {
             return ResponseEntity.badRequest().body("Bạn phải mua sản phẩm này trước khi đánh giá.");
-        }
 
         // Lấy thông tin user từ cơ sở dữ liệu để sử dụng
         Optional<User> userOptional = userRepository.findById(review.getUser().getId());
@@ -69,17 +70,15 @@ public class ReviewController {
         return ResponseEntity.ok(reviews);
     }
 
-    // Xóa đánh giá
-    @CrossOrigin(origins = "*")
-    @DeleteMapping("/reviews/{reviewId}")
-    public ResponseEntity<Void> deleteReview(@PathVariable int reviewId) {
-        Optional<Review> reviewOptional = reviewRepository.findById(reviewId);
-        if (reviewOptional.isEmpty()) {
-            return ResponseEntity.notFound().build();
+        // Xóa đánh giá
+        @CrossOrigin(origins = "*")
+        @DeleteMapping("/reviews/{reviewId}")
+        public ResponseEntity<Void> deleteReview(@PathVariable int reviewId) {
+            Optional<Review> reviewOptional = reviewRepository.findById(reviewId);
+            if (reviewOptional.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+            reviewRepository.delete(reviewOptional.get());
+            return ResponseEntity.noContent().build();
         }
-        reviewRepository.delete(reviewOptional.get());
-        return ResponseEntity.noContent().build();
-    }
 }
-
-

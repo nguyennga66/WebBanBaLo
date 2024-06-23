@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import web.webbanbalo.entity.*;
 import web.webbanbalo.repository.*;
+
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -51,6 +52,8 @@ public class BillController {
         // Lưu vào cơ sở dữ liệu
         bill.setCart(existingCart);
 
+        bill.setStatus(0);
+
         // Khởi tạo ngày tạo hóa đơn theo định dạng dd/mm/yy - time
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
         bill.setCreateDate(formatter.format(new Date()));
@@ -79,7 +82,6 @@ public class BillController {
         return ResponseEntity.ok(billDetailsPage);
     }
 
-
     @CrossOrigin(origins = "*")
     @GetMapping("/bills/{billId}")
     public ResponseEntity<?> getBillDetail(@PathVariable int billId) {
@@ -88,6 +90,34 @@ public class BillController {
             return ResponseEntity.ok(billDetail.get());
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Hóa đơn không tồn tại.");
+        }
+    }
+
+    @CrossOrigin(origins = "*")
+    @PutMapping("/approve/{billId}")
+    public ResponseEntity<?> approveOrder(@PathVariable int billId) {
+        Optional<Bill> optionalBill = billRepository.findById(billId);
+        if (optionalBill.isPresent()) {
+            Bill bill = optionalBill.get();
+            bill.setStatus(1); // đang vận chuyển
+            billRepository.save(bill);
+            return ResponseEntity.ok(bill);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @CrossOrigin(origins = "*")
+    @PutMapping("/cancel/{billId}")
+    public ResponseEntity<?> cancel(@PathVariable int billId) {
+        Optional<Bill> optionalBill = billRepository.findById(billId);
+        if (optionalBill.isPresent()) {
+            Bill bill = optionalBill.get();
+            bill.setStatus(2); // đang vận chuyển
+            billRepository.save(bill);
+            return ResponseEntity.ok(bill);
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 }
