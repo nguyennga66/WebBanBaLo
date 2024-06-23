@@ -4,36 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="fix trang admin và quản lý sản phẩm">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/BillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/ProductController.java" afterDir="false" />
+    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="fix lỗi">
       <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/entity/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/entity/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/entity/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/repository/CartRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/repository/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/Component/FormEditProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/FormEditProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/Component/FormForgotPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/FormForgotPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Information.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Information.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/ProductDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/ProductDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/ProductReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/ProductReview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Signin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/OrderList.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/OrderList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/UserManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/UserManagement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/test.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +171,7 @@
       <workItem from="1718940836940" duration="1200000" />
       <workItem from="1718980189078" duration="1472000" />
       <workItem from="1719018820168" duration="1219000" />
-      <workItem from="1719044303963" duration="3634000" />
+      <workItem from="1719044303963" duration="4738000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -505,7 +477,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719135266015</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="fix validation">
+      <option name="closed" value="true" />
+      <created>1719160125223</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1719160125223</updated>
+    </task>
+    <task id="LOCAL-00040" summary="fix lỗi">
+      <option name="closed" value="true" />
+      <created>1719160991253</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1719160991253</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -524,8 +512,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update remove products from cart, update the quantity of products in the cart" />
-    <MESSAGE value="add information page" />
     <MESSAGE value="update information page" />
     <MESSAGE value="update a few pages" />
     <MESSAGE value="back-end: update personal information" />
@@ -549,6 +535,8 @@
     <MESSAGE value="quản lý, duyệt, hủy đơn hàng và cập nhật chức năng thống kê" />
     <MESSAGE value="fix lỗi và chức năng yêu thích sản phẩm" />
     <MESSAGE value="fix trang admin và quản lý sản phẩm" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix trang admin và quản lý sản phẩm" />
+    <MESSAGE value="fix validation" />
+    <MESSAGE value="fix lỗi" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix lỗi" />
   </component>
 </project>
