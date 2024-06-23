@@ -41,34 +41,34 @@ public class ReviewController {
         Optional<Bill> bill = billRepository.findFirstByCartUserAndBillDetailsProduct(review.getUser().getId(), review.getProduct().getId());
         if (bill.isEmpty()) {
             return ResponseEntity.badRequest().body("Bạn phải mua sản phẩm này trước khi đánh giá.");
-
-        // Lấy thông tin user từ cơ sở dữ liệu để sử dụng
-        Optional<User> userOptional = userRepository.findById(review.getUser().getId());
-        if (userOptional.isEmpty()) {
-            return ResponseEntity.badRequest().body("User không tồn tại trong hệ thống.");
         }
-        User user = userOptional.get();
+            // Lấy thông tin user từ cơ sở dữ liệu để sử dụng
+            Optional<User> userOptional = userRepository.findById(review.getUser().getId());
+            if (userOptional.isEmpty()) {
+                return ResponseEntity.badRequest().body("User không tồn tại trong hệ thống.");
+            }
+            User user = userOptional.get();
 
-        // Đặt lại user để đảm bảo có thông tin đầy đủ
-        review.setUser(user);
+            // Đặt lại user để đảm bảo có thông tin đầy đủ
+            review.setUser(user);
 
-        // Đặt createDate là ngày và giờ hiện tại
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
-        review.setCreateDate(formatter.format(new Date()));
+            // Đặt createDate là ngày và giờ hiện tại
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
+            review.setCreateDate(formatter.format(new Date()));
 
-        // Lưu review vào cơ sở dữ liệu
-        Review savedReview = reviewRepository.save(review);
+            // Lưu review vào cơ sở dữ liệu
+            Review savedReview = reviewRepository.save(review);
 
-        // Trả về review đã lưu thành công
-        return ResponseEntity.ok(savedReview);
-    }
+            // Trả về review đã lưu thành công
+            return ResponseEntity.ok(savedReview);
+        }
 
-    @CrossOrigin(origins = "*")
-    @GetMapping("/reviews/{productId}")
-    public ResponseEntity<List<Review>> getReviewsByProductId(@PathVariable int productId) {
-        List<Review> reviews = reviewRepository.findByProductIdWithUser(productId);
-        return ResponseEntity.ok(reviews);
-    }
+        @CrossOrigin(origins = "*")
+        @GetMapping("/reviews/{productId}")
+        public ResponseEntity<List<Review>> getReviewsByProductId(@PathVariable int productId) {
+            List<Review> reviews = reviewRepository.findByProductIdWithUser(productId);
+            return ResponseEntity.ok(reviews);
+        }
 
         // Xóa đánh giá
         @CrossOrigin(origins = "*")
@@ -81,4 +81,4 @@ public class ReviewController {
             reviewRepository.delete(reviewOptional.get());
             return ResponseEntity.noContent().build();
         }
-}
+    }
