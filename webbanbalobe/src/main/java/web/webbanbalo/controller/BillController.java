@@ -82,16 +82,6 @@ public class BillController {
         return ResponseEntity.ok(billDetailsPage);
     }
 
-
-    @CrossOrigin(origins = "*")
-    @GetMapping("/bills/user/{userId}")
-    public ResponseEntity<?> getBillDetailsByUserId(@PathVariable int userId,
-                                                    @RequestParam(defaultValue = "0") int page,
-                                                    @RequestParam(defaultValue = "10") int size) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by("id").ascending());
-        Page<Bill> billDetailsPage = billRepository.findByUserId(userId, pageable);
-        return ResponseEntity.ok(billDetailsPage);
-    }
     @CrossOrigin(origins = "*")
     @GetMapping("/bills/{billId}")
     public ResponseEntity<?> getBillDetail(@PathVariable int billId) {

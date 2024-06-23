@@ -3,9 +3,11 @@ package web.webbanbalo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import web.webbanbalo.entity.Bill;
 import web.webbanbalo.entity.Review;
 import web.webbanbalo.entity.User;
 
+import web.webbanbalo.repository.BillRepository;
 import web.webbanbalo.repository.ReviewRepository;
 import web.webbanbalo.repository.UserRepository;
 import web.webbanbalo.repository.ProductRepository;
@@ -25,16 +27,23 @@ public class ReviewController {
     private UserRepository userRepository;
 
     @Autowired
-    private ProductRepository productRepository;
+    private BillRepository billRepository;
 
     // Tạo mới một đánh giá
     @CrossOrigin(origins = "*")
     @PostMapping("/reviews")
-    public ResponseEntity<Review> createReview(@RequestBody Review review) {
+    public ResponseEntity<?> createReview(@RequestBody Review review) {
         // Kiểm tra xem user_id và product_id đã được thiết lập
         if (review.getUser() == null || review.getProduct() == null) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body("User hoặc Product không được trống");
         }
+
+        // Kiểm tra xem người dùng đã mua sản phẩm hay chưa
+        Optional<Bill> bill = billRepository.findFirstByCartUserAndBillDetailsProduct(review.getUser().getId(), review.getProduct().getId());
+        if (bill.isEmpty()) {
+            return ResponseEntity.badRequest().body("User không tồn tại trong hệ thống.");
+        }
+
         // Lấy thông tin user từ cơ sở dữ liệu để sử dụng
         Optional<User> userOptional = userRepository.findById(review.getUser().getId());
         if (userOptional.isEmpty()) {
@@ -46,7 +55,6 @@ public class ReviewController {
         review.setUser(user);
 
         // Đặt createDate là ngày và giờ hiện tại
-        // Khởi tạo ngày tạo hóa đơn theo định dạng dd/mm/yy - time
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
         review.setCreateDate(formatter.format(new Date()));
 
@@ -62,4 +70,16 @@ public class ReviewController {
         List<Review> reviews = reviewRepository.findByProductIdWithUser(productId);
         return ResponseEntity.ok(reviews);
     }
+
+        // Xóa đánh giá
+        @CrossOrigin(origins = "*")
+        @DeleteMapping("/reviews/{reviewId}")
+        public ResponseEntity<Void> deleteReview(@PathVariable int reviewId) {
+            Optional<Review> reviewOptional = reviewRepository.findById(reviewId);
+            if (reviewOptional.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+            reviewRepository.delete(reviewOptional.get());
+            return ResponseEntity.noContent().build();
+        }
 }

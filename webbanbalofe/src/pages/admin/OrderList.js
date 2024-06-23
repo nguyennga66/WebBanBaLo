@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Topbar from '../../Component/admin/Topbar';
 import Sidebar from '../../Component/admin/Sidebar';
 
 const OrderList = () => {
@@ -80,7 +79,6 @@ const OrderList = () => {
 
     return (
         <div className="container mt-4">
-            <Topbar />
             <div id="page-wrapper">
                 <div className="row">
                     <Sidebar />

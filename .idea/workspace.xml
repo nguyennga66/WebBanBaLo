@@ -4,36 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="quản lý, duyệt, hủy đơn hàng và cập nhật chức năng thống kê">
-      <change afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/FavoriteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/ReviewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/entity/Favorite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/entity/Review.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/repository/FavoriteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/repository/ReviewRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/security/Security.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/css/productManage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/ProductReview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/CategoryManagement.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/ProductManagement.js" afterDir="false" />
+    <list default="true" id="0df93908-7aed-43d1-9f85-30e2c397872f" name="Changes" comment="fix lỗi và chức năng yêu thích sản phẩm">
+      <change afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/StatsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/ProtectRoute.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/cors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/firebase.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webbanbalofe/src/images/admin/users/anhdaidien.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/BillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalobe/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/entity/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/entity/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/ReviewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/repository/BillRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/repository/BillRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalofe/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalofe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalofe/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/Component/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Dashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/Component/admin/Topbar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/css/admin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalofe/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Information.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Information.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Checkout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Product.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/ProductDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/ProductDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/CategoryManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/CategoryManagement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/OrderList.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/OrderList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/ProductManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/ProductManagement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/UserManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/UserManagement.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +198,7 @@
       <workItem from="1718940836940" duration="1200000" />
       <workItem from="1718980189078" duration="1472000" />
       <workItem from="1719018820168" duration="1219000" />
-      <workItem from="1719044303963" duration="605000" />
+      <workItem from="1719044303963" duration="2351000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -481,7 +480,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718983626238</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fix lỗi và chức năng yêu thích sản phẩm">
+      <option name="closed" value="true" />
+      <created>1719051729441</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1719051729441</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,7 +507,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="front-end: get cart by id user" />
     <MESSAGE value="update back-end + front-end: remove product from cart" />
     <MESSAGE value="update remove products from cart, update the quantity of products in the cart" />
     <MESSAGE value="add information page" />
@@ -525,6 +531,7 @@
     <MESSAGE value="back-end: thống kê lượt xem, lươt mua của mỗi sản phẩm" />
     <MESSAGE value="front-end: thống kê lượt mua và lượt xem của mỗi sản phẩm và fix hiển thị sản phẩm" />
     <MESSAGE value="quản lý, duyệt, hủy đơn hàng và cập nhật chức năng thống kê" />
-    <option name="LAST_COMMIT_MESSAGE" value="quản lý, duyệt, hủy đơn hàng và cập nhật chức năng thống kê" />
+    <MESSAGE value="fix lỗi và chức năng yêu thích sản phẩm" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix lỗi và chức năng yêu thích sản phẩm" />
   </component>
 </project>

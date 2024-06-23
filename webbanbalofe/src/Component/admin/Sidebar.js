@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import "../../css/admin.css";
 import "../../plugins/bower_components/chartist/dist/chartist.min.css";
@@ -6,9 +6,16 @@ import "../../plugins/bower_components/chartist-plugin-tooltips/dist/chartist-pl
 import "../../css/bootstrap.min.css";
 import "../../css/tiny-slider.css";
 import "../../css/style.css";
+import defaultAvatar from '../../images/admin/users/d3.jpg';
 
 function Sidebar() {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    setUser(userData);
+  }, []);
 
   const handleMouseEnter = () => {
     setIsDropdownVisible(true);
@@ -22,6 +29,20 @@ function Sidebar() {
     <aside className="left-sidebar" data-sidebarbg="skin6">
       <div className="scroll-sidebar">
         <nav className="sidebar-nav">
+          <div className="sidebar-profile">
+            {user && (
+              <>
+                <img
+                  src={defaultAvatar}
+                  alt="Avatar"
+                  className="avatar"
+                />
+                <div className="profile-info">
+                  <p>{user.fullName}</p>
+                </div>
+              </>
+            )}
+          </div>
           <ul id="sidebarnav">
           <li className="sidebar-item">
               <NavLink className="sidebar-link waves-effect waves-dark sidebar-link" to="/" aria-expanded="false">
@@ -46,14 +67,10 @@ function Sidebar() {
               
               {isDropdownVisible && (
                 <ul className="dropdown-content">
-                  
-                    <NavLink to="/user_manage">Người dùng</NavLink>
-                  
-                    <NavLink to="/product_manage">Sản phẩm</NavLink>
-                    <NavLink to ="/category_manage">Loại sản phẩm</NavLink>
-                  
-                    <NavLink to="/order_list">Đơn hàng</NavLink>
-                  
+                  <NavLink to="/user_manage">Người dùng</NavLink>
+                  <NavLink to="/product_manage">Sản phẩm</NavLink>
+                  <NavLink to="/category_manage">Loại sản phẩm</NavLink>
+                  <NavLink to="/order_list">Đơn hàng</NavLink>
                 </ul>
               )}
               </NavLink>

@@ -975,3 +975,20 @@ textarea {
 #tab-pane-2 .col-md-6{
   text-align: left;
 }
+
+/* CSS cho nút Xoá */
+.delete-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  text-decoration: none; /* Xóa đường gạch chân mặc định của thẻ <a> */
+  padding: 0.5rem 1rem; /* Khoảng cách giữa nội dung và biên nút */
+  background: none; /* Nền trong suốt */
+  cursor: pointer; /* Con trỏ chỉ vào */
+}
+
+.delete-button:hover {
+  text-decoration: none; /* Xóa đường gạch chân khi di chuột vào */
+  opacity: 0.8; /* Độ mờ khi di chuột vào */
+}

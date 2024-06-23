@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { FaHeart } from 'react-icons/fa';
+import { FaHeart, FaTrash } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as regularStar } from '@fortawesome/free-regular-svg-icons';
@@ -11,22 +11,24 @@ import "../css/tiny-slider.css";
 import "../css/style.css";
 import "../css/product-detail.css";
 
-
 export default function ProductDetail() {
     const { id } = useParams();
-    console.log('ID sản phẩm từ URL:', id);
     const [product, setProduct] = useState(null);
     const [quantity, setQuantity] = useState(1);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userId, setUserId] = useState("");
     const [reviews, setReviews] = useState([]);
     const [error, setError] = useState([]);
+    const [role, setRole] = useState("");
     const [newReview, setNewReview] = useState({
         rating: 0,
         comment: '',
         name: '',
-        email: ''
+        email: '',
+        comment: ''
     });
+    const [canReview, setCanReview] = useState(false); // State để kiểm tra có thể đánh giá hay không
+
     const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
@@ -34,9 +36,9 @@ export default function ProductDetail() {
         if (user) {
             setIsLoggedIn(true);
             setUserId(user.id);
+            setRole(user.role);
         }
     }, []);
-
 
     useEffect(() => {
         fetch(`http://localhost:8080/products/${id}`)
@@ -50,16 +52,6 @@ export default function ProductDetail() {
     }, [id]);
 
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (user) {
-          setIsLoggedIn(true);
-          setUserId(user.id);
-          console.log("useEffect is called");
-        }
-    }, []);
-
-    useEffect(() => {
-
         fetch(`http://localhost:8080/reviews/${id}`)
             .then(response => response.json())
             .then(data => {
@@ -70,16 +62,37 @@ export default function ProductDetail() {
             });
     }, [id]);
 
+    useEffect(() => {
+        // Kiểm tra xem người dùng đã mua sản phẩm chưa
+        if (isLoggedIn) {
+            fetch(`http://localhost:8080/bills/user/${userId}?page=0&size=100`) // Lấy tất cả các hóa đơn của người dùng
+                .then(response => response.json())
+                .then(data => {
+                    // Kiểm tra trong tất cả các hóa đơn
+                    const hasPurchased = data.content.some(bill => {
+                        return bill.billDetails.some(detail => detail.product.id === parseInt(id));
+                    });
+                    setCanReview(hasPurchased);
+                })
+                .catch(error => {
+                    console.error('Lỗi khi kiểm tra người dùng có thể đánh giá:', error);
+                });
+        }
+    }, [id, isLoggedIn, userId]);
+
     const handleQuantityChange = (event) => {
         const quantityValue = parseInt(event.target.value);
         setQuantity(quantityValue > 0 ? quantityValue : 1);
     };
 
     const handleAddToCart = () => {
-        if (isLoggedIn) {
-            window.location.href = `/cart/${userId}`;
-        } else {
+        if (!isLoggedIn) {
             window.location.href = '/signin';
+            return;
+        }
+
+        if (role === 1) {
+            alert('Admin không thể thêm vào giỏ hàng');
             return;
         }
 
@@ -119,13 +132,17 @@ export default function ProductDetail() {
 
     const handleReviewSubmit = (event) => {
         event.preventDefault();
+
+        if (role === 1) {
+            alert('Admin không thể đánh giá sản phẩm');
+            return;
+        }
+
         const reviewData = {
             user: { id: userId },
             product: { id: product.id },
             rating: newReview.rating,
             comment: newReview.comment,
-            name: newReview.name,
-            email: newReview.email
         };
 
         fetch('http://localhost:8080/reviews', {
@@ -143,12 +160,32 @@ export default function ProductDetail() {
             })
             .then(data => {
                 setReviews([...reviews, data]);
-                setNewReview({ rating: 0, comment: '', name: '', email: '' });
+                setNewReview({ rating: 0, comment: '' });
             })
             .catch(error => {
                 console.error('Lỗi khi gửi đánh giá:', error);
                 setError('Có lỗi xảy ra khi gửi đánh giá');
             });
+    };
+
+    const handleDeleteReview = (reviewId) => {
+        fetch(`http://localhost:8080/reviews/${reviewId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                setReviews(reviews.filter(review => review.id !== reviewId));
+            } else {
+                alert('Error deleting review');
+            }
+        })
+        .catch(error => {
+            console.error('Error deleting review:', error);
+            alert('Error deleting review');
+        });
     };
 
     const handleRatingChange = (rating) => {
@@ -179,6 +216,11 @@ export default function ProductDetail() {
 
     // Handlers for adding and removing favorites
     const handleAddFavorite = () => {
+        if (role === 1) { // Nếu role là 1 (admin)
+            alert('Admin không thể thêm sản phẩm vào yêu thích');
+            return;
+        }
+
         const favoriteData = {
             user: { id: userId },
             product: { id: product.id }
@@ -217,42 +259,14 @@ export default function ProductDetail() {
         });
     };
 
-    const handleReviewChange = (event) => {
-        const { name, value } = event.target;
-        setNewReview({ ...newReview, [name]: value });
-    };
-
-    const handleReviewSubmit = (event) => {
-        event.preventDefault();
-        const reviewData = {
-            user: { id: userId },
-            product: { id: product.id },
-            rating: newReview.rating,
-            comment: newReview.comment,
-            name: newReview.name,
-            email: newReview.email
-        };
-        fetch('http://localhost:8080/reviews', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(reviewData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            setReviews([...reviews, data]);
-            setNewReview({ rating: 0, comment: '', name: '', email: '' });
-        })
-        .catch(error => {
-            console.error('Lỗi khi gửi đánh giá:', error);
-            alert('Có lỗi xảy ra khi gửi đánh giá');
-        });
-    };
-
-    const handleRatingChange = (rating) => {
-        setNewReview({ ...newReview, rating });
-    };
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+          setIsLoggedIn(true);
+          setRole(user.role);
+        }
+    
+      }, []);
 
     if (!product) {
         return <div>Đang tải thông tin sản phẩm...</div>;
@@ -267,9 +281,11 @@ export default function ProductDetail() {
                         <div className="wrapper row">
                             <div className="preview col-md-6">
                                 <div className="preview-pic tab-content">
-                                    <div className="tab-pane active" id="pic-1">
-                                        <img src={require(`../images/product/${product.image}`)} alt="Product" style={{ width: '350px', height: '310px' }} />
-                                    </div>
+                                {product.image.startsWith('http') ? (
+                <img src={product.image} className="img-fluid product-thumbnail" alt="Product" />
+            ) : (
+                <img src={require(`../images/product/${product.image}`)} className="img-fluid product-thumbnail" alt="Product" />
+            )}
                                 </div>
                             </div>
                             <div className="details col-md-6">
@@ -308,18 +324,23 @@ export default function ProductDetail() {
                                 <div className="col-md-6">
                                     <h4 className="mb-4">{reviews.length} Đánh giá</h4>
                                     {reviews.map((review, index) => (
-                                        <div className="media mb-4" key={index}>
+                                        <div className="media position-relative mb-4" key={index}>
                                             <div className="media-body">
-                                                <h6>{review.user.fullName}<small> - <i>{review.createDate}</i></small></h6>
+                                                <h5>{review.user.fullName}<small> - <i>{review.createDate}</i></small></h5>
                                                 <div className="text-primary mb-2">
                                                     {[...Array(review.rating)].map((_, i) => (
-                                                        <FontAwesomeIcon icon={solidStar} className="star-icon rated" key={i} />
+                                                        <FontAwesomeIcon icon={solidStar} key={i} />
                                                     ))}
                                                     {[...Array(5 - review.rating)].map((_, i) => (
-                                                        <FontAwesomeIcon icon={regularStar} className="star-icon" key={i} />
+                                                        <FontAwesomeIcon icon={regularStar} key={i} />
                                                     ))}
                                                 </div>
                                                 <p>{review.comment}</p>
+                                                {review.user.id === userId && (
+                                            <a className="delete-button" onClick={() => handleDeleteReview(review.id)}>
+                                                <FaTrash /> Xoá
+                                            </a>
+                                        )}
                                             </div>
                                         </div>
                                     ))}
@@ -344,26 +365,29 @@ export default function ProductDetail() {
                                     </div>
                                     <form onSubmit={handleReviewSubmit}>
                                         <div className="form-group">
-                                            <label htmlFor="comment">Đánh giá của bạn *</label>
-                                            <textarea id="comment" name="comment" cols="30" rows="5" className="form-control" value={newReview.comment} onChange={handleReviewChange}></textarea>
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="name">Tên của bạn *</label>
-                                            <input type="text" className="form-control" id="name" name="name" value={newReview.name} onChange={handleReviewChange} />
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="email">Email của bạn *</label>
-                                            <input type="email" className="form-control" id="email" name="email" value={newReview.email} onChange={handleReviewChange} />
+                                            <label htmlFor="comment">Nội dung đánh giá *</label>
+                                            <textarea id="comment" name="comment" cols="30" rows="5" className="form-control" value={newReview.comment} onChange={handleReviewChange} disabled={!canReview}></textarea>
                                         </div>
                                         <div className="form-group mb-0">
-                                            <input type="submit" value="Gửi đánh giá của bạn" className="btn btn-primary px-3" />
+                                        <input
+                                        type="submit"
+                                        value="Để lại đánh giá"
+                                        className="btn btn-primary px-3"
+                                        disabled={!isLoggedIn || !canReview} // Chỉ cho phép đăng khi đã đăng nhập và có thể đánh giá
+                                    />
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
+                        
+                {!canReview && (
+                    <div className="alert alert-info mt-4">
+                        Bạn cần mua sản phẩm này để có thể đánh giá.
+                    </div>
+                )}
                     </div>
                     <Footer />
                 </div>
-);
-}
+            );
+        }
