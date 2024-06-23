@@ -35,6 +35,7 @@ public class ProductController {
     @Autowired
     private ReviewRepository reviewRepository;
 
+
     @Autowired
     private ViewRepository viewRepository;
 
@@ -277,5 +278,4 @@ public class ProductController {
         }
         return result;
     }
-
 }

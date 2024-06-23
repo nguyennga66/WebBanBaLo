@@ -32,6 +32,7 @@ public class BillController {
 
     @Autowired
     private CartItemRepository cartItemRepository;
+
     @CrossOrigin(origins = "*")
     @PostMapping("/createBill")
     public ResponseEntity<String> createBillDetail(@RequestBody Bill bill) {
@@ -50,6 +51,7 @@ public class BillController {
 
         // Lưu vào cơ sở dữ liệu
         bill.setCart(existingCart);
+
         bill.setStatus(0);
 
         // Khởi tạo ngày tạo hóa đơn theo định dạng dd/mm/yy - time
@@ -71,13 +73,15 @@ public class BillController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/bills")
-    public ResponseEntity<?> getBillDetails(@RequestParam(defaultValue = "0") int page,
-                                            @RequestParam(defaultValue = "10") int size) {
+    @GetMapping("/bills/user/{userId}")
+    public ResponseEntity<?> getBillDetailsByUserId(@PathVariable int userId,
+                                                    @RequestParam(defaultValue = "0") int page,
+                                                    @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("id").ascending());
-        Page<Bill> billDetailsPage = billRepository.findAll(pageable);
+        Page<Bill> billDetailsPage = billRepository.findByUserId(userId, pageable);
         return ResponseEntity.ok(billDetailsPage);
     }
+
 
     @CrossOrigin(origins = "*")
     @GetMapping("/bills/user/{userId}")
