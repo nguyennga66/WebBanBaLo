@@ -7,7 +7,36 @@
     <list default="true" id="75b23d9e-a722-4649-9c2d-7547c77fd0e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/BillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/CartController.java" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Bill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/CartRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/Component/FormEditProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/Component/FormEditProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/Component/FormForgotPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/Component/FormForgotPassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/Component/admin/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/Component/admin/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/Component/admin/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/Component/admin/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Information.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Information.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/ProductDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/ProductDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/ProductReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/ProductReview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/Signin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/OrderList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/OrderList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/UserManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/UserManagement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/test.js" beforeDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +132,7 @@
       <workItem from="1717731279555" duration="1065000" />
       <workItem from="1717939619759" duration="1197000" />
       <workItem from="1718001547582" duration="3098000" />
+
       <workItem from="1718006605211" duration="614000" />
       <workItem from="1718115369798" duration="2134000" />
       <workItem from="1718176043300" duration="959000" />
@@ -114,7 +144,8 @@
       <workItem from="1718938694338" duration="5680000" />
       <workItem from="1718980205296" duration="3116000" />
       <workItem from="1719018838102" duration="20361000" />
-      <workItem from="1719044286941" duration="26748000" />
+      <workItem from="1719044286941" duration="25786000" />
+
     </task>
     <servers />
   </component>
