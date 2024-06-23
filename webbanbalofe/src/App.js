@@ -23,6 +23,7 @@ import UserManagement from './pages/admin/UserManagement'
 import ProductManagement from './pages/admin/ProductManagement'
 import CategoryManagement from './pages/admin/CategoryManagement'
 import OrderList from './pages/admin/OrderList'
+import ProtectedRoute from './Component/ProtectRoute';
 
 function App() {
   return (
@@ -42,13 +43,13 @@ function App() {
         <Route path="/editform" element={<FormEditProfile />} />
         <Route path="/forgot" element={<ForgotPassword/>} />
         <Route path="/forgotform" element={<FormForgotPassword/>} />
-        <Route path="/admin" element={<Admin/>} />
-        <Route path="/user_manage" element={<UserManagement/>} />
-        <Route path="/product_manage" element={<ProductManagement/>} />
-        <Route path="/category_manage" element={<CategoryManagement/>} />
-        <Route path="/order_list" element={<OrderList/>} />
-      </Routes>
-      </BrowserRouter>
+        <Route path="/admin" element={<ProtectedRoute element={Admin} isAdmin />} />
+          <Route path="/user_manage" element={<ProtectedRoute element={UserManagement} isAdmin />} />
+          <Route path="/product_manage" element={<ProtectedRoute element={ProductManagement} isAdmin />} />
+          <Route path="/category_manage" element={<ProtectedRoute element={CategoryManagement} isAdmin />} />
+          <Route path="/order_list" element={<ProtectedRoute element={OrderList} isAdmin />} />
+        </Routes>
+        </BrowserRouter>
         </>
   );
 }

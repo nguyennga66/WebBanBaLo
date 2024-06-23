@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
+import Canvas from "../../Component/admin/Canvas";
+import axios from 'axios';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -8,6 +10,9 @@ const Dashboard = () => {
   const [viewData, setViewData] = useState([]);
   const [purchaseData, setPurchaseData] = useState([]);
   const [error, setError] = useState(null);
+  const [totalFavorites, setTotalFavorites] = useState(0);
+  const [totalRevenue, setTotalRevenue] = useState(0);
+  const [totalViews, setTotalViews] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,8 +23,7 @@ const Dashboard = () => {
           throw new Error('Failed to fetch views data');
         }
         const viewsData = await viewsResponse.json();
-        console.log('Views data:', viewsData);
-        setViewData(viewsData); // Assuming viewsData is an array of objects with properties like { productId: '123', viewCount: 100 }
+        setViewData(viewsData);
 
         // Fetch purchases data
         const purchasesResponse = await fetch('http://localhost:8080/products/purchases');
@@ -27,8 +31,7 @@ const Dashboard = () => {
           throw new Error('Failed to fetch purchases data');
         }
         const purchasesData = await purchasesResponse.json();
-        console.log('Purchases data:', purchasesData);
-        setPurchaseData(purchasesData); // Assuming purchasesData is an array of objects with properties like { productId: '123', purchaseCount: 50 }
+        setPurchaseData(purchasesData);
       } catch (error) {
         console.error('Error fetching data:', error);
         setError('Error fetching data: ' + error.message);
@@ -36,6 +39,45 @@ const Dashboard = () => {
     };
 
     fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchTotalRevenue = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/revenue');
+        setTotalRevenue(response.data);
+      } catch (error) {
+        console.error('Error fetching total revenue', error);
+      }
+    };
+
+    fetchTotalRevenue();
+  }, []);
+
+  useEffect(() => {
+    const fetchTotalFavorites = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/totalFavorites');
+        setTotalFavorites(response.data);
+      } catch (error) {
+        console.error('Error fetching total favorites', error);
+      }
+    };
+
+    fetchTotalFavorites();
+  }, []);
+
+  useEffect(() => {
+    const fetchTotalViews = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/totalViews');
+        setTotalViews(response.data);
+      } catch (error) {
+        console.error('Error fetching total views', error);
+      }
+    };
+
+    fetchTotalViews();
   }, []);
 
   // Check if data is loaded and valid
@@ -90,7 +132,33 @@ const Dashboard = () => {
   return (
     <div className="container-fluid">
       <div className="row justify-content-center">
-        {/* Your other content */}
+        <div className="col-lg-4 col-md-12">
+          <div className="white-box analytics-info">
+            <h3 className="box-title">Tổng doanh thu</h3>
+            <ul className="list-inline two-part d-flex align-items-center mb-0">
+              <Canvas />
+              <li className="ms-auto"><span className="counter text-success">{totalRevenue}000</span></li>
+            </ul>
+          </div>
+        </div>
+        <div className="col-lg-4 col-md-12">
+          <div className="white-box analytics-info">
+            <h3 className="box-title">Tổng lượt xem</h3>
+            <ul className="list-inline two-part d-flex align-items-center mb-0">
+              <Canvas />
+              <li className="ms-auto"><span className="counter text-purple">{totalViews}</span></li>
+            </ul>
+          </div>
+        </div>
+        <div className="col-lg-4 col-md-12">
+          <div className="white-box analytics-info">
+            <h3 className="box-title">Tổng lượt thích</h3>
+            <ul className="list-inline two-part d-flex align-items-center mb-0">
+              <Canvas />
+              <li className="ms-auto"><span className="counter text-info">{totalFavorites}</span></li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div className="row">
         <div className="col-md-6 col-lg-6 col-sm-12">

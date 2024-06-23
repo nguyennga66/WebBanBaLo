@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import web.webbanbalo.dto.ProductPurchaseDto;
 import web.webbanbalo.dto.ProductViewDto;
 import web.webbanbalo.entity.BillDetail;
@@ -20,9 +21,10 @@ import web.webbanbalo.repository.ProductRepository;
 import web.webbanbalo.repository.ReviewRepository;
 import web.webbanbalo.repository.ViewRepository;
 
+import java.io.IOException;
 import java.util.*;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class ProductController {
     @Autowired
@@ -38,7 +40,6 @@ public class ProductController {
 
     @Autowired
     private BillDetailRepository billDetailRepository;
-
     public ProductController(ProductRepository productRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;

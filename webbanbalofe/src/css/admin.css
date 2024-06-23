@@ -73,7 +73,7 @@
   .sidebar-link {
     display: block;
     padding: 10px 15px;
-    color: #333;
+    color: #000;
     font-size: 14px;
     transition: all 0.3s;
   }
@@ -172,7 +172,7 @@
   .box-title {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #444;
+    color: #000;
   }
   
   /* List Inline */
@@ -290,7 +290,7 @@
   .box-title {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #444;
+    color: #000;
   }
   
   /* List Inline */
@@ -378,5 +378,29 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+  }
+  
+  .sidebar-profile {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .sidebar-profile .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-info p {
+    margin: 0;
+    color: #000;
   }
   
