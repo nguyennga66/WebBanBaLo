@@ -10,12 +10,9 @@ function UserManagement() {
     id: null, fullName: '', email: '', phone: '', address: '', role: '', status: '', password: ''
   });
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [formErrors, setFormErrors] = useState({});
-
   useEffect(() => {
     fetchUsers();
   }, []);
-
   const fetchUsers = async () => {
     try {
       const response = await axios.get('http://localhost:8080/users'); 
@@ -24,92 +21,24 @@ function UserManagement() {
       console.error('Error fetching users', error);
     }
   };
-
   const handleAddUser = () => {
     setCurrentUser({ id: '', fullName: '', email: '', phone: '', address: '', role: '', status: '', password: '' });
     setShowModal(true);
   };
-
   const handleEditUser = (user) => {
     setCurrentUser(user);
     setShowModal(true);
   };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCurrentUser(prevUser => ({
-      ...prevUser,
-      [name]: value.trim() // Ensure trimming whitespace
-    }));
-
-    // Validate field when user types
-    validateField(name, value.trim());
-  };
-
-  const handleConfirmPasswordChange = (e) => {
-    setConfirmPassword(e.target.value.trim());
-
-    // Validate confirmPassword when user types
-    validateField('confirmPassword', e.target.value.trim());
-  };
-
-  const validateField = (fieldName, value) => {
-    let errors = { ...formErrors };
-
-    switch (fieldName) {
-      case 'email':
-        errors.email = !value ? 'Email không được để trống' : (isValidEmail(value) ? '' : 'Email không hợp lệ');
-        break;
-      case 'phone':
-        errors.phone = !value ? 'Số điện thoại không được để trống' : (isValidPhoneNumber(value) ? '' : 'Số điện thoại không hợp lệ');
-        break;
-      case 'password':
-        errors.password = value.length < 6 ? 'Mật khẩu phải có ít nhất 6 ký tự' : '';
-        break;
-      case 'confirmPassword':
-        errors.confirmPassword = value !== currentUser.password ? 'Mật khẩu nhập lại không khớp' : '';
-        break;
-      case 'fullName':
-        errors.fullName = !value ? 'Họ và tên không được để trống' : '';
-        break;
-      case 'role':
-        errors.role = !value ? 'Quyền không được để trống' : '';
-        break;
-      case 'status':
-        errors.status = !value ? 'Trạng thái không được để trống' : '';
-        break;
-      default:
-        break;
-    }
-
-    setFormErrors(errors);
-  };
-
-  const isValidEmail = (email) => {
-    // Implement email validation logic here (regex or other checks)
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
-
-  const isValidPhoneNumber = (phone) => {
-    // Implement phone number validation logic here (regex or other checks)
-    return /^[0-9]{10}$/.test(phone);
-  };
-
   const handleSaveUser = async () => {
     try {
-      // Validate entire form before saving
-      validateForm();
-
-      // Check if there are any errors in formErrors
-      if (Object.keys(formErrors).length > 0) {
-        console.error('Form has errors:', formErrors);
-        return;
-      }
-
       if (currentUser.id) {
         await axios.put(`http://localhost:8080/users/admin/${currentUser.id}`, currentUser);
         await fetchUsers();
       } else {
+        if (currentUser.password !== confirmPassword) {
+          alert('Mật khẩu nhập lại không khớp!');
+          return;
+        }
         await axios.post('http://localhost:8080/signup', currentUser);
         await fetchUsers();
       }
@@ -118,18 +47,13 @@ function UserManagement() {
       console.error('Error saving user', error);
     }
   };
-
-  const validateForm = () => {
-    let errors = {};
-
-    // Validate each field in currentUser
-    Object.keys(currentUser).forEach(field => {
-      validateField(field, currentUser[field].trim());
-    });
-
-    setFormErrors(errors);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCurrentUser({ ...currentUser, [name]: value });
   };
-
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
   const getRoleDisplay = (role) => {
     switch(role) {
       case 1:
@@ -140,7 +64,6 @@ function UserManagement() {
         return 'Không xác định';
     }
   };
-
   const getStatusDisplay = (status) => {
     switch(status) {
       case 0:
@@ -189,7 +112,6 @@ function UserManagement() {
                   ))}
                 </tbody>
               </table>
-
               {showModal && (
                 <div className="modal">
                   <div className="modal-content">
@@ -198,18 +120,18 @@ function UserManagement() {
                       <h2>{currentUser.id ? 'Chỉnh sửa người dùng' : 'Thêm người dùng'}</h2>
                     </div>
                     <div className="modal-body">
-                      <form>
-                        <div className="form-group">
+                      <form>                      
+                        {currentUser.id ? (
+                          <div>
+                            <div className="form-group">
                           <label>Họ và tên</label>
                           <input
                             type="text"
                             name="fullName"
                             value={currentUser.fullName}
                             onChange={handleChange}
-                            onBlur={() => validateField('fullName', currentUser.fullName.trim())}
-                            required
+                            readOnly = {true}
                           />
-                          {formErrors.fullName && <span className="error">{formErrors.fullName}</span>}
                         </div>
                         <div className="form-group">
                           <label>Email</label>
@@ -218,10 +140,8 @@ function UserManagement() {
                             name="email"
                             value={currentUser.email}
                             onChange={handleChange}
-                            onBlur={() => validateField('email', currentUser.email.trim())}
-                            required
+                            readOnly = {true}
                           />
-                          {formErrors.email && <span className="error">{formErrors.email}</span>}
                         </div>
                         <div className="form-group">
                           <label>Số điện thoại</label>
@@ -230,10 +150,8 @@ function UserManagement() {
                             name="phone"
                             value={currentUser.phone}
                             onChange={handleChange}
-                            onBlur={() => validateField('phone', currentUser.phone.trim())}
-                            required
+                            readOnly = {true}
                           />
-                          {formErrors.phone && <span className="error">{formErrors.phone}</span>}
                         </div>
                         <div className="form-group">
                           <label>Địa chỉ</label>
@@ -242,53 +160,152 @@ function UserManagement() {
                             name="address"
                             value={currentUser.address}
                             onChange={handleChange}
-                            onBlur={() => validateField('address', currentUser.address.trim())}
-                            required
+                            readOnly = {true}
                           />
-                          {formErrors.address && <span className="error">{formErrors.address}</span>}
                         </div>
-                        <div className="form-group">
+                            <div className="form-group">
+                              <label>Mật khẩu mới</label>
+                              <input
+                                type="password"
+                                name="password"
+                                value={currentUser.password}
+                                onChange={handleChange}
+                                readOnly = {true}
+                              />
+                            </div>
+                            <div className="form-group">
+                              <label>Nhập lại mật khẩu</label>
+                              <input
+                                type="password"
+                                name="confirmPassword"
+                                value={currentUser.password}
+                                onChange={handleConfirmPasswordChange}
+                                readOnly = {true}
+                              />
+                            </div>
+                            <div className="form-group">
                           <label>Quyền</label>
-                          <input
-                            type="text"
+                          <select
                             name="role"
                             value={currentUser.role}
                             onChange={handleChange}
-                            onBlur={() => validateField('role', currentUser.role.trim())}
-                            required
+                          >
+                            <option value="">Chọn quyền</option>
+<option value="0">Người dùng</option>
+<option value="1">Quản trị viên</option>
+</select>
+</div>
+<div className="form-group">
+<label>Trạng thái</label>
+<select
+                         name="status"
+                         value={currentUser.status}
+                         onChange={handleChange}
+                         readOnly = {true}
+                       >
+<option value="">Chọn trạng thái</option>
+<option value="0">Đang hoạt động</option>
+<option value="1">Vô hiệu hóa</option>
+</select>
+</div>
+                          </div>
+                        ) : (
+                          <div>
+                            <div className="form-group">
+                          <label>Họ và tên</label>
+                          <input
+                            type="text"
+                            name="fullName"
+                            value={currentUser.fullName}
+                            onChange={handleChange}
                           />
-                          {formErrors.role && <span className="error">{formErrors.role}</span>}
                         </div>
                         <div className="form-group">
-                          <label>Trạng thái</label>
-                            <select
-                              name="status"
-                              value={currentUser.status}
-                              onChange={handleChange}
-                              required
-                            >
-                              <option value="">Chọn trạng thái</option>
-                              <option value="0">Đang hoạt động</option>
-                              <option value="1">Vô hiệu hóa</option>
-                            </select>
-                            {formErrors.status && <span className="error">{formErrors.status}</span>}
+                          <label>Email</label>
+                          <input
+                            type="email"
+                            name="email"
+                            value={currentUser.email}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label>Số điện thoại</label>
+                          <input
+                            type="text"
+                            name="phone"
+                            value={currentUser.phone}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label>Địa chỉ</label>
+                          <input
+                            type="text"
+                            name="address"
+                            value={currentUser.address}
+                            onChange={handleChange}
+                          />
+                        </div>
+                            <div className="form-group">
+                              <label>Mật khẩu</label>
+                              <input
+                                type="password"
+                                name="password"
+                                value={currentUser.password}
+                                onChange={handleChange}
+                              />
+                            </div>
+                            <div className="form-group">
+                              <label>Nhập lại mật khẩu mới</label>
+                              <input
+                                type="password"
+                                name="confirmPassword"
+                                value={confirmPassword}
+                                onChange={handleConfirmPasswordChange}
+                              />
+                            </div>
+                            <div className="form-group">
+                          <label>Quyền</label>
+                          <select
+                            name="role"
+                            value={currentUser.role}
+                            onChange={handleChange}
+                          >
+                            <option value="">Chọn quyền</option>
+<option value="0">Người dùng</option>
+<option value="1">Quản trị viên</option>
+</select>
+</div>
+<div className="form-group">
+<label>Trạng thái</label>
+<select
+                         name="status"
+                         value={currentUser.status}
+                         onChange={handleChange}
+                       >
+<option value="">Chọn trạng thái</option>
+<option value="0">Đang hoạt động</option>
+<option value="1">Vô hiệu hóa</option>
+</select>
+</div>
                           </div>
-                        </form>
-                      </div>
-                      <div className="modal-footer">
-                        <button className="btn btn-secondary" onClick={() => setShowModal(false)}>Đóng</button>
-                        <button className="btn btn-primary" onClick={handleSaveUser}>Lưu</button>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-  
-  export default UserManagement;
-  
+                        )}
+                        
+</form>
+</div>
+<div className="modal-footer">
+<button className="btn btn-secondary" onClick={() => setShowModal(false)}>Đóng</button>
+<button className="btn btn-primary" onClick={handleSaveUser}>Lưu</button>
+</div>
+</div>
+</div>
+)}
+</div>
+</div>
+</div>
+</div>
+</div>
+);
+}
+export default UserManagement;
