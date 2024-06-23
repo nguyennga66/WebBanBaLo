@@ -10,7 +10,6 @@ import web.webbanbalo.entity.User;
 import web.webbanbalo.repository.BillRepository;
 import web.webbanbalo.repository.ReviewRepository;
 import web.webbanbalo.repository.UserRepository;
-import web.webbanbalo.repository.ProductRepository;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,7 +26,7 @@ public class ReviewController {
     private UserRepository userRepository;
 
     @Autowired
-    private BillRepository billRepository;
+    private BillRepository billRepository; // Bổ sung BillRepository
 
     // Tạo mới một đánh giá
     @CrossOrigin(origins = "*")
@@ -41,13 +40,12 @@ public class ReviewController {
         // Kiểm tra xem người dùng đã mua sản phẩm hay chưa
         Optional<Bill> bill = billRepository.findFirstByCartUserAndBillDetailsProduct(review.getUser().getId(), review.getProduct().getId());
         if (bill.isEmpty()) {
-            return ResponseEntity.badRequest().body("User không tồn tại trong hệ thống.");
-        }
+            return ResponseEntity.badRequest().body("Bạn phải mua sản phẩm này trước khi đánh giá.");
 
         // Lấy thông tin user từ cơ sở dữ liệu để sử dụng
         Optional<User> userOptional = userRepository.findById(review.getUser().getId());
         if (userOptional.isEmpty()) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body("User không tồn tại trong hệ thống.");
         }
         User user = userOptional.get();
 
@@ -64,6 +62,7 @@ public class ReviewController {
         // Trả về review đã lưu thành công
         return ResponseEntity.ok(savedReview);
     }
+
     @CrossOrigin(origins = "*")
     @GetMapping("/reviews/{productId}")
     public ResponseEntity<List<Review>> getReviewsByProductId(@PathVariable int productId) {

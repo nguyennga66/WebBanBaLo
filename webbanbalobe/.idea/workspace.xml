@@ -12,6 +12,7 @@
       <change afterPath="$PROJECT_DIR$/../webbanbalofe/src/images/admin/users/anhdaidien.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/webbanbalo/controller/ReviewController.java" afterDir="false" />
@@ -33,6 +34,7 @@
       <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/OrderList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/OrderList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/ProductManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/ProductManagement.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/UserManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webbanbalofe/src/pages/admin/UserManagement.js" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,18 +130,26 @@
       <workItem from="1717731279555" duration="1065000" />
       <workItem from="1717939619759" duration="1197000" />
       <workItem from="1718001547582" duration="3098000" />
-      <workItem from="1718006605211" duration="614000" />
-      <workItem from="1718115369798" duration="2134000" />
-      <workItem from="1718176043300" duration="959000" />
-      <workItem from="1718201860683" duration="2441000" />
-      <workItem from="1718289320966" duration="2796000" />
-      <workItem from="1718334139953" duration="2485000" />
-      <workItem from="1718348509870" duration="19450000" />
-      <workItem from="1718721195525" duration="1725000" />
-      <workItem from="1718938694338" duration="5680000" />
-      <workItem from="1718980205296" duration="3116000" />
-      <workItem from="1719018838102" duration="20361000" />
-      <workItem from="1719044286941" duration="18075000" />
+
+      <workItem from="1718006605211" duration="604000" />
+      <workItem from="1718355140707" duration="5251000" />
+      <workItem from="1718374122594" duration="37000" />
+      <workItem from="1718439955436" duration="2144000" />
+      <workItem from="1718469762543" duration="827000" />
+      <workItem from="1718481305380" duration="1992000" />
+      <workItem from="1718504655848" duration="3028000" />
+      <workItem from="1718517293812" duration="5640000" />
+      <workItem from="1718524466303" duration="1052000" />
+      <workItem from="1718525769934" duration="3980000" />
+      <workItem from="1718642051440" duration="1107000" />
+      <workItem from="1718644386034" duration="184000" />
+      <workItem from="1718699182968" duration="4332000" />
+      <workItem from="1718730143911" duration="4624000" />
+      <workItem from="1718759668698" duration="7174000" />
+      <workItem from="1718991007633" duration="5980000" />
+      <workItem from="1718997511352" duration="184000" />
+      <workItem from="1719036636847" duration="9270000" />
+
     </task>
     <servers />
   </component>
