@@ -43,6 +43,7 @@ export default function Information() {
          console.error("Lỗi khi gọi API để lấy danh sách hóa đơn:", error);
        });
    }, [currentPage, userId]);
+
   
     const handlePageChange = (page) => {
       setCurrentPage(page);
@@ -115,38 +116,45 @@ export default function Information() {
     };
 
     const validateOldPassword = async (value) => {
-        if (!value) {
+        if (!value.trim()) {
             return "Mật khẩu cũ không được để trống";
         }
         try {
-            const response = await axios.put(`http://localhost:8080/users/pass/${userId}`, { oldPassword: value, newPassword: newPassword});
+            const response = await axios.put(`http://localhost:8080/users/pass/${userId}`, {
+                oldPassword: value,
+                newPassword: newPassword.trim()
+            });
             if (response.status !== 200) {
                 return "Mật khẩu cũ không đúng";
             }
         } catch (error) {
-            console.error('Error verifying old password:', error);
-            return "Mật khẩu cũ không đúng";
+            if (error.response && error.response.status === 400) {
+                return "Mật khẩu cũ không đúng";
+            } else {
+                console.error('Error verifying old password:', error);
+                return "Đã xảy ra lỗi khi xác nhận mật khẩu cũ";
+            }
         }
         return null;
-    };
+    };    
 
-    const validateNewPassword = (value) => {
-        if (!value) {
-            return "Mật khẩu mới không được để trống";
-        } else if (value.length < 6) {
-            return "Mật khẩu mới phải có ít nhất 6 ký tự";
-        }
-        return null;
-    };
+        const validateNewPassword = (value) => {
+            if (!value.trim()) {
+                return "Mật khẩu mới không được để trống";
+            } else if (value.length < 6) {
+                return "Mật khẩu mới phải có ít nhất 6 ký tự";
+            }
+            return null;
+        };
 
-    const validateConfirmPassword = (value) => {
-        if (!value) {
-            return "Xác nhận mật khẩu mới không được để trống";
-        } else if (value !== newPassword) {
-            return "Mật khẩu xác nhận không khớp";
-        }
-        return null;
-    };
+        const validateConfirmPassword = (value) => {
+            if (!value.trim()) {
+                return "Xác nhận mật khẩu mới không được để trống";
+            } else if (value !== newPassword.trim()) {
+                return "Mật khẩu xác nhận không khớp";
+            }
+            return null;
+        };
 
     const handleOldPasswordChange = async (e) => {
         const value = e.target.value;

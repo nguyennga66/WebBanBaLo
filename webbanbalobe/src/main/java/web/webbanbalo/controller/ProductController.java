@@ -7,13 +7,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import web.webbanbalo.dto.ProductPurchaseDto;
 import web.webbanbalo.dto.ProductViewDto;
 import web.webbanbalo.entity.BillDetail;
 import web.webbanbalo.entity.Category;
 import web.webbanbalo.entity.Product;
-import web.webbanbalo.entity.Review;
 import web.webbanbalo.entity.View;
 import web.webbanbalo.repository.BillDetailRepository;
 import web.webbanbalo.repository.CategoryRepository;
@@ -21,7 +19,6 @@ import web.webbanbalo.repository.ProductRepository;
 import web.webbanbalo.repository.ReviewRepository;
 import web.webbanbalo.repository.ViewRepository;
 
-import java.io.IOException;
 import java.util.*;
 
 @CrossOrigin(origins = "http://localhost:3000")

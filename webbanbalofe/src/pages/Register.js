@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Footer from '../Component/Footer'
-import Header from '../Component/Header'
+import Footer from '../Component/Footer';
+import Header from '../Component/Header';
+import validator from 'validator';
 
 function UserRegistration() {
     const [formData, setFormData] = useState({
@@ -23,57 +24,46 @@ function UserRegistration() {
             ...formData,
             [name]: value
         });
-        validateField(name, value);
+        validateField(name, value, formData, errors, setErrors);
     };
 
-    const validateEmail = (email) => {
-        const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return re.test(String(email).toLowerCase());
-    };
-
-    const validatePhone = (phone) => {
-        const re = /^[0-9]{10}$/;
-        return re.test(String(phone));
-    };
-
-    const validatePassword = (password) => {
-        return password.length >= 6;
-    };
-
-    const validateField = (name, value) => {
+    const validateField = (name, value, formData, errors, setErrors) => {
+        let trimmedValue = value.trim(); // Xóa khoảng trắng ở đầu và cuối
+    
         let errorMsg = '';
         switch (name) {
             case 'email':
-                if (!validateEmail(value)) {
+                if (!trimmedValue.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
                     errorMsg = 'Email không hợp lệ';
                 }
                 break;
             case 'phone':
-                if (!validatePhone(value)) {
+                if (!trimmedValue.match(/^[0-9]{10}$/)) {
                     errorMsg = 'Số điện thoại không hợp lệ';
                 }
                 break;
             case 'password':
-                if (!validatePassword(value)) {
-                    errorMsg = 'Mật khẩu phải chứa ít nhất 6 ký tự';
+                if (trimmedValue.length < 6) {
+                    errorMsg = 'Mật khẩu phải có ít nhất 6 ký tự';
                 }
                 break;
             case 'confirmPassword':
-                if (value !== formData.password) {
+                if (trimmedValue !== formData.password.trim()) {
                     errorMsg = 'Mật khẩu không khớp';
                 }
                 break;
             default:
-                if (value.trim() === '') {
+                if (trimmedValue === '') {
                     errorMsg = 'Trường này không được để trống';
                 }
                 break;
         }
+    
         setErrors({
             ...errors,
             [name]: errorMsg
         });
-    };
+    };    
 
     const handleSubmit = async (e) => {
         e.preventDefault();

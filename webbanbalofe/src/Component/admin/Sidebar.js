@@ -47,7 +47,7 @@ function Sidebar() {
           <li className="sidebar-item">
               <NavLink className="sidebar-link waves-effect waves-dark sidebar-link" to="/" aria-expanded="false">
                 <i className="fa fa-user" aria-hidden="true"></i>
-                <span className="hide-menu">Trang chủ</span>
+                <span className="hide-menu">Trang mua hàng</span>
               </NavLink>
             </li>
             <li className="sidebar-item pt-2">

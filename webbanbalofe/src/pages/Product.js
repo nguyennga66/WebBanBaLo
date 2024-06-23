@@ -11,6 +11,7 @@ import { FaHeart, FaTrash } from 'react-icons/fa';
 import debounce from "lodash/debounce";
 import Footer from '../Component/Footer'
 import Header from '../Component/Header'
+import axios from 'axios';
 
 export default function Product() {
     const [products, setProducts] = useState([]);
@@ -77,8 +78,8 @@ export default function Product() {
     const fetchProductRatings = async (products) => {
         try {
             const promises = products.map(async (product) => {
-                const response = await fetch(`http://localhost:8080/reviews/${product.id}`);
-                const data = await response.json();
+                const response = await axios.get(`http://localhost:8080/reviews/${product.id}`);
+                const data = response.data;
                 if (data.length > 0) {
                     const totalStars = data.reduce((acc, review) => acc + review.rating, 0);
                     const averageRating = totalStars / data.length;
@@ -100,79 +101,79 @@ export default function Product() {
         }
     };
 
-     // Cập nhật hàm fetchProducts và fetchProductsByCategory
-const fetchProducts = async () => {
-    try {
-        let url = `http://localhost:8080/products/filter?page=${page}&size=${size}`;
-        if (currentSort) {
-            url = `http://localhost:8080/products/sort?sort=${currentSort}&page=${page}&size=${size}`;
-        } else if (searchQuery) {
-            url = `http://localhost:8080/products/search?search=${searchQuery}&page=${page}&size=${size}`;
-        } else if (minPrice || maxPrice) {
-            url = `http://localhost:8080/products/filter?minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${size}`;
+    // Cập nhật hàm fetchProducts và fetchProductsByCategory
+    const fetchProducts = async () => {
+        try {
+            let url = `http://localhost:8080/products/filter?page=${page}&size=${size}`;
+            if (currentSort) {
+                url = `http://localhost:8080/products/sort?sort=${currentSort}&page=${page}&size=${size}`;
+            } else if (searchQuery) {
+                url = `http://localhost:8080/products/search?search=${searchQuery}&page=${page}&size=${size}`;
+            } else if (minPrice || maxPrice) {
+                url = `http://localhost:8080/products/filter?minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${size}`;
+            }
+            const response = await axios.get(url);
+            const data = response.data;
+            setProducts(data.content);
+            setTotalPages(data.totalPages);
+            // Sau khi set products, gọi fetchProductRatings
+            fetchProductRatings(data.content);
+
+            console.log(url);
+        } catch (error) {
+            console.error('Error fetching products:', error);
         }
-        const response = await fetch(url);
-        const data = await response.json();
-        setProducts(data.content);
-        setTotalPages(data.totalPages);
-         // Sau khi set products, gọi fetchProductRatings
-         fetchProductRatings(data.content);
+    };
 
-         console.log(url);
-     } catch (error) {
-         console.error('Error fetching products:', error);
-     }
- };
- 
- const fetchProductsByCategory = async () => {
-     try {
-         let url = `http://localhost:8080/products/category/${currentCategory}?page=${page}&size=${size}`;
-         if (currentSort) {
-             url = `http://localhost:8080/products/category/${currentCategory}/sort?sort=${currentSort}&page=${page}&size=${size}`;
-         } else if (searchQuery) {
-             url = `http://localhost:8080/products/category/${currentCategory}/search?search=${searchQuery}&page=${page}&size=${size}`;
-         } else if (minPrice || maxPrice) {
-             url = `http://localhost:8080/products/category/${currentCategory}/filter?minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${size}`;
-         }
+    const fetchProductsByCategory = async () => {
+        try {
+            let url = `http://localhost:8080/products/category/${currentCategory}?page=${page}&size=${size}`;
+            if (currentSort) {
+                url = `http://localhost:8080/products/category/${currentCategory}/sort?sort=${currentSort}&page=${page}&size=${size}`;
+            } else if (searchQuery) {
+                url = `http://localhost:8080/products/category/${currentCategory}/search?search=${searchQuery}&page=${page}&size=${size}`;
+            } else if (minPrice || maxPrice) {
+                url = `http://localhost:8080/products/category/${currentCategory}/filter?minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}&size=${size}`;
+            }
 
-         const response = await fetch(url);
-        const data = await response.json();
-        setProducts(data.content);
-        setTotalPages(data.totalPages);
+            const response = await axios.get(url);
+            const data = response.data;
+            setProducts(data.content);
+            setTotalPages(data.totalPages);
 
-        // Sau khi set products, gọi fetchProductRatings
-        fetchProductRatings(data.content);
+            // Sau khi set products, gọi fetchProductRatings
+            fetchProductRatings(data.content);
 
-        console.log(url);
-    } catch (error) {
-        console.error('Error fetching products by category:', error);
-    }
-};
+            console.log(url);
+        } catch (error) {
+            console.error('Error fetching products by category:', error);
+        }
+    };
 
-// Cập nhật hàm renderRatingStars để hiển thị dữ liệu đánh giá
-const renderRatingStars = (averageRating, totalReviews) => {
-    const stars = [];
+    // Cập nhật hàm renderRatingStars để hiển thị dữ liệu đánh giá
+    const renderRatingStars = (averageRating, totalReviews) => {
+        const stars = [];
 
-    if (averageRating && averageRating > 0) {
-        const fullStars = Math.floor(averageRating);
-        const halfStar = averageRating - fullStars >= 0.5;
+        if (averageRating && averageRating > 0) {
+            const fullStars = Math.floor(averageRating);
+            const halfStar = averageRating - fullStars >= 0.5;
 
-        for (let i = 0; i < fullStars; i++) {
-            stars.push(<FontAwesomeIcon icon={solidStar} key={i} className="star-icon" />);
+            for (let i = 0; i < fullStars; i++) {
+                stars.push(<FontAwesomeIcon icon={solidStar} key={i} className="star-icon" />);
+            }
+
+            if (halfStar) {
+                stars.push(<FontAwesomeIcon icon={regularStar} key={stars.length} className="star-icon" />);
+            }
+
+            stars.push(<span key="rating-number" className="rating-number">{averageRating.toFixed(1)}</span>);
+            stars.push(<span key="total-reviews" className="total-reviews">({totalReviews} đánh giá)</span>);
+        } else {
+            stars.push(<span key="no-rating">Chưa có đánh giá</span>);
         }
 
-        if (halfStar) {
-            stars.push(<FontAwesomeIcon icon={regularStar} key={stars.length} className="star-icon" />);
-        }
-
-        stars.push(<span key="rating-number" className="rating-number">{averageRating.toFixed(1)}</span>);
-        stars.push(<span key="total-reviews" className="total-reviews">({totalReviews} đánh giá)</span>);
-    } else {
-        stars.push(<span key="no-rating">Chưa có đánh giá</span>);
-    }
-
-    return stars;
-};
+        return stars;
+    };
 
     useEffect(() => {
         if (currentCategory) {
@@ -183,14 +184,16 @@ const renderRatingStars = (averageRating, totalReviews) => {
     }, [page, size, searchQuery, currentSort, minPrice, maxPrice, currentCategory]);
 
     useEffect(() => {
-        fetch('http://localhost:8080/category')
-            .then(response => response.json())
-            .then(data => {
-                setCategories(data);
-            })
-            .catch(error => {
+        const fetchCategories = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/category');
+                setCategories(response.data);
+            } catch (error) {
                 console.error('Error fetching categories:', error);
-            });
+            }
+        };
+
+        fetchCategories();
     }, []);
 
     return (

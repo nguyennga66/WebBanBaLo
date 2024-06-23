@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 import web.webbanbalo.entity.Review;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ReviewRepository extends JpaRepository<Review, Integer> {
     @Query("SELECT r FROM Review r JOIN FETCH r.user WHERE r.product.id = :productId")

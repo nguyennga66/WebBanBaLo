@@ -15,21 +15,21 @@ export default function Cart() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Gọi API để lấy thông tin giỏ hàng từ backend
-    fetch(`http://localhost:8080/carts/${userId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        // Thêm các header cần thiết cho xác thực người dùng nếu cần
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setCartItems(data); // Lưu thông tin giỏ hàng vào state
-      })
-      .catch((error) => {
-        console.error("Lỗi khi gọi API để lấy thông tin giỏ hàng:", error);
-      });
+    const fetchCartItems = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8080/carts/${userId}`, {
+          headers: {
+            'Content-Type': 'application/json',
+            // Thêm các header cần thiết cho xác thực người dùng nếu cần
+          }
+        });
+        setCartItems(response.data); // Lưu thông tin giỏ hàng vào state
+      } catch (error) {
+        console.error('Lỗi khi gọi API để lấy thông tin giỏ hàng:', error);
+      }
+    };
+
+    fetchCartItems();
   }, [userId]);
 
   const handleQuantityChange = (event, index) => {
