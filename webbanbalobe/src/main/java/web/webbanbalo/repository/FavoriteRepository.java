@@ -1,6 +1,7 @@
 package web.webbanbalo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.transaction.annotation.Transactional;
 import web.webbanbalo.entity.Favorite;
 import web.webbanbalo.entity.Product;
 import web.webbanbalo.entity.User;
@@ -14,4 +15,7 @@ public interface FavoriteRepository extends JpaRepository<Favorite, Integer> {
     Optional<Favorite> findByUserAndProduct(User user, Product product);
 
     Optional<Favorite> findByUserIdAndProductId(User user, Product product);
+
+    @Transactional
+    void deleteByProductId(int productId);
 }

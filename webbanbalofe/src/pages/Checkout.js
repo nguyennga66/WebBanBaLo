@@ -54,7 +54,7 @@ export default function Checkout() {
                 }
                 break;
             case "phone":
-                if (!/^\d{10,11}$/.test(value)) {
+                if (!/^0\d{9,10}$/.test(value)) {
                     error = "Số điện thoại không hợp lệ";
                 }
                 break;

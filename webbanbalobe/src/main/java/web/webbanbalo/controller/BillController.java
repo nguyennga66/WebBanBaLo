@@ -121,7 +121,7 @@ public class BillController {
         Optional<Bill> optionalBill = billRepository.findById(billId);
         if (optionalBill.isPresent()) {
             Bill bill = optionalBill.get();
-            bill.setStatus(2); // đang vận chuyển
+            bill.setStatus(2); // hủy
             billRepository.save(bill);
             return ResponseEntity.ok(bill);
         } else {
