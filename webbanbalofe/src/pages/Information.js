@@ -31,6 +31,7 @@ export default function Information() {
     const [selectedOrder, setSelectedOrder] = useState(null);
     const pageSize = 10;
     const [favoriteProducts, setFavoriteProducts] = useState([]);
+    
   
     useEffect(() => {
        // Gọi API để lấy danh sách hóa đơn của người dùng với phân trang
@@ -223,7 +224,7 @@ export default function Information() {
 
         fetchFavoriteProducts();
     }, [userId]);
-    
+  
     return (
         <div>
             <Header />
@@ -469,7 +470,6 @@ export default function Information() {
         <table className="table table-bordered">
           <thead className="thead-light">
             <tr>
-              <th>Hình ảnh</th>
               <th>Tên sản phẩm</th>
               <th>Giá</th>
               <th>Chi tiết</th>
@@ -478,14 +478,6 @@ export default function Information() {
           <tbody>
             {favoriteProducts.map((product) => (
               <tr key={product.product.id}>
-                <td className="align-middle text-center">
-                  <img
-                    src={require(`../images/product/${product.product.image}`)}
-                    className="img-fluid"
-                    alt={product.product.nameP}
-                    style={{ maxWidth: '100px' }}
-                  />
-                </td>
                 <td className="align-middle">{product.product.nameP}</td>
                 <td className="align-middle">{product.product.price}.000 VNĐ</td>
                 <td className="align-middle text-center">

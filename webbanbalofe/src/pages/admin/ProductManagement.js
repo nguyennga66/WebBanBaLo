@@ -13,7 +13,7 @@ const ProductManagement = () => {
   });
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(5);
+  const [productsPerPage] = useState(10);
   const [selectedImage, setSelectedImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const images = require.context('../../images/product', false, /\.(png|jpe?g|svg|ifif)$/);
@@ -75,14 +75,17 @@ const ProductManagement = () => {
     setShowModal(true);
   };
 
-  const handleDeleteProduct = async(product) => {
-    try {
-      await axios.delete(`http://localhost:8080/products/${product.id}`);
-      await fetchProducts();
-    } catch (error) {
-      console.error('Error fetching products', error);
-    }
+  const handleDeleteProduct = async (id) => {
+  try {
+    console.log('Deleting product with ID:', id); // Kiểm tra giá trị của id
+    await axios.delete(`http://localhost:8080/products/${id}`);
+    console.log('Product deleted successfully.');
+    // Cập nhật lại danh sách sản phẩm sau khi xóa thành công
+    await fetchProducts();
+  } catch (error) {
+    console.error('Error deleting product:', error.response ? error.response.data : error.message);
   }
+};
 
   const handleSaveProduct = async () => {
     console.log('Saving product:', currentProduct);
@@ -130,10 +133,9 @@ const ProductManagement = () => {
   };
 
   useEffect(() => {
-    fetch('http://localhost:8080/category')
-        .then(response => response.json())
-        .then(data => {
-            setCategories(data);
+    axios.get('http://localhost:8080/category')
+        .then(response => {
+            setCategories(response.data);
         })
         .catch(error => {
             console.error('Error fetching categories:', error);
@@ -194,7 +196,7 @@ const ProductManagement = () => {
                       <td>{product.category.nameC}</td>
                       <td>
                         <button className="btn btn-secondary" onClick={() => handleEditProduct(product)}>Sửa</button>
-                        <button className="btn btn-secondary" style={{backgroundColor: 'red'}} onClick={() => handleDeleteProduct(product)}>Xóa</button>
+                        <button className="btn btn-secondary" style={{backgroundColor: 'red'}} onClick={() => handleDeleteProduct(product.id)}>Xóa</button>
                       </td>
                     </tr>
                   ))}

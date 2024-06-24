@@ -66,23 +66,39 @@ const OrderList = () => {
         axios.put(`http://localhost:8080/cancel/${orderId}`)
             .then(response => {
                 console.log("Order cancelled:", response.data);
-                fetchOrderList();  // Refresh order list after cancel
+                // Cập nhật trạng thái của đơn hàng trong orderList
+                setOrderList(prevOrderList => {
+                    return prevOrderList.map(order => {
+                        if (order.id === orderId) {
+                            return { ...order, status: 2 }; // 2 là trạng thái đã hủy
+                        }
+                        return order;
+                    });
+                });
             })
             .catch(error => {
                 console.error("Error cancelling order:", error);
             });
     };
-
+    
     const handleApproveOrder = (orderId) => {
         axios.put(`http://localhost:8080/approve/${orderId}`)
             .then(response => {
                 console.log("Order approved:", response.data);
-                fetchOrderList();  // Refresh order list after approve
+                // Cập nhật trạng thái của đơn hàng trong orderList
+                setOrderList(prevOrderList => {
+                    return prevOrderList.map(order => {
+                        if (order.id === orderId) {
+                            return { ...order, status: 1 }; // 1 là trạng thái đang vận chuyển
+                        }
+                        return order;
+                    });
+                });
             })
             .catch(error => {
                 console.error("Error approving order:", error);
             });
-    };
+    };    
 
     const handleBackToList = () => {
         setSelectedOrder(null);  // Clear selectedOrder to return to the list view
@@ -101,8 +117,48 @@ const OrderList = () => {
                         selectedOrder ? (
                             <div className="mt-5 p-3 p-lg-5 border bg-white">
                                 <h2 className="h3 mb-3 text-black">Chi tiết hóa đơn</h2>
-                                {/* Phần chi tiết hóa đơn */}
+                                <div className="row">
+                                <div className="col-md-6">
+                                    <h4>Thông tin khách hàng</h4>
+                                    <p>Họ và tên: {selectedOrder.fullName}</p>
+                                    <p>Địa chỉ: {selectedOrder.address}</p>
+                                    <p>Email: {selectedOrder.email}</p>
+                                    <p>Số điện thoại: {selectedOrder.phone}</p>
+                                    <p>Ghi chú: {selectedOrder.orderNotes}</p>
+                                </div>
+                                <div className="col-md-6">
+                                    <h4>Thông tin hóa đơn</h4>
+                                    <p>Tổng tiền hàng: {selectedOrder.total.toLocaleString('vi-VN')}.000 VNĐ</p>
+                                    <p>Phí vận chuyển: {selectedOrder.shippingFee.toLocaleString('vi-VN')}.000 VNĐ</p>
+                                    <p>Tổng thanh toán: {selectedOrder.grandTotal.toLocaleString('vi-VN')}.000 VNĐ</p>
+                                    <p>Trạng thái: {selectedOrder.status === 0 ? 'Chưa duyệt' : selectedOrder.status === 1 ? 'Đang vận chuyển' : 'Đã hủy'}</p>
+                                </div>
                             </div>
+
+                            <h4 className="mt-4">Danh sách sản phẩm</h4>
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th>Sản phẩm</th>
+                                        <th>Số lượng</th>
+                                        <th>Giá</th>
+                                        <th>Tổng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {selectedOrder.billDetails.map((detail, index) => (
+                                        <tr key={index}>
+                                            <td>{detail.product.nameP}</td>
+                                            <td>{detail.quantity}</td>
+                                            <td>{detail.product.price.toLocaleString('vi-VN')}.000 VNĐ</td>
+                                            <td>{(detail.product.price * detail.quantity).toLocaleString('vi-VN')}.000 VNĐ</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                            <button className="btn btn-secondary" onClick={handleBackToList}>Quay lại</button>
+                        </div>
+                           
                         ) : (
                             <div className="p-3 p-lg-5 border bg-white">
                                 <h4><b>Danh sách đơn hàng</b></h4><br /><br />

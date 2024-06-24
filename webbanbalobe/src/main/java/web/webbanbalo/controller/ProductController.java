@@ -6,18 +6,15 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import web.webbanbalo.dto.ProductPurchaseDto;
 import web.webbanbalo.dto.ProductViewDto;
 import web.webbanbalo.entity.BillDetail;
 import web.webbanbalo.entity.Category;
 import web.webbanbalo.entity.Product;
-import web.webbanbalo.entity.View;
-import web.webbanbalo.repository.BillDetailRepository;
-import web.webbanbalo.repository.CategoryRepository;
-import web.webbanbalo.repository.ProductRepository;
-import web.webbanbalo.repository.ReviewRepository;
-import web.webbanbalo.repository.ViewRepository;
+import web.webbanbalo.entity.*;
+import web.webbanbalo.repository.*;
 
 import java.util.*;
 
@@ -26,6 +23,8 @@ import java.util.*;
 public class ProductController {
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private FavoriteRepository favoriteRepository;
 
     private CategoryRepository categoryRepository;
 
@@ -141,19 +140,36 @@ public class ProductController {
     }
 
     @DeleteMapping("/products/{id}")
+    @Transactional // Ensure this method runs within a transaction
     public ResponseEntity<String> deleteProduct(@PathVariable int id) {
-        Optional<Product> optionalProduct = productRepository.findById(id);
+        try {
+            Optional<Product> optionalProduct = productRepository.findById(id);
 
-        if (!optionalProduct.isPresent()) {
-            return ResponseEntity.notFound().build();
+            if (!optionalProduct.isPresent()) {
+                return ResponseEntity.notFound().build();
+            }
+
+            Product productToDelete = optionalProduct.get();
+
+            // Log the deletion process
+            System.out.println("Deleting product with ID: " + id);
+
+            // Manually delete associated views
+            viewRepository.deleteByProductId(id);
+
+            // Delete associated favorites
+            favoriteRepository.deleteByProductId(id); // Assuming you have such method
+
+            // Now delete the product
+            productRepository.delete(productToDelete);
+
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            // Log any exceptions
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting product: " + e.getMessage());
         }
-
-        Product productToDelete = optionalProduct.get();
-        productRepository.delete(productToDelete);
-
-        return ResponseEntity.noContent().build();
     }
-
 
     @GetMapping("/products/search")
     public ResponseEntity<Page<Product>> searchProducts(

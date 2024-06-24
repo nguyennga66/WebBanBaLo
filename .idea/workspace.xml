@@ -9,7 +9,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalobe/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/BillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/repository/FavoriteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/java/web/webbanbalo/repository/FavoriteRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbanbalobe/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalobe/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/Information.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/Information.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/ProductManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/webbanbalofe/src/pages/admin/ProductManagement.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
